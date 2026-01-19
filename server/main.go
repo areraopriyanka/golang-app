@@ -112,44 +112,9 @@ func main() {
 
 	plaidClient := plaid.NewPlaid(config.Config)
 	workers := river.NewWorkers()
-	handler.RegisterSortWorker(workers)
-	handler.RegisterTransactionMonitoringWorker(workers)
-	handler.RegisterCreditScoreWorker(workers)
-	handler.RegisterSardineWorker(workers)
+
 	handler.RegisterStatementNotificationWorker(workers)
 	handler.RegisterRefreshBalancesWorker(workers, plaidClient)
-
-	creditScoreBatchWorker := handler.RegisterCreditScoreEnqueueBatchWorker(workers, nil)
-	statementNotificationBatchWorker := handler.RegisterStatementNotificationEmailEnqueueBatchWorker(workers, nil)
-	EnqueueCloseAccountWorker := handler.RegisterCloseAccountsEnqueueWorker(workers)
-	handler.RegisterCloseSuspendedAccountWorker(workers, plaidClient)
-
-	schedule, err := cron.ParseStandard("@midnight")
-	if err != nil {
-		panic("invalid cron schedule")
-	}
-
-	closeAccountJobSchedule, err := cron.ParseStandard(config.Config.Schedulers.CloseSuspendedAccountsCronExp)
-	if err != nil {
-		panic("invalid cron schedule")
-	}
-
-	periodicJobs := []*river.PeriodicJob{
-		river.NewPeriodicJob(
-			schedule,
-			func() (river.JobArgs, *river.InsertOpts) {
-				return handler.CreditScoreEnqueueBatchJobArgs{}, nil
-			},
-			nil,
-		),
-		river.NewPeriodicJob(
-			closeAccountJobSchedule,
-			func() (river.JobArgs, *river.InsertOpts) {
-				return handler.EnqueueCloseAccountsArgs{}, nil
-			},
-			nil,
-		),
-	}
 
 	riverClient, err := river.NewClient(riverdatabasesql.New(db.DB.DB()), &river.Config{
 		Queues: map[string]river.QueueConfig{
@@ -158,16 +123,11 @@ func main() {
 			"plaid":            {MaxWorkers: 100},
 			"sendgrid":         {MaxWorkers: 100},
 		},
-		Workers:      workers,
-		PeriodicJobs: periodicJobs,
+		Workers: workers,
 	})
 	if err != nil {
 		panic(err)
 	}
-
-	creditScoreBatchWorker.SetRiverClientForBatchWorker(riverClient)
-	statementNotificationBatchWorker.SetRiverClientForBatchWorker(riverClient)
-	EnqueueCloseAccountWorker.SetRiverClientForCloseAccountsEnqueueWorker(riverClient)
 
 	logging.Logger.Info("River client initialized")
 
@@ -199,10 +159,6 @@ func main() {
 	// Currently both `/process-api/evolvingsb` and `/api/v1` are supported to maintain backward compatibility.
 	legacyClientUrl := "/process-api/evolvingsb/"
 	h.BuildRoutes(e, legacyClientUrl, env)
-
-	if config.Config.Salesforce.IntegrationEnabled {
-		h.BuildSalesForceRoutes(e)
-	}
 
 	c := cron.New()
 

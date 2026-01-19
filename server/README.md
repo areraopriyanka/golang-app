@@ -26,11 +26,11 @@ ProcessAPI is the main component in middleware server layer, this component is m
 
 - direnv automatically runs a script when you cd into the project directory
 - this script
-  - loads the `.env` from your working directory into your shells' environment variables
-  - starts a nix shell using flake.nix
+    - loads the `.env` from your working directory into your shells' environment variables
+    - starts a nix shell using flake.nix
 - nix uses the flake.nix and flake.lock to make an isolated environment for all dependencies
-  - this isolates your projects environment and binaries from the rest of your system
-  - this makes it easy to add and share dependencies between developers
+    - this isolates your projects environment and binaries from the rest of your system
+    - this makes it easy to add and share dependencies between developers
 
 ## Run Instructions
 
@@ -41,7 +41,7 @@ Go to code base path and run below commands in given sequence,
 3. `docker compose up -d` to run background services.
 
 - This includes the process-api itself on port 5002. You can point the mobile app at your local IP:5002 to use that instance.
-  - You can optionally provide `.env.docker` to override env variables.
+    - You can optionally provide `.env.docker` to override env variables.
 
 4. `.\process-api {config_name}`: This command will run the application using configuration file name mentioned in command. Example, `.\process-api dreamfiDev`
 
@@ -51,8 +51,8 @@ Go to code base path and run below commands in given sequence,
 - Attempt auth. Should see access denied
 - Browse to dashboard: <https://manage.auth0.com/dashboard/us/dev-e4oqq2rr0qm3jdhc/>
 - Sidebar Users
-  - Find user in list
-  - Add role: operations
+    - Find user in list
+    - Add role: operations
 
 ## Lint Instructions
 
@@ -135,23 +135,3 @@ To test Plaid webhooks locally:
 3. Restart your local server
 4. Run `go run cmd/migrate/main.go plaid update-webhooks` to update your existing webhooks
 5. Run `go run cmd/plaidSandbox/main.go` to fire test webhook events from Plaid's sandbox
-
-## Troubleshooting
-
-### NetXD Ledger API is failing and I don't understand why
-
-- Request AWS access to DreamFi's "NetXD" account. Craig and Michele are currently admins.
-- Get your API keys from the portal: <https://d-9067f79b5f.awsapps.com/start/#/?tab=accounts>
-- Configure the local aws cli tool. You get this for free with nix and .env
-
-```
-aws ec2 describe-instances --query 'Reservations[].Instances[].{Name:Tags[?Key==`Name`] | [0].Value,InstanceId:InstanceId,PrivateIpAddress:PrivateIpAddress}' | jq .
-```
-
-This will list the available ec2 instances name, instanceId and PrivateIpAddress. You'll want the instanceId of "Crump-Sandbox-NetXD-Ledger&Analytics". This will likely by "i-09e8c4b7777df0d89"
-
-```
-aws ssm start-session --target "i-09e8c4b7777df0d89"
-$ cd /opt/PL
-$ tail -f nohup.out
-```
