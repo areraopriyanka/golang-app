@@ -306,10 +306,9 @@ func (suite *IntegrationTestSuite) createOtpRecord(user dao.MasterUserRecordDao,
 
 func (suite *IntegrationTestSuite) newRiver(cfg *config.Configs, testName string) *river.Client[*sql.Tx] {
 	workers := river.NewWorkers()
-	handler.RegisterSortWorker(workers)
+
 	handler.RegisterTransactionMonitoringWorker(workers)
-	handler.RegisterCreditScoreWorker(workers)
-	handler.RegisterSardineWorker(workers)
+
 	handler.RegisterRefreshBalancesWorker(workers, plaid.NewPlaid(cfg))
 	handler.RegisterStatementNotificationWorker(workers)
 	statementNotificationBatchWorker := handler.RegisterStatementNotificationEmailEnqueueBatchWorker(workers, nil)

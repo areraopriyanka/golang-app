@@ -1,0 +1,55 @@
+name: Deploy integrations files to s3
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+        description: 'Environment to deploy to (sandbox/production)'
+      version:
+        type: string
+        required: true
+        description: 'Version tag for deployment'
+
+jobs:
+  deploy-integrations:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    defaults:
+      run:
+        working-directory: ./integrations
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.WEB_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.WEB_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy integrations and plaid redirect files to versioned S3 folder
+        env:
+          BUCKET_NAME: dreamfi-${{ inputs.environment }}-integrations
+          VERSION: ${{ inputs.version }}
+        run: |
+          aws s3 sync ./ s3://$BUCKET_NAME/releases/$VERSION/
+
+          aws s3 cp .well-known/apple-app-site-association \
+            s3://$BUCKET_NAME/releases/$VERSION/.well-known/apple-app-site-association \
+            --content-type application/json \
+            --cache-control "max-age=300, public"
+
+          # Update current folder atomically
+          aws s3 sync s3://$BUCKET_NAME/releases/$VERSION/ s3://$BUCKET_NAME/current/ --delete
+
+      - name: Output deployment info
+        run: |
+          echo "Deployed version ${{ inputs.version }} to ${{ inputs.environment }}"

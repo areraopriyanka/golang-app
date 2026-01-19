@@ -1,0 +1,72 @@
+name: Deploy Frontend to S3
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+        description: 'Environment to deploy to (sandbox/production)'
+      version:
+        type: string
+        required: true
+        description: 'Version tag for deployment'
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    defaults:
+      run:
+        working-directory: ./client
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'yarn'
+          cache-dependency-path: 'client/yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build React app
+        env:
+          VITE_SERVER_ADDRESS: https://middleware.${{ inputs.environment }}.dreamfi.com
+          VITE_IS_PROD: ${{ inputs.environment == 'production' }}
+        run: yarn workspace web build
+
+      - name: Build storybook
+        run: yarn workspace web build-storybook
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.WEB_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.WEB_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3 versioned folder
+        env:
+          BUCKET_NAME: dreamfi-${{ inputs.environment }}-frontend
+          VERSION: ${{ inputs.version }}
+        run: |
+          # Upload to versioned folder
+          aws s3 sync ./packages/web/dist/ s3://$BUCKET_NAME/releases/$VERSION/web/ --delete
+          aws s3 sync ./packages/web/storybook-static/ s3://$BUCKET_NAME/releases/$VERSION/web/storybook-static/ --delete
+
+          # Update current folder atomically
+          aws s3 sync s3://$BUCKET_NAME/releases/$VERSION/ s3://$BUCKET_NAME/current/ --delete
+
+      - name: Output deployment info
+        run: |
+          echo "Deployed version ${{ inputs.version }} to ${{ inputs.environment }}"
+          echo "Frontend URL: https://middleware.${{ inputs.environment }}.dreamfi.com"
