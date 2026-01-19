@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package gateway.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "tagger/tagger.proto";
+
+option go_package = ".;gateway";
+
+service GwAuditService {
+  rpc GetAudits(GetAuditsRequest) returns (GetAuditsResponse);
+}
+
+message Audit {
+  oneof audit_data {
+    option (tagger.oneof_tags) = "bson:\"auditData\"";
+    HttpAudit http_audit = 1 [(tagger.tags) = "bson:\",inline\""];
+  }
+}
+
+message DirectoryServiceAudit {}
+
+message HttpAudit {
+  string request_proto = 1 [(tagger.tags) = "bson:\"requestProto\""];
+  string url = 2;
+  string method = 3;
+
+  google.protobuf.Struct request_headers = 4 [(tagger.tags) = "bson:\"requestHeaders\""];
+  google.protobuf.Struct response_headers = 5 [(tagger.tags) = "bson:\"responseHeaders\""];
+
+  bytes request_body = 6 [(tagger.tags) = "bson:\"requestBody\""];
+  bytes response_body = 7 [(tagger.tags) = "bson:\"responseBody\""];
+
+  int64 response_status = 8 [(tagger.tags) = "bson:\"responseStatus\""];
+
+  google.protobuf.Timestamp request_timestamp = 9 [(tagger.tags) = "bson:\"requestTimestamp\""];
+  google.protobuf.Timestamp response_timestamp = 10 [(tagger.tags) = "bson:\"responseTimestamp\""];
+
+  string originator_ip = 11 [(tagger.tags) = "bson:\"originatorIp\""];
+
+  string response_status_text = 19 [(tagger.tags) = "bson:\"responseStatusText\""];
+  string request_id = 20 [(tagger.tags) = "bson:\"requestId\""];
+
+  google.protobuf.Duration elapsed_duration = 21 [(tagger.tags) = "bson:\"-\""];
+  string application_name = 22 [(tagger.tags) = "bson:\"applicationName\""];
+  string rpc_service = 23 [(tagger.tags) = "bson:\"rpcService\""];
+  string rpc_method = 24 [(tagger.tags) = "bson:\"rpcMethod\""];
+}
+
+message GetAuditsRequest {
+  message QueryFilter {
+    string application_name = 1;
+    string rpc_service = 2;
+    string rpc_method = 3;
+  }
+
+  int64 page_number = 1;
+  int64 page_size = 2;
+  optional google.protobuf.Timestamp from = 3;
+  optional google.protobuf.Timestamp to = 4;
+  oneof filter {
+    QueryFilter query = 5;
+    string id = 6;
+    string request_id = 7;
+  }
+}
+
+message GetAuditsResponse {
+  repeated HttpAudit records = 1;
+  int64 total_count = 2;
+}

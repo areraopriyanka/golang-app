@@ -1,0 +1,52 @@
+{
+  "title": "Debtwise Terms and Conditions",
+  "subTitle": "To use this credit score feature, you must accept the following terms and conditions.",
+  "updatedAt": [2025, 6, 25],
+  "info": "DebtWise Terms and Conditions",
+  "content": [
+    {
+      "type": "text",
+      "text": "You authorize Habitual Money, Inc. DBA DebtWise to obtain your credit report from Equifax to provide you with the most current information required to manage your debts and pay off outstanding loans, both now and continuing weekly to provide you with the most current information required to manage your debts and pay off outstanding loans until you withdraw your consent."
+    },
+    {
+      "type": "text",
+      "text": "By clicking “Accept”, you are providing Habitual Money, Inc. DBA DebtWise with permission to have your identity authenticated by comparing your provided information with the account information maintained in your Equifax consumer file."
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "By clicking “Accept”, you authorize your wireless carrier to use or disclose information about your account and your wireless device, if available, to Habitual Money, Inc. DBA DebtWise or its service provider for the duration of your business relationship, solely to help them identify you or your wireless device and to prevent fraud. See our "
+        },
+        {
+          "type": "link",
+          "text": "Privacy Policy",
+          "link": "https://www.debt-wise.com/privacy-policy"
+        },
+        {
+          "type": "text",
+          "text": " for how we treat your data."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Additionally, you authorize Habitual Money, Inc. DBA DebtWise and its service providers to obtain your name, address, email and Social Security Number from Equifax in order to validate your identity and/or populate this form. See our "
+        },
+        {
+          "type": "link",
+          "text": "Privacy Policy",
+          "link": "https://www.debt-wise.com/privacy-policy"
+        },
+        {
+          "type": "text",
+          "text": " for how we handle your data."
+        }
+      ]
+    }
+  ]
+}

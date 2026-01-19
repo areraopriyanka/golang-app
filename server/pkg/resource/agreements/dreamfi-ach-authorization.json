@@ -1,0 +1,59 @@
+{
+  "title": "DreamFi ACH Authorization",
+  "subTitle": "Your Authorization for ACH Debits and Credits",
+  "updatedAt": [2025, 6, 25],
+  "info": "By agreeing, you’re letting DreamFi move money in and out of your bank account when you ask us to. This happens through something called ACH transfers.",
+  "content": [
+    {
+      "type": "text",
+      "text": "By agreeing to these Terms, you authorize DreamFi to electronically debit and credit your designated deposit account via ACH on a recurring basis and, if ever applicable, to correct erroneous debits and credits via ACH as follows:"
+    },
+    {
+      "type": "list",
+      "content": [
+        {
+          "type": "text",
+          "text": "Amount: The amounts you instruct us to credit to or debit from your account when you initiate loading or withdrawing funds via ACH"
+        },
+        {
+          "type": "text",
+          "text": "Frequency of Debits: multiple times per Business Day (however, debits and credits may not necessarily occur every Business Day)"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You also acknowledge that the amount and frequency of the foregoing debits and credits may vary and that you waive your right to receive prior notice of the amount and date of each debit and credit."
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You acknowledge that the electronic authorization contained in this ACH Authorization represents your written authorization for ACH transactions as provided herein and will remain in full force and effect until you notify DreamFi that you wish to revoke this authorization by emailing "
+        },
+        {
+          "type": "link",
+          "text": "customersupport@dreamfi.com",
+          "link": "mailto:customersupport@dreamfi.com"
+        },
+        {
+          "type": "text",
+          "text": ". You must notify DreamFi at least 14 Business Days before the scheduled debit date of any ACH transaction from your Account in order to cancel this authorization. If we do not receive notice at least 14 Business Days before the scheduled debit date, we may attempt, in our sole discretion, to cancel the debit transaction. However, we assume no responsibility for our failure to do so."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "If you withdraw your electronic authorization contained in this ACH Authorization, we will suspend or close your DreamFi account, and you will no longer be able to use your DreamFi account or the Services, except as otherwise expressly provided in our terms of service or your cardholder agreement. Please note that withdrawal of your electronic authorization contained in this ACH Authorization will not apply to transactions performed before the withdrawal of your authorization becomes effective."
+    },
+    {
+      "type": "text",
+      "text": "In addition to any of your other representations and warranties in this ACH Authorization, you represent that: (a) your browser is equipped with at least 128-bit security encryption; (b) you are capable of printing, storing, or otherwise saving a copy of this electronic authorization for your records; and (c) the ACH transactions you hereby authorize comply with applicable law."
+    },
+    {
+      "type": "text",
+      "text": "For purposes of these Terms, “Business Day” means Monday through Friday, excluding federal banking holidays."
+    }
+  ]
+}

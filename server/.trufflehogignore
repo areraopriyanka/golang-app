@@ -1,0 +1,7 @@
+.env
+.golangci.yaml
+Makefile
+.direnv
+result
+process-api
+test-data/

@@ -1,0 +1,1959 @@
+openapi: 3.0.1
+x-stoplight:
+  id: 12n107qcxqy3l
+info:
+  title: DebtWise API
+  version: '2024-07-01'
+  description: The DebtWise API suite is the primary means for developers to offer debt management tools within their existing applications.
+  contact:
+    name: DebtWise Support
+    url: 'https://debt-wise.com'
+    email: support@debt-wise.com
+paths:
+  '/api/users/{id}/accounts':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Accounts
+      operationId: retrieveAccounts
+      tags:
+        - Accounts
+      description: Retreive all of a user's accounts
+      responses:
+        '200':
+          description: Returns a list of a user's accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+                required:
+                  - accounts
+      x-stoplight:
+        id: hbmhmt70hehky
+  '/api/users/{id}/accounts/{account_id}':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/accountIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Retrieve Account
+      operationId: retrieveAccount
+      tags:
+        - Accounts
+      description: Retreive information about a single account
+      responses:
+        '200':
+          description: Returns information about an account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      x-stoplight:
+        id: xaaoiahzcw1ms
+    patch:
+      summary: Update Account
+      operationId: updateAccount
+      tags:
+        - Accounts
+      description: ' Update information about a single account'
+      parameters: []
+      responses:
+        '200':
+          description: Returns updated information about an account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickname:
+                  type: string
+                  example: Chase credit card
+                  description: User's nickname for the account
+                user_apr:
+                  type: number
+                  example: 5.5
+                  description: User's apr for account. Could be provide if APR from provider invalid or missing.
+                user_minimum_payment:
+                  type: integer
+                  example: 10000
+                  description: User's minimum payment for account in cents. Could be provide if effective minimum payment from provider invalid or missing.
+                user_next_payment_date:
+                  type: string
+                  example: '2038-03-04'
+                  description: User's next payment date for account. Could be provide if next payment date from provider invalid or missing.
+        required: true
+      x-stoplight:
+        id: crtzhu87lb1gh
+  '/api/users/{id}/articles':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Articles
+      operationId: getArticles
+      tags:
+        - Articles
+      description: Retreive articles about personal finance and financial education topics
+      responses:
+        '200':
+          description: Returns a list of articles about personal finance and financial education topics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  articles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+                required:
+                  - articles
+      x-stoplight:
+        id: ziv23qxbsfibs
+  '/api/users/{id}/articles/{article_id}/add_to_bookmarks':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/articleIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    patch:
+      summary: Bookmark Article
+      operationId: getArticles
+      tags:
+        - Articles
+      description: Bookmark an article to revisit later
+      responses:
+        '200':
+          description: Returns a list of articles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  articles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+                required:
+                  - articles
+      x-stoplight:
+        id: 2v04bfn71u9fd
+  '/api/users/{id}/credit_scores':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Credit Score Factors
+      operationId: retrieveCreditScore
+      tags:
+        - Credit Scores
+      description: Retreive a user's credit score and how various factors are impacting it
+      responses:
+        '200':
+          description: Returns a user's credit score and details of the factors behind it
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditScore'
+      x-stoplight:
+        id: fljzhzgn5ex9v
+  '/api/users/{id}/equifax/auth/invoke':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Invoke
+      operationId: EquifaxAuthInvoke
+      tags:
+        - Equifax
+      description: Start Equifax Authentication for the user
+      parameters: []
+      responses:
+        '200':
+          description: Returns next step
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquifaxStep'
+        '422':
+          description: Equifax error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: equifax_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: No product match found
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - device_ip
+              properties:
+                device_ip:
+                  type: string
+                  example: 793.345.234.0
+                  minLength: 7
+                  description: User's IP address
+            examples:
+              Failure:
+                summary: Invoke
+                value:
+                  device_ip: 127.128.0.0
+              Success with Consent step:
+                summary: Invoke
+                value:
+                  device_ip: 0.0.0.0
+              Success with OTP step:
+                summary: Invoke
+                value:
+                  device_ip: 1.1.1.1
+        required: true
+      x-stoplight:
+        id: 3ipm6b6g6qnry
+  '/api/users/{id}/equifax/auth/validate_otp':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Validate OTP
+      operationId: EquifaxAuthValidateOtp
+      tags:
+        - Equifax
+      description: Validate the user with a OTP which the user receives on their mobile device.
+      parameters: []
+      responses:
+        '200':
+          description: Returns next step
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquifaxStep'
+        '422':
+          description: Equifax error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: equifax_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Invalid OTP
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - code
+              properties:
+                code:
+                  type: string
+                  example: '1234'
+                  minLength: 4
+                  maxLength: 8
+                  description: OTP code
+            examples:
+              Success:
+                summary: Validate OTP
+                value:
+                  code: '2222'
+        required: true
+      x-stoplight:
+        id: gfffmf5u2niii
+  '/api/users/{id}/equifax/auth/consent':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Consent
+      operationId: EquifaxAuthConsent
+      tags:
+        - Equifax
+      description: User agrees and consents to pull credit report
+      responses:
+        '200':
+          description: Returns next step
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquifaxStep'
+      x-stoplight:
+        id: po05h4ovor1b8
+  '/api/users/{id}/equifax/auth/identity':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Identity
+      operationId: EquifaxAuthIdentity
+      tags:
+        - Equifax
+      description: Returns user's identity to validate all information.
+      parameters: []
+      responses:
+        '200':
+          description: Returns Identity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquifaxIdentity'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: validation_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Date of Birth is invalid
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - postal_code
+              properties:
+                postal_code:
+                  type: string
+                  example: '03023'
+                  minLength: 4
+                  description: User's postal code
+                date_of_birth:
+                  type: string
+                  example: '1993-03-03'
+                  description: User's date of birth. Optional. Can be sent if it differs from the one specified during creation.
+            examples:
+              Success:
+                summary: Identity
+                value:
+                  postal_code: '30030'
+              Failure:
+                summary: Identity
+                value:
+                  postal_code: '30030'
+                  date_of_birth: '2029-09-01'
+        required: true
+      x-stoplight:
+        id: 8lakmnedw6ijq
+  '/api/users/{id}/equifax/auth/abort':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Abort
+      operationId: EquifaxAuthAbort
+      tags:
+        - Equifax
+      description: Rollback auth flow to initial state for the user.
+      responses:
+        '200':
+          description: Success
+        '422':
+          description: Validation error when auth flow already finished
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: validation_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Can not delete identity
+                        description: A human-readable error description.
+      x-stoplight:
+        id: 99gngxrhsob55
+  '/api/users/{id}/equifax/auth/dit':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: 'DIT '
+      operationId: EquifaxAuthDIT
+      tags:
+        - Equifax
+      description: |-
+        DIT - is a digital identity trust flow. It is required for use in 2 cases:
+        1. When standard flow returns an error and cannot be finished.
+        2. When user mark some of the data as invalid after recieve Identity response.
+      parameters: []
+      responses:
+        '200':
+          description: Success
+        '422':
+          description: Decision Deny
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: validation_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Decision Deny
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - device_ip
+                - email
+                - first_name
+                - last_name
+                - ssn
+                - address_line
+                - city
+                - postal_code
+                - state
+              properties:
+                device_ip:
+                  type: string
+                  example: 793.345.234.0
+                  minLength: 7
+                  description: User's IP address
+                email:
+                  type: string
+                  example: john_smith@email.com
+                  description: User's email
+                first_name:
+                  type: string
+                  example: John
+                  description: User's first name
+                last_name:
+                  type: string
+                  example: Smith
+                  description: User's last name
+                ssn:
+                  type: string
+                  example: '091230909'
+                  minLength: 8
+                  maxLength: 9
+                  description: User's Social Security Number
+                address_line:
+                  type: string
+                  example: 3 Avenue
+                  description: User's address line
+                address_line_2:
+                  type: string
+                  example: Street 1
+                  description: User's second address line
+                city:
+                  type: string
+                  example: New York
+                  description: User's city
+                state:
+                  type: string
+                  example: NY
+                  minLength: 2
+                  maxLength: 2
+                  description: User's state
+                postal_code:
+                  type: string
+                  example: '30030'
+                  description: User's postal code
+        required: true
+      x-stoplight:
+        id: 0jki5ivkn5i2d
+  '/api/users/{id}/equifax/credit_reports':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Credit Report
+      operationId: EquifaxCreditReports
+      tags:
+        - Equifax
+      description: Pull credit report for valid Identity
+      responses:
+        '200':
+          description: Returns a list of accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+                required:
+                  - accounts
+        '422':
+          description: Equifax error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: empty_report
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Report is empty
+                        description: A human-readable error description.
+      x-stoplight:
+        id: iiosfdac6musb
+  /api/loan_calculators:
+    parameters:
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Debt Calculator
+      operationId: getArticles
+      tags:
+        - Debt Calculator
+      description: Calculate debt-free date when additional payments are made towards a loan.
+      parameters: []
+      responses:
+        '200':
+          description: Returns list of of debt repayment figures
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanCalculation'
+        '422':
+          description: Validation error. The monthly payment is too low.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: validation_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: 'The monthly payment is too low. The minimum amount is: 267'
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+                - balance
+                - apr
+                - monthly_payment
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - student_loan
+                    - credit_card_loan
+                    - auto_loan
+                    - personal_loan
+                    - mortgage_loan
+                    - medical_loan
+                    - other_loan
+                  example: credit_card_loan
+                  description: The type of a loan.
+                balance:
+                  type: integer
+                  example: 20000
+                  description: Balance of the loan.
+                apr:
+                  type: number
+                  example: 10
+                  description: Loan APR.
+                monthly_payment:
+                  type: integer
+                  example: 280
+                  description: Monthly payment by loan.
+        required: true
+      x-stoplight:
+        id: p8z1ip4i09jyc
+  '/api/users/{id}/payment_plans/{payment_plan_id}/payments':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/paymentPlanIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Retrieve Payment Plan Payments
+      operationId: retrievePaymentPlanPayments
+      tags:
+        - Debt Payoff Plan Payments
+      description: Retreive users's payment plan payments
+      responses:
+        '200':
+          description: Returns a list of payments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PaymentPlanPayment'
+                required:
+                  - payments
+      x-stoplight:
+        id: gc39mx4k4sgy6
+  '/api/users/{id}/payment_plans/{payment_plan_id}/payments/{payment_id}':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/paymentPlanIdParam'
+      - $ref: '#/components/parameters/paymentIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    patch:
+      summary: Update Payment Plan Payments
+      operationId: updatePaymentPlanPayment
+      tags:
+        - Debt Payoff Plan Payments
+      description: Update a payment plan payment's status
+      parameters: []
+      responses:
+        '200':
+          description: Returns an updated payment plan payment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentPlanPayment'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - upcoming
+                    - paid
+                  example: paid
+                  description: The payment plan payment status.
+        required: true
+      x-stoplight:
+        id: x7hxidrjaembv
+  '/api/users/{id}/payment_plans/pre_calculate_payments':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    post:
+      summary: Payoff Plan Calculation
+      operationId: preCalculatePayments
+      tags:
+        - Debt Payoff Plan
+      description: Calculate payments for payment plan based extra payment amount
+      parameters: []
+      responses:
+        '200':
+          description: Returns a payment plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreCalculatePayments'
+        '422':
+          description: Missing account information error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: account_information_missing
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: 'Accounts with id: [1] are missing APR or minimum payment.'
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - accounts
+                - start
+                - end
+                - step
+              properties:
+                accounts:
+                  type: array
+                  items:
+                    type: integer
+                  example:
+                    - 1
+                  description: Array of account IDs
+                start:
+                  type: integer
+                  example: 0
+                  description: Start of extra amount in hole dollars
+                end:
+                  type: integer
+                  example: 1000
+                  description: End of extra amount in hole dollars
+                step:
+                  type: integer
+                  example: 10
+                  description: Step of calculation hole dollars
+        required: true
+      x-stoplight:
+        id: 4o551tgwe4zlj
+  '/api/users/{id}/payment_plans':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Payment Plans
+      operationId: retrievePaymentPlans
+      tags:
+        - Debt Payoff Plan
+      description: Retreive a user's payment plan
+      responses:
+        '200':
+          description: Returns a user's payment plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentPlan'
+        '404':
+          description: Payment plan not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: not_found
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Requested recourse not found.
+                        description: A human-readable error description.
+      x-stoplight:
+        id: u2y4p5ws2p3jj
+    post:
+      summary: Create Payment Plan
+      operationId: createPaymentPlan
+      tags:
+        - Debt Payoff Plan
+      description: Create a new payment plan
+      parameters: []
+      responses:
+        '201':
+          description: Returns a payment plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentPlan'
+        '422':
+          description: Payment plan already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: already_exist
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Payment plan already exist
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - strategy
+                - accounts
+                - extra_amount
+                - total_monthly_contribution
+              properties:
+                strategy:
+                  type: string
+                  enum:
+                    - snowball
+                    - avalanche
+                  example: avalanche
+                  description: The payment plan repayment strategy.
+                accounts:
+                  type: array
+                  items:
+                    type: integer
+                  example:
+                    - 1
+                  description: Array of account IDs
+                extra_amount:
+                  type: integer
+                  example: 5000
+                  description: Extra payment amount in cents
+                total_monthly_contribution:
+                  type: integer
+                  example: 20000
+                  description: Total monthly payment by plan in cents
+        required: true
+      x-stoplight:
+        id: uxwa1cwnc5f1t
+  '/api/users/{id}/payment_plans/{payment_plan_id}':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/paymentPlanIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    patch:
+      summary: Update Payment Plan
+      operationId: updatePaymentPlan
+      tags:
+        - Debt Payoff Plan
+      description: Returns an updated payment plan
+      parameters: []
+      responses:
+        '200':
+          description: Returns updated the payment plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentPlan'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - strategy
+                - accounts
+                - extra_amount
+                - total_monthly_contribution
+              properties:
+                strategy:
+                  type: string
+                  enum:
+                    - snowball
+                    - avalanche
+                  example: avalanche
+                  description: The payment plan repayment strategy.
+                accounts:
+                  type: array
+                  items:
+                    type: integer
+                  example:
+                    - 1
+                  description: Array of account IDs
+                extra_amount:
+                  type: integer
+                  example: 5000
+                  description: Extra payment amount in cents
+                total_monthly_contribution:
+                  type: integer
+                  example: 20000
+                  description: Total monthly payment by plan in cents
+        required: true
+      x-stoplight:
+        id: 6ydfmnkujlczs
+    delete:
+      summary: Delete Payment Plan
+      operationId: deletePaymentPlan
+      tags:
+        - Debt Payoff Plan
+      description: Delete a user's payment plan
+      responses:
+        '204':
+          description: Deletes a payment plan
+      x-stoplight:
+        id: 71hsns6lhufsu
+  /api/users:
+    parameters:
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Retrieve All Users
+      operationId: retrieveUsers
+      tags:
+        - Users
+      description: Retreive all company users
+      responses:
+        '200':
+          description: Returns a list of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+                required:
+                  - users
+      x-stoplight:
+        id: c4dh97olswskx
+    post:
+      summary: Create User
+      operationId: createUser
+      tags:
+        - Users
+      description: Create a user from given parameters
+      parameters: []
+      responses:
+        '201':
+          description: Returns a created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    required:
+                      - code
+                      - message
+                    properties:
+                      code:
+                        type: string
+                        example: validation_error
+                        description: An identifier of an error type inside API.
+                      message:
+                        type: string
+                        example: Phone number can't be blank
+                        description: A human-readable error description.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - first_name
+                - last_name
+                - phone_number
+                - email
+                - ssn
+                - date_of_birth
+              properties:
+                first_name:
+                  type: string
+                  example: John
+                  description: User's first name
+                last_name:
+                  type: string
+                  example: Smith
+                  description: User's last name
+                phone_number:
+                  type: string
+                  example: '9891231230'
+                  description: User's US phone number. 10 digits without +
+                email:
+                  type: string
+                  example: john_smith@debt-wise.com
+                  description: User's email
+                ssn:
+                  type: string
+                  example: '12345678'
+                  description: User's social security number. From 8 to 9 digits
+                date_of_birth:
+                  type: string
+                  format: date
+                  example: '1993-03-03'
+                  description: User's date of birth
+        required: true
+      x-stoplight:
+        id: 78lnjbmbq2kod
+  '/api/users/{id}':
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
+      - $ref: '#/components/parameters/acceptEncodingParam'
+      - $ref: '#/components/parameters/apiVersionParam'
+    get:
+      summary: Retrieve User
+      operationId: retrieveUser
+      tags:
+        - Users
+      description: Retreive user by id
+      responses:
+        '200':
+          description: Returns a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-stoplight:
+        id: 5ytftuz5a9mq3
+    patch:
+      summary: Update User
+      operationId: updateUser
+      tags:
+        - Users
+      description: Update user by id
+      parameters: []
+      responses:
+        '200':
+          description: Returns an updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  example: John
+                  description: User's first name
+                last_name:
+                  type: string
+                  example: Smith
+                  description: User's last name
+                phone_number:
+                  type: string
+                  example: '9891231230'
+                  description: User's US phone number. 10 digits without +
+                email:
+                  type: string
+                  example: john_smith@debt-wise.com
+                  description: User's email
+                ssn:
+                  type: string
+                  example: '12345678'
+                  description: User's social security number. From 8 to 9 digits
+                date_of_birth:
+                  type: string
+                  format: date
+                  example: '1993-03-03'
+                  description: User's date of birth
+        required: true
+      x-stoplight:
+        id: gjvg2zypc603p
+    delete:
+      summary: Delete User
+      operationId: deleteUser
+      tags:
+        - Users
+      description: Delete user by id
+      responses:
+        '204':
+          description: Delete a user
+      x-stoplight:
+        id: zrveg1lus3al8
+servers:
+  - url: 'https://deltaserver-staging.herokuapp.com'
+    description: Sandbox server (uses test data)
+  - url: 'https://debt-wise-com'
+    description: Production server (uses live data)
+tags:
+  - name: Users
+  - name: Accounts
+  - name: Credit Scores
+  - name: Equifax
+  - name: Debt Payoff Plan
+  - name: Debt Payoff Plan Payments
+  - name: Articles
+  - name: Debt Calculator
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  parameters:
+    acceptEncodingParam:
+      name: Accept-Encoding
+      in: header
+      description: We can compress a response with gzip.
+      required: false
+      schema:
+        type: string
+        example: gzip deflate
+    apiVersionParam:
+      name: API-Version
+      in: header
+      description: API API Version. See Versioning page for more details.
+      required: false
+      schema:
+        type: string
+        example: '2024-07-01'
+    userIdParam:
+      name: id
+      in: path
+      schema:
+        type: integer
+        example: 1
+      description: An userId.
+      required: true
+    accountIdParam:
+      name: account_id
+      in: path
+      schema:
+        type: integer
+        example: 1
+      description: An accountId.
+      required: true
+    paymentPlanIdParam:
+      name: payment_plan_id
+      in: path
+      schema:
+        type: integer
+        example: 1
+      description: An payment plan ID.
+      required: true
+    paymentIdParam:
+      name: payment_id
+      in: path
+      schema:
+        type: integer
+        example: 1
+      description: An payment plan payment ID.
+      required: true
+    articleIdParam:
+      name: article_id
+      in: path
+      schema:
+        type: string
+        example: 663f08115b04268a7862ab36
+      description: An article ID.
+      required: true
+  schemas:
+    User:
+      required:
+        - id
+        - first_name
+        - last_name
+        - phone_number
+        - email
+        - ssn
+        - date_of_birth
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: User's id
+        first_name:
+          type: string
+          example: John
+          description: User's first name
+        last_name:
+          type: string
+          example: Smith
+          description: User's last name
+        phone_number:
+          type: string
+          example: '9891231230'
+          description: User's US phone number. 10 digits without +
+        email:
+          type: string
+          example: john_smith@debt-wise.com
+          description: User's email
+        ssn:
+          type: string
+          example: '12345678'
+          description: User's social security number. From 8 to 9 digits
+        date_of_birth:
+          type: string
+          format: date
+          example: '1993-03-03'
+          description: User's date of birth
+      x-stoplight:
+        id: 5iziys5i3sslj
+    CreditScore:
+      required:
+        - id
+        - date
+        - score
+        - credit_mix
+        - new_credit
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: Credit score ID
+        date:
+          type: string
+          example: '2024-07-11'
+          description: Current credit score date. Last updated from vendor.
+        last_name:
+          type: string
+          example: Smith
+          description: User's last name
+        score:
+          type: integer
+          example: 815
+          minimum: 300
+          maximum: 850
+          description: User's VantageScore 3.0. From
+        increase:
+          type: integer
+          example: 10
+          minimum: -850
+          maximum: 850
+          description: User's credit score increase after last update
+        payment_history:
+          $ref: '#/components/schemas/PaymentHistory'
+        credit_utilization:
+          $ref: '#/components/schemas/CreditUtilization'
+        derogatory_marks:
+          $ref: '#/components/schemas/DerogatoryMarks'
+        credit_age:
+          $ref: '#/components/schemas/CreditAge'
+        credit_mix:
+          $ref: '#/components/schemas/CreditMix'
+        new_credit:
+          $ref: '#/components/schemas/NewCredit'
+      x-stoplight:
+        id: ung967mo2978a
+    PaymentHistory:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: number
+          example: 97.5
+          minimum: 0
+          maximum: 100
+          description: Percent of payments which was done on time
+        factor:
+          type: string
+          example: Good
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if amount more or equals 90.
+      x-stoplight:
+        id: s1kumka1skon2
+    CreditUtilization:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: number
+          example: 15
+          minimum: 0
+          maximum: 100
+          description: Credit utilization amount.
+        factor:
+          type: string
+          example: Good
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if amount less or equals 30.
+      x-stoplight:
+        id: qfq2bdzp9qk47
+    DerogatoryMarks:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: integer
+          example: 1
+          minimum: 0
+          maximum: 100
+          description: Count of derogatory marks
+        factor:
+          type: string
+          example: Poor
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if amount is 0.
+      x-stoplight:
+        id: qe1i90fes0slv
+    CreditAge:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: number
+          example: 7.1
+          minimum: 0
+          maximum: 100
+          description: Average age of your accounts in years
+        factor:
+          type: string
+          example: Good
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if age is more than 5 years.
+      x-stoplight:
+        id: z3jpif7q3ij7n
+    CreditMix:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: integer
+          example: 3
+          minimum: 0
+          maximum: 6
+          description: Count of different account types
+        factor:
+          type: string
+          example: Good
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if more than 2.
+      x-stoplight:
+        id: rkkhu2fbix7og
+    NewCredit:
+      required:
+        - amount
+        - factor
+      properties:
+        amount:
+          type: integer
+          example: 1
+          minimum: 0
+          maximum: 100
+          description: 'Count of credit accounts opened for the last 365 days '
+        factor:
+          type: string
+          example: Good
+          enum:
+            - Good
+            - Poor
+          description: Represents the factor which can be either 'Good' or 'Poor'. Good if less of equals 2.
+      x-stoplight:
+        id: bxwff6sdg42eq
+    EquifaxStep:
+      required:
+        - step
+      properties:
+        step:
+          type: string
+          example: validate_otp
+          enum:
+            - consent
+            - validate_otp
+            - identity
+          description: Indicates which auth request should be next. /equifax/auth/validate_otp from example
+      x-stoplight:
+        id: gs2yk928uzp61
+    EquifaxIdentity:
+      required:
+        - equifax_id
+        - first_name
+        - last_name
+        - date_of_birth
+        - email
+        - mobile_phone
+      properties:
+        equifax_id:
+          type: string
+          example: '6308009234534'
+          description: Equifax internal ID of the user identity
+        first_name:
+          type: string
+          example: John
+          description: Equifax user's first name
+        last_name:
+          type: string
+          example: Smith
+          description: Equifax user's last name
+        masked_ssn:
+          type: string
+          example: '***-**-0909'
+          description: Equifax user's masked SSN. Only last 4 digits are provided.
+        date_of_birth:
+          type: string
+          example: 10/10/1990
+          description: Equifax user's date of birth in /Month/Day/Year format
+        email:
+          type: string
+          example: john_smith@email.com
+          description: Equifax user's email
+        mobile_phone:
+          type: string
+          example: '990909000'
+          description: Equifax user's mobile phone
+        home_phone:
+          type: string
+          example: '990909000'
+          description: Equifax user's home phone
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EquifaxAddress'
+      x-stoplight:
+        id: nlec25l2i2uh0
+    EquifaxAddress:
+      properties:
+        type:
+          type: string
+          example: CURRENT
+          description: Equifax user's address type
+        address_line:
+          type: string
+          example: 3 Avenue
+          description: Equifax user's address line
+        city:
+          type: string
+          example: New York
+          description: Equifax user's city
+        state:
+          type: string
+          example: NY
+          description: Equifax user's state
+        postal_code:
+          type: string
+          example: '30030'
+          description: Equifax user's postal code
+      x-stoplight:
+        id: otlvbi5nd5z2c
+    Account:
+      required:
+        - id
+        - name
+        - type
+        - subtype
+        - mask
+        - status
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: Account ID
+        nickname:
+          type: string
+          nullable: true
+          example: Primary credit card
+          description: User's nickname for account
+        user_apr:
+          type: number
+          nullable: true
+          example: 5.5
+          description: User's APR for account
+        user_minimum_payment:
+          type: integer
+          nullable: true
+          example: 10000
+          description: User's minimum payment for account in cents
+        effective_minimum_payment:
+          type: integer
+          nullable: true
+          example: 15000
+          description: Account minimum payment in cents
+        effective_apr:
+          type: number
+          nullable: true
+          example: 6.3
+          description: Account's APR
+        name:
+          type: string
+          example: JCP Morgan
+          description: Account's name
+        type:
+          type: string
+          enum:
+            - depository
+            - loan
+            - investment
+            - other
+          example: loan
+          description: Account's type
+        subtype:
+          type: string
+          enum:
+            - student_loan
+            - credit_card_loan
+            - auto_loan
+            - personal_loan
+            - mortgage_loan
+            - medical_loan
+            - other_loan
+            - checking
+            - savings
+          example: credit_card_loan
+          description: 'Account''s sub type, which indicates which the account type'
+        mask:
+          type: string
+          example: '1234'
+          minLength: 4
+          maxLength: 4
+          description: 'Account''s mask, or the last 4 digits of the account number'
+        original_loan_amount:
+          type: integer
+          nullable: true
+          example: 15000000
+          description: Original loan amount in cents
+        status:
+          type: string
+          enum:
+            - active
+            - disabled
+            - closed
+          example: active
+          description: Account's status
+        balance:
+          type: integer
+          nullable: true
+          example: 150000
+          description: Balance of account in cents
+        limit:
+          type: integer
+          nullable: true
+          example: 0
+          description: Maximum limit of account in cents
+        last_payment_amount:
+          type: integer
+          nullable: true
+          example: 20000
+          description: Last payment amount for the loan in cents
+        last_updated_at:
+          type: string
+          nullable: true
+          example: '2024-06-01'
+          description: Last data sync for account date
+        last_payment_date:
+          type: string
+          nullable: true
+          example: '2024-05-25'
+          description: Last payment date
+        opened_at:
+          type: string
+          nullable: true
+          example: '2024-05-25'
+          description: Date when account was opened
+        closed_at:
+          type: string
+          nullable: true
+          example: '2024-05-25'
+          description: Date when account was closed
+        institution_name:
+          type: string
+          nullable: true
+          example: Chase
+          description: Account's Institution name
+        institution_logo:
+          type: string
+          nullable: true
+          description: Base 64 encoded image
+        next_payment_due_date:
+          type: string
+          nullable: true
+          example: '2024-06-25'
+          description: Next payment date
+        user_next_payment_date:
+          type: string
+          nullable: true
+          example: '2024-06-25'
+          description: User's custom next payment date
+        first_time_payment:
+          type: boolean
+          nullable: true
+          example: false
+          description: Indicates if next payment will be the first
+        expected_payoff_date:
+          type: string
+          nullable: true
+          example: '2052-01-01'
+          description: Indicates account's close date if minimum payment will be paid off
+        payments_history:
+          type: array
+          items:
+            type: string
+            minItems: 0
+            maxItems: 25
+            enum:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+            - '7'
+            - '8'
+            - '9'
+            - ""
+            - E
+            - "*"
+          description: |-
+            24 months payment history, where each string represents monthly payment status:
+            "0" = The account is too new to rate, or has been approved, but not yet used;
+            "1" = Payments have been made on-time;
+            "2" = Two or fewer payments are past due;
+            "3" = Three or fewer payments are past due;
+            "4" = Four or fewer payments are past due;
+            "5" = Either more than four payments are past due, or least one payment is more than 120 days past due;
+            "6" = The account is with collections (Enhanced Trade Only);
+            "7" = Included in Chapter 13;
+            "8" = Repossession;
+            "9" = Charge-off;
+            "E" = The account has a zero balance or is current;
+            "*" = Payment status was not available;
+            Blank = Not reported;
+      x-stoplight:
+        id: wsgyqu4p7mkg8
+    PaymentPlan:
+      required:
+        - id
+        - total_monthly_contribution
+        - debt_free_date
+        - strategy
+        - extra_amount
+        - accounts
+        - upcoming_payments
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: Payment Plan ID
+        total_monthly_contribution:
+          type: integer
+          example: 20000
+          description: Total monthly payment by plan in cents
+        debt_free_date:
+          type: string
+          example: '2045-01-23'
+          description: Date of the last payment
+        strategy:
+          type: string
+          enum:
+            - snowball
+            - avalanche
+          example: avalanche
+          description: The payment plan repayment strategy
+        extra_amount:
+          type: integer
+          example: 5000
+          description: Extra payment amount in cents
+        upcoming_payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentPlanPayment'
+          description: Upcoming payments for this and next month
+        accounts:
+          type: array
+          items:
+            type: integer
+          example:
+            - 1
+          description: Array of account IDs
+      x-stoplight:
+        id: i3d7ym4ljluuz
+    PaymentPlanPayment:
+      required:
+        - id
+        - amount
+        - status
+        - type
+        - payment_date
+        - account_id
+      properties:
+        id:
+          type: integer
+          example: 1
+          description: Payment Plan Payment ID
+        amount:
+          type: integer
+          example: 10000
+          description: Payment amount in cents
+        status:
+          type: string
+          enum:
+            - upcoming
+            - paid
+          example: upcoming
+          description: Indicates whether payment is paid or upcoming
+        type:
+          type: string
+          enum:
+            - minimum
+            - priority
+            - final
+          example: priority
+          description: Indicates type of payment.
+        payment_date:
+          type: string
+          example: '2024-09-06'
+          description: When payment should be made
+        estimated_balance:
+          type: integer
+          example: 4313500
+          description: Expected amount of loan after payment
+        estimated_payoff_date:
+          type: string
+          example: '2029-09-01'
+          description: Expected payoff date for the loan
+        account_id:
+          type: integer
+          example: 2
+          description: Account ID for which payment should be made
+      x-stoplight:
+        id: 6rh3uvoftu42w
+    PreCalculatePayments:
+      type: object
+      properties:
+        avalanche:
+          type: object
+          description: 'Repayment plans based on the avalanche method, where keys represent additional payment amounts (in dollars) added towards debt repayment.'
+          additionalProperties:
+            type: object
+            description: Details of repayment plan for a specific additional payment amount
+            properties:
+              debt_free:
+                type: string
+                format: date
+                example: '2025-07-23'
+                description: The estimated date when the debt will be fully paid off
+              total_payments_amount:
+                type: number
+                format: float
+                example: 433.04
+                description: 'The total amount paid to clear the debt, including principal and interest'
+              month_payment:
+                type: number
+                format: float
+                example: 40
+                description: The monthly payment required for this repayment plan
+              loans:
+                type: array
+                description: A list of loans being repaid under this repayment plan
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 77576
+                      description: Account ID.
+                    debt_free:
+                      type: string
+                      format: date
+                      example: '2025-07-23'
+                      description: The estimated date when this specific loan will be fully paid off
+        snowball:
+          type: object
+          description: 'Repayment plans based on the snowball method, where keys represent additional payment amounts (in dollars) added towards debt repayment.'
+          additionalProperties:
+            type: object
+            description: Details of repayment plan for a specific additional payment amount
+            properties:
+              debt_free:
+                type: string
+                format: date
+                example: '2025-07-23'
+                description: The estimated date when the debt will be fully paid off
+              total_payments_amount:
+                type: number
+                format: float
+                example: 433.04
+                description: 'The total amount paid to clear the debt, including principal and interest'
+              month_payment:
+                type: number
+                format: float
+                example: 40
+                description: The monthly payment required for this repayment plan
+              loans:
+                type: array
+                description: A list of loans being repaid under this repayment plan
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 77576
+                      description: Account ID
+                    debt_free:
+                      type: string
+                      format: date
+                      example: '2025-07-23'
+                      description: The estimated date when this specific loan will be fully paid off
+      x-stoplight:
+        id: bsycwbjgsxi7k
+    Article:
+      required:
+        - id
+        - in_bookmark
+        - last_updated_at
+        - category
+        - name
+        - body
+        - summary
+        - image
+        - thumbnail_image
+      properties:
+        id:
+          type: string
+          example: 663f08115b04268a7862ab36
+          description: UUID article id
+        in_bookmark:
+          type: boolean
+          example: true
+          description: Indicates if a user added a bookmark to an article
+        last_updated_at:
+          type: string
+          example: '2024-06-11T05:54:25.871Z'
+          description: Lat update time in iso8601
+        color:
+          type: string
+          nullable: true
+          example: '#9E9E9E'
+          description: RGB color
+        category:
+          type: string
+          example: Credit Cards
+          description: Category of article
+        name:
+          type: string
+          example: Are credit cards really necessary?
+          description: Short name of article
+        body:
+          type: string
+          example: '<p id="">In today''s world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape...'
+          description: The body of article in raw HTML
+        summary:
+          type: string
+          example: 'In today''s world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape. Yet, as convenient as they may seem, the question remains: Are credit cards truly necessary? Let''s explore this topic and debunk the myths surrounding the necessity of credit cards.'
+          description: Summary of article
+        image:
+          type: string
+          example: 'https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png'
+          image: Full image for article
+        thumbnail_image:
+          type: string
+          example: 'https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png'
+          image: Small preview image of article
+      x-stoplight:
+        id: tu7okqpfmk8ko
+    LoanCalculation:
+      type: object
+      additionalProperties:
+        type: object
+        description: Details of repayment plan for a specific additional payment amount
+        properties:
+          debt_free:
+            type: string
+            format: date
+            example: '2025-07-23'
+            description: The estimated date when the debt will be fully paid off
+          total_payments_amount:
+            type: number
+            format: float
+            example: 433.04
+            description: 'The total amount paid to clear the debt, including principal and interest'
+          month_payment:
+            type: number
+            format: float
+            example: 40
+            description: The monthly payment required for this repayment plan
+      x-stoplight:
+        id: a64hcnydlk79v

@@ -1,0 +1,181 @@
+{
+  "title": "E-SIGN Act Disclosure & Agreement",
+  "subTitle": "Consent for Use of Electronic Records and Signatures",
+  "updatedAt": [2025, 9, 12],
+  "info": "By agreeing, you’ll receive documents electronically and sign digitally. You can opt out anytime, though this may affect access to our services.",
+  "content": [
+    {
+      "type": "header",
+      "text": "PLEASE READ THIS E-SIGN CONSENT CAREFULLY AND PRINT OR SAVE A COPY FOR FUTURE REFERENCE TO VERIFY THAT YOU CAN KEEP THIS TYPE OF ELECTRONIC RECORD."
+    },
+    {
+      "type": "text",
+      "text": "This E-Sign Act Consent (\"the E-Sign Consent\") is a legally binding agreement between DreamFi, its subsidiaries, affiliates, agents and assigns (\"DreamFi,\" \"us,\" \"we,\" or\"our\") and you (\"you,\" \"your\") regarding your use of products and services offered, operated or made available by DreamFi, including as the products and services offered, operated or made available by DreamFi through our website or mobile application (collectively, the “Services”). The Services may be delivered, administered, obtained, or accessed electronically through the internet, email, text-messaging, and/or software applications (including applications for mobile or handheld devices). In connection with any Service, we may choose to provide certain records to you in electronic form and obtain your electronic signature in connection with those records. If you choose not to agree to this E-Sign Consent, or you withdraw your consent, you may be ineligible to use or obtain our Services."
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "collapsible",
+      "header": "Records to Be Provided in Electronic Form",
+      "content": [
+        {
+          "type": "text",
+          "text": "The \"Records\" covered by this E-Sign Consent include, but are not limited to, all documents, communications, contracts, statements, notices, authorizations, and disclosures (including federal or state tax documents, statements, forms, and schedules) arising from or relating to your use or attempted use of any Service now and in the future. We reserve the right to decide which Records to provide electronically and when to request your electronic signature for those Records."
+        },
+        {
+          "type": "text",
+          "text": "As part of your use of our Services, you are entitled by law to receive certain information “in writing”. All Records in either electronic or paper format from us to you will be considered “in writing”. You acknowledge and agree that your consent to Records is being provided in connection with a transaction affecting interstate commerce that is subject to federal Electronic Signatures in Global and National Commerce Act (the “Act”), and that you and we both intend that the Act apply to the fullest extent possible to validate our ability to conduct business with you by electronic means. Please read this E-Sign Consent carefully and keep a copy for your records."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "Scope of Your Consent",
+      "content": [
+        {
+          "type": "text",
+          "text": "By agreeing to this E-Sign Consent, you agree that you reviewed this E-Sign Consent and verified that you can print or save a copy of it with your records. You further give your express consent to receive, view, and electronically sign the Records we display on any website, through any web browser, or in any software application (including any application for mobile or handled devices). You agree that the electronic Records we send to your designated email address may include Records displayed in the email message, attached to it or displayed when you selected links included in the message. When a Record is electronically displayed on your computer or your mobile or handheld device, you agree that your electronic signature for the Record may include clicking displayed buttons, selecting displayed boxes, typing your name in a designated field or otherwise selecting an electronic facsimile signature for the field, sending an email reply to a message transmitted to your designated email address, or taking other affirmative actions described when you view an electronic Record displayed on your computer or your mobile or handheld device. Your consent for our use of electronic Records and signatures will be effective unless you withdraw it in the manner described below."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "How to Withdraw Consent",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have the right to withdraw your consent at any time. You may withdraw your consent to Records in electronic form by contacting DreamFi via email at "
+            },
+            {
+              "type": "link",
+              "text": "support@dreamfi.com",
+              "link": "mailto:support@dreamfi.com"
+            },
+            {
+              "type": "text",
+              "text": ". However, once you have withdrawn your consent, you will be ineligible to use or obtain our Services."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "Request for Paper Records",
+      "content": [
+        {
+          "type": "text",
+          "text": "We will not automatically send you a paper copy of any Records. We reserve the right, but assume no obligation, to provide a paper (instead of electronic) copy of any Records that you have authorized us to provide electronically. You can obtain a paper copy of an electronic Record by printing the electronic copy we sent you. To request a printed copy, call us any time at "
+        },
+        {
+          "type": "link",
+          "link": "tel:1-833-637-3266",
+          "text": "1-833-637-3266"
+        },
+        {
+          "type": "text",
+          "text": ". There are no fees associated with the request for the delivery of mailed copies of any Record provided pursuant to this Disclosure."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "Changing your Contact Information",
+      "content": [
+        {
+          "type": "text",
+          "text": "It is your responsibility to provide us with a valid phone number, address, email, and other contact information on file with DreamFi, and to maintain and update promptly any changes in this information. You understand and agree that if we send you an electronic Record but you do not receive it because your valid phone number or email address or other contact information is incorrect, out of date, blocked by your service provider, or you are otherwise unable to receive electronic Records, we will be deemed to have provided the Record to you."
+        },
+        {
+          "type": "text",
+          "text": "Your use of a spam filter that blocks or re-routes emails from senders not listed in your email address book may impact your ability to receive our Records. Therefore, you must add DreamFi to your email address book so that you will be able to receive the Records we send to you."
+        },
+        {
+          "type": "text",
+          "text": "You can update your contact information by logging into your account and requesting a change."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "Hardware and Software Requirements",
+      "content": [
+        {
+          "type": "text",
+          "text": "To access, view, and retain electronic Records that we make available to you, you must have:"
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "text",
+              "text": "access to the Internet;"
+            },
+            {
+              "type": "text",
+              "text": "an email account and related software capable of receiving email through the Internet;"
+            },
+            {
+              "type": "text",
+              "text": "supported web browsing software (the most recent version of Google Chrome, Mozilla Firefox, Microsoft Edge, or Apple Safari);"
+            },
+            {
+              "type": "text",
+              "text": "software that allows you to view and print or save PDF documents, such as Adobe Reader or similar software;"
+            },
+            {
+              "type": "text",
+              "text": "hardware capable of running the software described above; and"
+            },
+            {
+              "type": "text",
+              "text": "a printer or long-term storage device that allows you to print or save electronic Records for future reference."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "If you are obtaining a Service electronically via a mobile or handheld device (such as a smart phone or tablet), in addition to the above requirements you must have software on your device that allows you to print and save the Records presented to you. This software can typically be found in the device's respective \"app store.\" If you do not have these capabilities on your device, please obtain the Service through a device that provides these capabilities."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "Termination/Changes",
+      "content": [
+        {
+          "type": "text",
+          "text": "We reserve the right, at our sole discretion, to discontinue the provision of your electronic Records, or to terminate or change the terms and conditions on which we provide electronic Records. We will provide you with notice of any such termination or change as required by law."
+        }
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "header",
+      "text": "Consent"
+    },
+    {
+      "type": "text",
+      "text": "By clicking the button, or selecting the checkbox, displayed in connection with acknowledging and/or agreeing to this E-Sign Consent (or by otherwise taking an affirmative action indicating your agreement to this E-Sign Consent), you agree that:"
+    },
+    {
+      "type": "list",
+      "content": [
+        {
+          "type": "text",
+          "text": "You have received, read, and agree to all of the terms of this E-Sign Consent; and"
+        },
+        {
+          "type": "text",
+          "text": "You consent to your and our use of electronic Records and signatures in connection with any Services that you request, use, or obtain."
+        }
+      ]
+    }
+  ]
+}

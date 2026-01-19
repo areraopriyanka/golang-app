@@ -1,0 +1,5922 @@
+basePath: /api/v1
+definitions:
+  dao.CreditScoreSummary:
+    properties:
+      date:
+        type: string
+      score:
+        type: integer
+    required:
+    - date
+    - score
+    type: object
+  dao.SubmitTransactionDisputeRequest:
+    properties:
+      details:
+        type: string
+      reason:
+        enum:
+        - Incorrect amount charged
+        - Duplicate transaction
+        - Goods not received
+        - Goods not as described
+        - Billing error
+        - Unauthorized transaction
+        - Identity theft
+        - Card skimming
+        - Online fraud
+        type: string
+    required:
+    - reason
+    type: object
+  dao.UpdateCustomerAddressRequest:
+    properties:
+      apartmentNo:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      streetAddress:
+        type: string
+      zipCode:
+        type: string
+    required:
+    - city
+    - state
+    - streetAddress
+    - zipCode
+    type: object
+  dao.UpdateFullNameRequest:
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      suffix:
+        type: string
+    required:
+    - firstName
+    - lastName
+    type: object
+  debtwise.EquifaxAddress:
+    properties:
+      address_line:
+        description: AddressLine Equifax user's address line
+        type: string
+      city:
+        description: City Equifax user's city
+        type: string
+      postal_code:
+        description: PostalCode Equifax user's postal code
+        type: string
+      state:
+        description: State Equifax user's state
+        type: string
+      type:
+        description: Type Equifax user's address type
+        type: string
+    type: object
+  handler.AccountBalance:
+    properties:
+      availableBalanceCents:
+        type: integer
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  handler.AccountClosureStatus:
+    properties:
+      accountBalance:
+        type: number
+      holdBalance:
+        type: number
+      isAccountClosable:
+        type: boolean
+      pendingTransactions:
+        type: integer
+      preAuthBalance:
+        type: number
+    required:
+    - accountBalance
+    - holdBalance
+    - isAccountClosable
+    - pendingTransactions
+    - preAuthBalance
+    type: object
+  handler.AchAccount:
+    properties:
+      availableBalanceCents:
+        type: integer
+      id:
+        type: string
+      institution:
+        type: string
+      isPendingVerification:
+        description: true if the external account is still being verified
+        type: boolean
+      mask:
+        type: string
+      name:
+        type: string
+      needsPlaidLinkUpdate:
+        description: true if the external account needs to be reconnected via Plaid
+          Link's Update mode
+        type: boolean
+      subType:
+        enum:
+        - checking
+        - savings
+        type: string
+    required:
+    - id
+    - name
+    - subType
+    type: object
+  handler.AchAccountsResponse:
+    properties:
+      dreamFiAccounts:
+        items:
+          $ref: '#/definitions/handler.AchAccount'
+        type: array
+      externalAccounts:
+        items:
+          $ref: '#/definitions/handler.AchAccount'
+        type: array
+    required:
+    - dreamFiAccounts
+    - externalAccounts
+    type: object
+  handler.ActivateCardRequest:
+    properties:
+      setCardPin:
+        $ref: '#/definitions/handler.PayloadRequest'
+      updateStatus:
+        $ref: '#/definitions/handler.PayloadRequest'
+      validateCvv:
+        $ref: '#/definitions/handler.PayloadRequest'
+    required:
+    - setCardPin
+    - updateStatus
+    - validateCvv
+    type: object
+  handler.AgreementJSONResponse:
+    properties:
+      data:
+        type: string
+      hash:
+        type: string
+      name:
+        type: string
+    required:
+    - data
+    - hash
+    - name
+    type: object
+  handler.BalanceRefreshResponse:
+    properties:
+      jobId:
+        type: integer
+    type: object
+  handler.BalanceRefreshStatusResponse:
+    properties:
+      balances:
+        items:
+          $ref: '#/definitions/handler.AccountBalance'
+        type: array
+      isRefreshing:
+        type: boolean
+    required:
+    - balances
+    - isRefreshing
+    type: object
+  handler.BuildActivateCardRequest:
+    properties:
+      cvv:
+        type: string
+      pin:
+        type: string
+    required:
+    - cvv
+    - pin
+    type: object
+  handler.BuildActivateCardResponse:
+    properties:
+      changePin:
+        $ref: '#/definitions/response.BuildPayloadResponse'
+      updateStatus:
+        $ref: '#/definitions/response.BuildPayloadResponse'
+      validateCvv:
+        $ref: '#/definitions/response.BuildPayloadResponse'
+    required:
+    - changePin
+    - updateStatus
+    - validateCvv
+    type: object
+  handler.BuildCardPinPayloadRequest:
+    properties:
+      newPin:
+        type: string
+    required:
+    - newPin
+    type: object
+  handler.BuildTransactionAchPullPayloadRequest:
+    properties:
+      amountCents:
+        type: integer
+      dreamFiAccountId:
+        type: string
+      externalAccountId:
+        type: string
+      note:
+        type: string
+    required:
+    - amountCents
+    - dreamFiAccountId
+    - externalAccountId
+    type: object
+  handler.BuildTransactionAchPushPayloadRequest:
+    properties:
+      amountCents:
+        type: integer
+      dreamFiAccountId:
+        type: string
+      externalAccountId:
+        type: string
+      note:
+        type: string
+    required:
+    - amountCents
+    - dreamFiAccountId
+    - externalAccountId
+    type: object
+  handler.CardAcceptor:
+    properties:
+      city:
+        type: string
+      country:
+        type: string
+      merchant:
+        type: string
+      phone:
+        type: string
+      state:
+        type: string
+      website:
+        type: string
+    type: object
+  handler.ChallengeChangePasswordOtpResponse:
+    properties:
+      resetToken:
+        type: string
+    required:
+    - resetToken
+    type: object
+  handler.ChallengeRecoverOnboardingOtpRequest:
+    properties:
+      otp:
+        type: string
+      otpId:
+        type: string
+    required:
+    - otp
+    - otpId
+    type: object
+  handler.ChallengeRecoverOnboardingOtpResponse:
+    properties:
+      userData:
+        $ref: '#/definitions/handler.ChallengeRecoverOnboardingOtpResponseUserData'
+      userStatus:
+        enum:
+        - USER_CREATED
+        - AGREEMENTS_REVIEWED
+        - AGE_VERIFICATION_PASSED
+        - PHONE_VERIFICATION_OTP_SENT
+        - PHONE_NUMBER_VERIFIED
+        - ADDRESS_CONFIRMED
+        - KYC_PASS
+        - KYC_FAIL
+        - MEMBERSHIP_ACCEPTED
+        - CARD_AGREEMENTS_REVIEWED
+        type: string
+    required:
+    - userStatus
+    type: object
+  handler.ChallengeRecoverOnboardingOtpResponseUserData:
+    properties:
+      dob:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      suffix:
+        type: string
+    required:
+    - dob
+    - firstName
+    - lastName
+    - suffix
+    type: object
+  handler.ChallengeSetCardPinOtpRequest:
+    properties:
+      otpId:
+        type: string
+      otpValue:
+        type: string
+    required:
+    - otpId
+    - otpValue
+    type: object
+  handler.CloseAccountRequest:
+    properties:
+      accountClosureReason:
+        enum:
+        - Not using it
+        - Switched banks
+        - Support issues
+        - Lack of tools and benefits
+        - App problems
+        - Life changes
+        - No progress
+        - Other
+        maxLength: 255
+        type: string
+    required:
+    - accountClosureReason
+    type: object
+  handler.CompleteLedgerCustomerRequest:
+    properties:
+      publicKey:
+        maxLength: 255
+        type: string
+      sardineSessionKey:
+        type: string
+    required:
+    - publicKey
+    - sardineSessionKey
+    type: object
+  handler.CompleteLedgerCustomerResponse:
+    properties:
+      cardHolderId:
+        type: string
+      cardId:
+        type: string
+    required:
+    - cardHolderId
+    - cardId
+    type: object
+  handler.CreateAccountClosureOtpRequest:
+    properties:
+      type:
+        type: string
+    required:
+    - type
+    type: object
+  handler.CreateAccountClosureOtpResponse:
+    properties:
+      maskedEmail:
+        type: string
+      maskedMobileNo:
+        type: string
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - maskedEmail
+    - maskedMobileNo
+    - otpExpiryDuration
+    - otpId
+    type: object
+  handler.CreateCardSetPinOTPRequest:
+    properties:
+      type:
+        enum:
+        - SMS
+        - CALL
+        type: string
+    required:
+    - type
+    type: object
+  handler.CreateChangePasswordOtpRequest:
+    properties:
+      type:
+        enum:
+        - SMS
+        - CALL
+        type: string
+    required:
+    - type
+    type: object
+  handler.CreditAge:
+    properties:
+      amount:
+        type: string
+      factor:
+        enum:
+        - Needs Work
+        - Fair
+        - Good
+        - Excellent
+        type: string
+    required:
+    - amount
+    - factor
+    type: object
+  handler.CreditFactorFloat:
+    properties:
+      amount:
+        type: number
+      factor:
+        enum:
+        - Needs Work
+        - Fair
+        - Good
+        - Excellent
+        type: string
+    required:
+    - amount
+    - factor
+    type: object
+  handler.CreditFactorInt:
+    properties:
+      amount:
+        type: integer
+      factor:
+        enum:
+        - Needs Work
+        - Fair
+        - Good
+        - Excellent
+        type: string
+    required:
+    - amount
+    - factor
+    type: object
+  handler.CreditScoreOverviewResponse:
+    properties:
+      increase:
+        type: integer
+      isUserOnboarded:
+        type: boolean
+      score:
+        type: integer
+    required:
+    - isUserOnboarded
+    type: object
+  handler.CreditScoreResponse:
+    properties:
+      creditAge:
+        $ref: '#/definitions/handler.CreditAge'
+      creditMix:
+        $ref: '#/definitions/handler.CreditFactorInt'
+      creditScoreHistory:
+        items:
+          $ref: '#/definitions/dao.CreditScoreSummary'
+        type: array
+      creditUtilization:
+        $ref: '#/definitions/handler.CreditFactorFloat'
+      date:
+        type: string
+      derogatoryMarks:
+        $ref: '#/definitions/handler.CreditFactorInt'
+      increase:
+        type: integer
+      newCredit:
+        $ref: '#/definitions/handler.CreditFactorInt'
+      paymentHistory:
+        $ref: '#/definitions/handler.CreditFactorFloat'
+      score:
+        type: integer
+      totalAccounts:
+        $ref: '#/definitions/handler.CreditFactorInt'
+    required:
+    - creditAge
+    - creditMix
+    - creditScoreHistory
+    - creditUtilization
+    - date
+    - derogatoryMarks
+    - increase
+    - newCredit
+    - paymentHistory
+    - score
+    - totalAccounts
+    type: object
+  handler.EquifaxConsentResponse:
+    properties:
+      nextStep:
+        enum:
+        - identity
+        type: string
+    required:
+    - nextStep
+    type: object
+  handler.EquifaxIdentityResponse:
+    properties:
+      addresses:
+        items:
+          $ref: '#/definitions/debtwise.EquifaxAddress'
+        type: array
+      dateOfBirth:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      maskedSsn:
+        type: string
+    required:
+    - addresses
+    - dateOfBirth
+    - firstName
+    - lastName
+    type: object
+  handler.EquifaxInvokeResponse:
+    properties:
+      maskedMobileNumber:
+        type: string
+      nextStep:
+        enum:
+        - consent
+        - validate_otp
+        type: string
+    required:
+    - nextStep
+    type: object
+  handler.EquifaxValidateOtpRequest:
+    properties:
+      code:
+        maxLength: 8
+        minLength: 4
+        type: string
+    required:
+    - code
+    type: object
+  handler.EquifaxValidateOtpResponse:
+    properties:
+      nextStep:
+        enum:
+        - consent
+        type: string
+    required:
+    - nextStep
+    type: object
+  handler.GetCardCvvFromVisaRequest:
+    properties:
+      expirationMM:
+        type: string
+      expirationYY:
+        type: string
+      externalId:
+        type: string
+      last4PrimaryAccountNumber:
+        type: string
+    required:
+    - expirationMM
+    - expirationYY
+    - externalId
+    - last4PrimaryAccountNumber
+    type: object
+  handler.GetCardCvvFromVisaResponse:
+    properties:
+      cvv2:
+        type: string
+    type: object
+  handler.GetDisclosuresDataResponse:
+    properties:
+      agreementCardAndDepositSignedAt:
+        type: string
+      agreementDreamfiAchAuthorizationSignedAt:
+        type: string
+      agreementESignSignedSignedAt:
+        type: string
+      agreementPrivacyNoticeSignedAt:
+        type: string
+      agreementTermsOfServiceSignedAt:
+        type: string
+    required:
+    - agreementCardAndDepositSignedAt
+    - agreementDreamfiAchAuthorizationSignedAt
+    - agreementESignSignedSignedAt
+    - agreementPrivacyNoticeSignedAt
+    - agreementTermsOfServiceSignedAt
+    type: object
+  handler.InstructedAmount:
+    properties:
+      amount:
+        type: integer
+      currency:
+        type: string
+    required:
+    - amount
+    - currency
+    type: object
+  handler.JobStatusResponse:
+    properties:
+      state:
+        enum:
+        - available
+        - cancelled
+        - completed
+        - discarded
+        - pending
+        - retryable
+        - running
+        - scheduled
+        type: string
+    required:
+    - state
+    type: object
+  handler.ListAccountAndFirstNameResponse:
+    properties:
+      accounts:
+        items:
+          $ref: '#/definitions/ledger.Account'
+        type: array
+      encryptionKey:
+        maxLength: 255
+        type: string
+      firstName:
+        type: string
+    required:
+    - accounts
+    - encryptionKey
+    - firstName
+    type: object
+  handler.ListStatementsRequest:
+    properties:
+      accountId:
+        type: string
+      ledgerApiRequest:
+        $ref: '#/definitions/request.LedgerApiRequest'
+    required:
+    - accountId
+    - ledgerApiRequest
+    type: object
+  handler.ListTransactionsResponse:
+    properties:
+      count:
+        type: integer
+      transactions:
+        items:
+          $ref: '#/definitions/handler.Transaction'
+        type: array
+    required:
+    - transactions
+    type: object
+  handler.PayloadRequest:
+    properties:
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - payloadId
+    - signature
+    type: object
+  handler.PersonalDetailsResponse:
+    properties:
+      address:
+        $ref: '#/definitions/response.AddressDetails'
+      email:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      mobileNumber:
+        type: string
+    required:
+    - address
+    - email
+    - firstName
+    - lastName
+    - mobileNumber
+    type: object
+  handler.PlaidAccountUnlinkRequest:
+    properties:
+      plaidAccountId:
+        type: string
+    required:
+    - plaidAccountId
+    type: object
+  handler.PlaidAccountsReconnectedRequest:
+    properties:
+      accounts:
+        items:
+          $ref: '#/definitions/plaid.PlaidLinkAccount'
+        type: array
+      linkSessionId:
+        type: string
+    required:
+    - accounts
+    - linkSessionId
+    type: object
+  handler.PlaidExchangePublicTokenRequest:
+    properties:
+      accounts:
+        items:
+          $ref: '#/definitions/plaid.PlaidLinkAccount'
+        type: array
+      institutionId:
+        description: |-
+          From: https://plaid.com/docs/link/web/#link-web-onsuccess-metadata-institution
+          > If the Item was created via Same-Day micro-deposit verification, [... InstitutionID ...] will be null.
+        type: string
+      linkSessionId:
+        type: string
+      publicToken:
+        type: string
+    required:
+    - accounts
+    - linkSessionId
+    - publicToken
+    type: object
+  handler.PlaidLinkTokenRequest:
+    properties:
+      platform:
+        enum:
+        - ios
+        - android
+        - web
+        type: string
+    required:
+    - platform
+    type: object
+  handler.PlaidLinkTokenResponse:
+    properties:
+      linkToken:
+        type: string
+    required:
+    - linkToken
+    type: object
+  handler.PlaidUpdateLinkTokenRequest:
+    properties:
+      accountId:
+        type: string
+      platform:
+        enum:
+        - ios
+        - android
+        - web
+        type: string
+    required:
+    - accountId
+    - platform
+    type: object
+  handler.RecoverOnboardingOtpRequest:
+    properties:
+      type:
+        type: string
+    required:
+    - type
+    type: object
+  handler.RecoverOnboardingOtpResponse:
+    properties:
+      maskedEmail:
+        type: string
+      maskedMobileNo:
+        type: string
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - maskedEmail
+    - maskedMobileNo
+    - otpExpiryDuration
+    - otpId
+    type: object
+  handler.ReviewCardAgreementsRequest:
+    properties:
+      cardAndDepositHash:
+        type: string
+      dreamfiAchAuthorizationHash:
+        type: string
+    required:
+    - cardAndDepositHash
+    - dreamfiAchAuthorizationHash
+    type: object
+  handler.ReviewTOSAgreementsRequest:
+    properties:
+      eSignHash:
+        type: string
+      privacyNoticeHash:
+        type: string
+      termsOfServiceHash:
+        type: string
+    required:
+    - eSignHash
+    - privacyNoticeHash
+    - termsOfServiceHash
+    type: object
+  handler.SubmitTransactionDisputeResponse:
+    properties:
+      createdAt:
+        type: string
+      status:
+        enum:
+        - pending
+        type: string
+    required:
+    - createdAt
+    - status
+    type: object
+  handler.Transaction:
+    properties:
+      cardAcceptor:
+        $ref: '#/definitions/handler.CardAcceptor'
+      completionTimeStamp:
+        type: string
+      credit:
+        type: boolean
+      disputeCreatedAt:
+        type: string
+      disputeStatus:
+        enum:
+        - none
+        - pending
+        - credited
+        - voided
+        - rejected
+        type: string
+      disputeUpdatedAt:
+        type: string
+      instructedAmount:
+        $ref: '#/definitions/handler.InstructedAmount'
+      merchantCategory:
+        type: string
+      merchantName:
+        type: string
+      rawCardAcceptor:
+        type: string
+      referenceID:
+        type: string
+      status:
+        type: string
+      timeStamp:
+        type: string
+      type:
+        type: string
+      typeRaw:
+        type: string
+    required:
+    - credit
+    - instructedAmount
+    - merchantCategory
+    - merchantName
+    - referenceID
+    - status
+    - timeStamp
+    - type
+    - typeRaw
+    type: object
+  handler.TransactionAchPullRequest:
+    properties:
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - payloadId
+    - signature
+    type: object
+  handler.TransactionAchPullResponse:
+    properties:
+      amount:
+        type: integer
+      reference:
+        type: string
+      status:
+        type: string
+      transactionNumber:
+        type: string
+    required:
+    - amount
+    - reference
+    - status
+    - transactionNumber
+    type: object
+  handler.TransactionAchPushRequest:
+    properties:
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - payloadId
+    - signature
+    type: object
+  handler.TransactionAchPushResponse:
+    properties:
+      amount:
+        type: integer
+      reference:
+        type: string
+      status:
+        type: string
+      transactionNumber:
+        type: string
+    required:
+    - amount
+    - reference
+    - status
+    - transactionNumber
+    type: object
+  ledger.Account:
+    properties:
+      accountCategory:
+        type: string
+      accountType:
+        type: string
+      accrualBalance:
+        type: number
+      balance:
+        description: |-
+          In the documentation, `Balance` and `HoldBalance` are of type string, but the response returns them as int/float
+          Changing it to float64 to avoid unmarshal error
+        type: number
+      createdDate:
+        type: string
+      currency:
+        type: string
+      customerID:
+        type: string
+      glAccount:
+        type: string
+      holdBalance:
+        type: number
+      id:
+        type: string
+      institutionID:
+        type: string
+      institutionName:
+        type: string
+      isVerify:
+        type: boolean
+      ledgerBalance:
+        type: number
+      name:
+        type: string
+      nickName:
+        type: string
+      number:
+        type: string
+      preAuthBalance:
+        type: number
+      status:
+        type: string
+      updatedDate:
+        type: string
+    type: object
+  ledger.GetCardLimitResult:
+    properties:
+      api:
+        properties:
+          dateCreated:
+            type: integer
+          originalReference:
+            type: string
+          reference:
+            type: string
+          type:
+            type: string
+        type: object
+      card:
+        properties:
+          allowAtm:
+            type: boolean
+          allowAuthAndCompletion:
+            type: boolean
+          allowCashback:
+            type: boolean
+          allowEcommerce:
+            type: boolean
+          allowMoto:
+            type: boolean
+          allowPos:
+            type: boolean
+          allowPurchase:
+            type: boolean
+          allowRefund:
+            type: boolean
+          allowTips:
+            type: boolean
+          allowWithdraw:
+            type: boolean
+          cardId:
+            type: string
+          checkAvsAddr:
+            type: boolean
+          checkAvsZip:
+            type: boolean
+          cvv:
+            type: string
+          isReIssue:
+            type: boolean
+          isReplace:
+            type: boolean
+          limits:
+            items:
+              properties:
+                cycleLength:
+                  type: string
+                cycleType:
+                  type: string
+                remaining:
+                  type: string
+                type:
+                  type: string
+                value:
+                  type: string
+              type: object
+            type: array
+          postedDate:
+            type: string
+          smart:
+            type: boolean
+          transactionMade:
+            type: boolean
+          updatedDate:
+            type: string
+        type: object
+    type: object
+  plaid.PlaidLinkAccount:
+    properties:
+      id:
+        type: string
+      mask:
+        type: string
+      name:
+        type: string
+      subtype:
+        enum:
+        - checking
+        - savings
+        type: string
+      type:
+        type: string
+      verificationStatus:
+        type: string
+    required:
+    - id
+    - subtype
+    - type
+    type: object
+  request.AddPersonalDetailsRequest:
+    properties:
+      dob:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      suffix:
+        type: string
+    required:
+    - dob
+    - firstName
+    - lastName
+    type: object
+  request.BuildGetStatementPayloadRequest:
+    properties:
+      statementId:
+        type: string
+    required:
+    - statementId
+    type: object
+  request.BuildListStatementsPayloadRequest:
+    properties:
+      pageNumber:
+        type: integer
+      pageSize:
+        type: integer
+    required:
+    - pageNumber
+    - pageSize
+    type: object
+  request.BuildValidateCvvRequest:
+    properties:
+      cvv:
+        type: string
+    required:
+    - cvv
+    type: object
+  request.ChallengeDeviceRegistrationOtpRequest:
+    properties:
+      otpId:
+        type: string
+      otpValue:
+        type: string
+      publicKey:
+        type: string
+    required:
+    - otpId
+    - otpValue
+    - publicKey
+    type: object
+  request.ChallengeOtpRequest:
+    properties:
+      otp:
+        type: string
+      otpId:
+        type: string
+    required:
+    - otp
+    - otpId
+    type: object
+  request.ChangePasswordRequest:
+    properties:
+      newPassword:
+        type: string
+      oldPassword:
+        type: string
+      resetToken:
+        type: string
+    required:
+    - newPassword
+    - oldPassword
+    - resetToken
+    type: object
+  request.CreateOrUpdateOnboardingUserRequest:
+    properties:
+      email:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      suffix:
+        type: string
+    required:
+    - email
+    - firstName
+    - lastName
+    type: object
+  request.CreateUserAccountRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  request.DemographicUpdateSendOtpRequest:
+    properties:
+      type:
+        type: string
+    required:
+    - type
+    type: object
+  request.EmailDuplicateRequest:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+  request.GetDeviceRegistrationOtpRequest:
+    properties:
+      type:
+        type: string
+    required:
+    - type
+    type: object
+  request.LedgerApiRequest:
+    properties:
+      mfp:
+        type: string
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - payloadId
+    - signature
+    type: object
+  request.LoginRequest:
+    properties:
+      password:
+        type: string
+      publicKey:
+        maxLength: 255
+        type: string
+      sardineSessionKey:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  request.ReplaceCardReason:
+    properties:
+      reason:
+        enum:
+        - lost
+        - stolen
+        - damaged
+        type: string
+    required:
+    - reason
+    type: object
+  request.ReplaceCardRequest:
+    properties:
+      mfp:
+        type: string
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - payloadId
+    - signature
+    type: object
+  request.ResetPasswordRequest:
+    properties:
+      password:
+        type: string
+      resetToken:
+        type: string
+    required:
+    - password
+    - resetToken
+    type: object
+  request.SardineKycRequest:
+    properties:
+      sardineSessionKey:
+        type: string
+      ssn:
+        description: SSN must be exactly 9 characters
+        type: string
+    required:
+    - sardineSessionKey
+    - ssn
+    type: object
+  request.SendMobileVerificationOtpRequest:
+    properties:
+      mobileNo:
+        type: string
+      type:
+        enum:
+        - SMS
+        - CALL
+        type: string
+    required:
+    - mobileNo
+    - type
+    type: object
+  request.SetCardPinRequest:
+    properties:
+      otp:
+        type: string
+      otpId:
+        type: string
+      payloadId:
+        type: string
+      signature:
+        type: string
+    required:
+    - otp
+    - otpId
+    - payloadId
+    - signature
+    type: object
+  request.UpdateCustomerDOBRequest:
+    properties:
+      DOB:
+        type: string
+    required:
+    - DOB
+    type: object
+  request.UpdateCustomerPasswordRequest:
+    properties:
+      password:
+        type: string
+    required:
+    - password
+    type: object
+  response.Address:
+    properties:
+      suggestions:
+        items:
+          $ref: '#/definitions/response.Suggestion'
+        type: array
+    type: object
+  response.AddressDetails:
+    properties:
+      addressLine1:
+        type: string
+      addressLine2:
+        type: string
+      city:
+        type: string
+      postalCode:
+        type: string
+      state:
+        type: string
+    required:
+    - addressLine1
+    - city
+    - postalCode
+    - state
+    type: object
+  response.BadRequestError:
+    properties:
+      error:
+        type: string
+      fieldName:
+        type: string
+    required:
+    - error
+    type: object
+  response.BadRequestErrors:
+    properties:
+      errors:
+        items:
+          $ref: '#/definitions/response.BadRequestError'
+        type: array
+    required:
+    - errors
+    type: object
+  response.BuildPayloadResponse:
+    properties:
+      payload:
+        type: string
+      payloadId:
+        type: string
+    required:
+    - payload
+    - payloadId
+    type: object
+  response.CardData:
+    properties:
+      cardExpiryDate:
+        type: string
+      cardId:
+        type: string
+      cardMaskNumber:
+        type: string
+      cardStatus:
+        description: static cast of ledger card status for known statuses. Undefined
+          if unknown status
+        enum:
+        - active
+        - inactive
+        - frozen
+        - cancelled
+        type: string
+      cardStatusRaw:
+        description: raw ledger card status. For use when cardStatus is undefined.
+        type: string
+      externalCardId:
+        type: string
+      isPreviousCardFrozen:
+        type: boolean
+      isReIssue:
+        type: boolean
+      isReplace:
+        type: boolean
+      isReplaceLocked:
+        type: boolean
+      orderStatus:
+        type: string
+      previousCardId:
+        type: string
+      previousCardMaskNumber:
+        type: string
+    required:
+    - cardExpiryDate
+    - cardId
+    - cardMaskNumber
+    - cardStatusRaw
+    - externalCardId
+    - isPreviousCardFrozen
+    - isReIssue
+    - isReplace
+    - isReplaceLocked
+    - orderStatus
+    type: object
+  response.ChallengeDeviceRegistrationOtpResponse:
+    properties:
+      keyId:
+        type: string
+    required:
+    - keyId
+    type: object
+  response.CreateOnboardingUserResponse:
+    properties:
+      userId:
+        type: string
+    required:
+    - userId
+    type: object
+  response.DemographicUpdateSendOtpResponse:
+    properties:
+      maskedEmail:
+        type: string
+      maskedMobileNo:
+        type: string
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - maskedEmail
+    - maskedMobileNo
+    - otpExpiryDuration
+    - otpId
+    type: object
+  response.EmailDuplicateResponse:
+    properties:
+      isEmailInUse:
+        type: boolean
+    required:
+    - isEmailInUse
+    type: object
+  response.ErrorResponse:
+    properties:
+      code:
+        type: string
+      msg:
+        type: string
+    type: object
+  response.GenerateEmailOtpResponse:
+    properties:
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - otpExpiryDuration
+    - otpId
+    type: object
+  response.GetCardResponse:
+    properties:
+      card:
+        $ref: '#/definitions/response.CardData'
+    required:
+    - card
+    type: object
+  response.GetMemberShipStatus:
+    properties:
+      status:
+        enum:
+        - subscribed
+        - unsubscribed
+        type: string
+    required:
+    - status
+    type: object
+  response.GetUserDetailsAndUpdateStatus:
+    properties:
+      address:
+        $ref: '#/definitions/response.AddressDetails'
+      addressStatus:
+        enum:
+        - pending
+        - accepted
+        - rejected
+        type: string
+      email:
+        type: string
+      emailStatus:
+        enum:
+        - pending
+        - accepted
+        - rejected
+        type: string
+      firstName:
+        type: string
+      fullNameStatus:
+        enum:
+        - pending
+        - accepted
+        - rejected
+        type: string
+      lastName:
+        type: string
+      mobileNumber:
+        type: string
+      suffix:
+        type: string
+    required:
+    - address
+    - email
+    - firstName
+    - lastName
+    - mobileNumber
+    type: object
+  response.KycError:
+    properties:
+      message:
+        type: string
+    type: object
+  response.KycResult:
+    properties:
+      kycStatus:
+        type: string
+      userId:
+        type: string
+    type: object
+  response.ListStatementResponse:
+    properties:
+      statements:
+        items:
+          $ref: '#/definitions/response.Statement'
+        type: array
+      totalCount:
+        type: integer
+    required:
+    - statements
+    - totalCount
+    type: object
+  response.LoginResponse:
+    properties:
+      customerNo:
+        type: string
+      email:
+        type: string
+      isUserOnboarding:
+        type: boolean
+      isUserRegistered:
+        type: boolean
+      mobileNo:
+        type: string
+      status:
+        type: string
+      userId:
+        type: string
+    required:
+    - userId
+    type: object
+  response.MaybeRiverJobResponse-handler_CreditScoreResponse:
+    properties:
+      jobId:
+        type: integer
+      payload:
+        $ref: '#/definitions/handler.CreditScoreResponse'
+      state:
+        enum:
+        - available
+        - cancelled
+        - completed
+        - discarded
+        - pending
+        - retryable
+        - running
+        - scheduled
+        type: string
+    required:
+    - jobId
+    - state
+    type: object
+  response.MaybeRiverJobResponse-response_SardinePayload:
+    properties:
+      jobId:
+        type: integer
+      payload:
+        $ref: '#/definitions/response.SardinePayload'
+      state:
+        enum:
+        - available
+        - cancelled
+        - completed
+        - discarded
+        - pending
+        - retryable
+        - running
+        - scheduled
+        type: string
+    required:
+    - jobId
+    - state
+    type: object
+  response.OtpResponse:
+    properties:
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - otpExpiryDuration
+    - otpId
+    type: object
+  response.OtpResponseWithMaskedNumber:
+    properties:
+      maskedMobileNo:
+        type: string
+      otpExpiryDuration:
+        type: integer
+      otpId:
+        type: string
+    required:
+    - maskedMobileNo
+    - otpExpiryDuration
+    - otpId
+    type: object
+  response.SardinePayload:
+    properties:
+      error:
+        $ref: '#/definitions/response.KycError'
+      result:
+        $ref: '#/definitions/response.KycResult'
+    type: object
+  response.SetCardPinResponse:
+    properties:
+      pinSet:
+        type: boolean
+    required:
+    - pinSet
+    type: object
+  response.Statement:
+    properties:
+      id:
+        type: string
+      month:
+        type: string
+      year:
+        type: integer
+    required:
+    - id
+    - month
+    - year
+    type: object
+  response.Suggestion:
+    properties:
+      city:
+        type: string
+      entries:
+        type: integer
+      secondary:
+        type: string
+      state:
+        type: string
+      street_line:
+        type: string
+      zipcode:
+        type: string
+    required:
+    - city
+    - entries
+    - state
+    - street_line
+    - zipcode
+    type: object
+  response.UpdateAccountStatusResponse:
+    properties:
+      updatedAccountStatus:
+        enum:
+        - active
+        - temporary_inactive
+        - dormant
+        - closed
+        - disabled
+        type: string
+    required:
+    - updatedAccountStatus
+    type: object
+  response.UpdateCardStatusResponse:
+    properties:
+      updatedCardStatus:
+        description: Maps known ledger card statuses to known values. Returns empty
+          status for unknown values.
+        enum:
+        - active
+        - inactive
+        - frozen
+        - cancelled
+        type: string
+    required:
+    - updatedCardStatus
+    type: object
+  response.UpdateDOBResponse:
+    properties:
+      userStatus:
+        type: string
+    required:
+    - userStatus
+    type: object
+  response.ValidateCvvResponse:
+    properties:
+      isValidCvv:
+        type: boolean
+    required:
+    - isValidCvv
+    type: object
+  response.VerifyResetPasswordOtpResponse:
+    properties:
+      resetToken:
+        type: string
+    required:
+    - resetToken
+    type: object
+info:
+  contact: {}
+  title: DreamFi Middleware API
+  version: "1.0"
+paths:
+  /account/accounts/ach/pull:
+    post:
+      consumes:
+      - application/json
+      description: Generate a transaction to pull money from an external account to
+        the user
+      parameters:
+      - description: Request body to request a transaction
+        in: body
+        name: transactionAchPullRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.TransactionAchPullRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.TransactionAchPullResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: TransactionAchPull
+      tags:
+      - Transactions
+  /account/accounts/ach/pull/build:
+    post:
+      consumes:
+      - application/json
+      description: Builds and stores a signable payload for requesting a pull transaction
+      parameters:
+      - description: Request body to request a transaction
+        in: body
+        name: buildTransactionAchPullPayloadRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.BuildTransactionAchPullPayloadRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildTransactionAchPullPayload
+      tags:
+      - Transactions
+  /account/accounts/ach/push:
+    post:
+      consumes:
+      - application/json
+      description: Generate a transaction to send money from the user to an external
+        account
+      parameters:
+      - description: Request body to request a transaction
+        in: body
+        name: transactionAchPushRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.TransactionAchPushRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.TransactionAchPushResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: TransactionAchPush
+      tags:
+      - Transactions
+  /account/accounts/ach/push/build:
+    post:
+      consumes:
+      - application/json
+      description: Builds and stores a signable payload for requesting a push transaction
+      parameters:
+      - description: Request body to request a transaction
+        in: body
+        name: buildTransactionAchPushPayloadRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.BuildTransactionAchPushPayloadRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildTransactionAchPushPayload
+      tags:
+      - Transactions
+  /account/accounts/transactions:
+    get:
+      description: Get a list of transactions for the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListTransactionsResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ListTransactions
+      tags:
+      - Transactions
+  /account/ach/accounts:
+    get:
+      description: Retrieves DreamFi and external account information to facilitate
+        ACH transfers
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AchAccountsResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: AchAccounts
+      tags:
+      - ach
+  /account/balance/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Initiates a background job to refresh balance information for the
+        user's Plaid accounts that haven't been updated in the last 24 hrs. Returns
+        immediately without waiting for job completion.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: No refresh needed
+          schema:
+            $ref: '#/definitions/handler.BalanceRefreshResponse'
+        "201":
+          description: Job created successfully
+          schema:
+            $ref: '#/definitions/handler.BalanceRefreshResponse'
+        "401":
+          description: Unauthorized access
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Start Balance Refresh Job
+      tags:
+      - plaid
+      - balance
+      - ach
+  /account/balance/refresh/status/{jobId}:
+    get:
+      consumes:
+      - application/json
+      description: Check if the user has any running balance refresh jobs and return
+        current balance information
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Job ID to check status for
+        in: path
+        name: jobId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Refresh status and current balances
+          schema:
+            $ref: '#/definitions/handler.BalanceRefreshStatusResponse'
+        "400":
+          description: Invalid job ID
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized access
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Could not find job
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get Balance Refresh Status
+      tags:
+      - plaid
+      - balance
+      - ach
+  /account/cards:
+    get:
+      description: Returns card details.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.GetCardResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetCardDetails
+      tags:
+      - cards
+  /account/cards/activate:
+    post:
+      description: Activate card.
+      parameters:
+      - description: ActivateCardRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ActivateCardRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.GetCardResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ActivateCard
+      tags:
+      - cards
+  /account/cards/activate/build:
+    post:
+      consumes:
+      - application/json
+      description: Generate ActivateCard payload.
+      parameters:
+      - description: payload with cvv
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.BuildActivateCardRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.BuildActivateCardResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildActivateCardPayload
+      tags:
+      - cards
+  /account/cards/cvv:
+    post:
+      description: Returns a cvv for a card. This is only intended for testing and
+        will not be available in production environments
+      parameters:
+      - description: GetCardDetailsRequest payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.GetCardCvvFromVisaRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.GetCardCvvFromVisaResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetCardCvvFromVisa
+      tags:
+      - cards
+  /account/cards/freeze:
+    post:
+      description: Lock the card and update card status to TEMPRORY_BLOCKED_BY_CLIENT.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.UpdateCardStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: FreezeCard
+      tags:
+      - cards
+  /account/cards/pin:
+    post:
+      consumes:
+      - application/json
+      description: Sets a PIN for customer's card
+      parameters:
+      - description: Request body to set the card PIN
+        in: body
+        name: setCardPinRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.SetCardPinRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.SetCardPinResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SetCardPin
+      tags:
+      - cards
+  /account/cards/pin/build:
+    post:
+      consumes:
+      - application/json
+      description: Builds and stores signable payload for setting pin
+      parameters:
+      - description: Request body to build card PIN payload
+        in: body
+        name: buildCardPinPayloadRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.BuildCardPinPayloadRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildCardPinPayload
+      tags:
+      - cards
+  /account/cards/pin/otp:
+    post:
+      consumes:
+      - application/json
+      description: Issues OTP for setting the user's primary card pin
+      parameters:
+      - description: Create card set pin OTP payload
+        in: body
+        name: createCardPinOTPRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateCardSetPinOTPRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful otp issuance for logged in user
+          schema:
+            $ref: '#/definitions/response.OtpResponseWithMaskedNumber'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get set card pin OTP
+      tags:
+      - cards
+  /account/cards/pin/otp/verify:
+    post:
+      consumes:
+      - application/json
+      description: Challenges the set card pin OTP
+      parameters:
+      - description: payload
+        in: body
+        name: challengeSetCardPinOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ChallengeSetCardPinOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ChallengeSetCardPinOtp
+      tags:
+      - cards
+  /account/cards/replace:
+    post:
+      description: REPLACE - A replacement card is issued with a new Primary Account
+        Number (PAN).
+      parameters:
+      - description: request.ReplaceCardRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.ReplaceCardRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ReplaceCard
+      tags:
+      - cards
+  /account/cards/replace/build:
+    post:
+      description: Create ReplaceCard payload.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request.ReplaceCardReason
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.ReplaceCardReason'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildReplaceCardPayload
+      tags:
+      - cards
+  /account/cards/unfreeze:
+    post:
+      description: Unlock the card and update card status to ACTIVATED".
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.UpdateCardStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UnfreezeCard
+      tags:
+      - cards
+  /account/cards/validate-cvv:
+    post:
+      description: Validates cvv.
+      parameters:
+      - description: ValidateCvvRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.LedgerApiRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.ValidateCvvResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ValidateCvv
+      tags:
+      - cards
+  /account/cards/validate-cvv/build:
+    post:
+      consumes:
+      - application/json
+      description: Generate ValidateCvv payload.
+      parameters:
+      - description: payload with cvv
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.BuildValidateCvvRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildValidateCvvPayload
+      tags:
+      - cards
+  /account/change-password:
+    post:
+      consumes:
+      - application/json
+      description: Change password
+      parameters:
+      - description: payload
+        in: body
+        name: changePasswordRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChangePasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ChangePassword
+      tags:
+      - changePassword
+  /account/change-password/send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Sends a change password OTP to the user via sms
+      parameters:
+      - description: Create change password pin OTP payload
+        in: body
+        name: CreateChangePasswordOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateChangePasswordOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful otp issuance for logged in user
+          schema:
+            $ref: '#/definitions/response.OtpResponseWithMaskedNumber'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SendChangePasswordOTP
+      tags:
+      - sendChangePasswordOtp
+  /account/change-password/verify-otp:
+    post:
+      consumes:
+      - application/json
+      description: Challenges the change password OTP
+      parameters:
+      - description: payload
+        in: body
+        name: challengeChangePasswordOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ChallengeChangePasswordOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ChallengeChangePasswordOTP
+      tags:
+      - changePasswordOtp
+  /account/close:
+    put:
+      description: Update the account status to 'SUSPENDED' to suspend the account
+        for 60 days
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: payload
+        in: body
+        name: closeAccountRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CloseAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.UpdateAccountStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SuspendAccount
+      tags:
+      - accounts
+  /account/close/send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Sends an account closure OTP to the user via sms email or call
+      parameters:
+      - description: Payload for account closure OTP
+        in: body
+        name: createAccountClosureOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateAccountClosureOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful otp issuance for logged in user
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.CreateAccountClosureOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SendAccountClosureOTP
+      tags:
+      - accountClosure
+  /account/close/verify-otp:
+    post:
+      consumes:
+      - application/json
+      description: Challenges the account closure OTP
+      parameters:
+      - description: payload
+        in: body
+        name: ChallengeAccountClosureOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ChallengeAccountClosureOTP
+      tags:
+      - accountClosure
+  /account/closure-status:
+    get:
+      description: Returns account and card details and indicates whether an account
+        is closable
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.AccountClosureStatus'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetAccountClosureStatus
+      tags:
+      - cards
+  /account/customer/demographic-update:
+    get:
+      description: Returns the user's personal details along with the latest demographic
+        update status for each type
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.GetUserDetailsAndUpdateStatus'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetUserDetailsAndDemographicUpdateStatus
+      tags:
+      - Demographic Updates
+  /account/customer/demographic-update/address:
+    post:
+      consumes:
+      - application/json
+      description: Initiates a address demographic update request and stores the update
+        data in the middleware database
+      parameters:
+      - description: Payload with address fields
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/dao.UpdateCustomerAddressRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SubmitAddressDemographicUpdates
+      tags:
+      - Demographic Updates
+  /account/customer/demographic-update/address-autocomplete:
+    get:
+      description: Returns addresses matching the search query prefix for a demographic
+        update
+      parameters:
+      - description: 'Smarty requires the ''search'' parameter in a specific order
+          to return results Format should follow: streetNumber → street → optional
+          suffix → city/state/zip'
+        in: query
+        name: search
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.Address'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: DemographicUpdateAddressAutoComplete
+      tags:
+      - DemographicPrimaryAddress
+  /account/customer/demographic-update/full-name:
+    post:
+      consumes:
+      - application/json
+      description: Initiates a full name demographic update request and stores the
+        update data in the middleware database
+      parameters:
+      - description: Payload with fullName, lastName and suffix.
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/dao.UpdateFullNameRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SubmitFullNameDemographicUpdates
+      tags:
+      - Demographic Updates
+  /account/customer/demographic-update/mobile:
+    post:
+      consumes:
+      - application/json
+      description: Generates and sends an OTP code for the current user before initiating
+        a demographic update
+      parameters:
+      - description: Payload indicating OTP type
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.DemographicUpdateSendOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.DemographicUpdateSendOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: DemographicUpdateSendOtp
+      tags:
+      - Demographic Updates
+  /account/customer/demographic-update/mobile/verify:
+    post:
+      consumes:
+      - application/json
+      description: Verifies demographic update otp
+      parameters:
+      - description: Payload with otpId and otp
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: DemographicUpdateVerifyOtp
+      tags:
+      - Demographic Updates
+  /account/customer/demographic-update/secondary-address-autocomplete:
+    post:
+      consumes:
+      - application/json
+      description: Returns a list of nested addresses, including all matching apartments
+        for the given address for demographic updates
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: SecondaryAddressAutoComplete payload
+        in: body
+        name: secondaryAddressAutoCompleteRequest
+        required: true
+        schema:
+          $ref: '#/definitions/response.Suggestion'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.Address'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: DemographicUpdateSecondaryAddressAutoComplete
+      tags:
+      - DemographicSecondaryAddress
+  /account/customer/disclosure-accepted-date:
+    get:
+      description: Returns Disclosures details.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.GetDisclosuresDataResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetDisclosuresAcceptedDate
+      tags:
+      - Disclosures
+  /account/customer/transaction/{referenceId}/dispute:
+    post:
+      consumes:
+      - application/json
+      description: Initiates a transaction dispute and stores the record in the middleware
+        database.
+      parameters:
+      - description: reference Id
+        in: path
+        name: referenceId
+        required: true
+        type: string
+      - description: Transaction dispute payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/dao.SubmitTransactionDisputeRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.SubmitTransactionDisputeResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SubmitTransactionDispute
+      tags:
+      - Transaction Disputes
+  /account/dashboard/accounts:
+    get:
+      description: ListAccounts returns the list of accounts and user's firstName
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.ListAccountAndFirstNameResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ListAccounts
+      tags:
+      - dashboard
+  /account/dashboard/card-limit:
+    post:
+      consumes:
+      - application/json
+      description: Returns applicable volume and transaction limits for a card.
+      parameters:
+      - description: GetCardLimitRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.LedgerApiRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/ledger.GetCardLimitResult'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetCardLimit
+      tags:
+      - dashboard
+  /account/dashboard/card-limit/build:
+    post:
+      description: Create GetCardLimitPayload payload.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildGetCardLimitPayload
+      tags:
+      - dashboard
+  /account/debtwise/credit_score_overview:
+    get:
+      consumes:
+      - application/json
+      description: Reports debtwise onboarding status and most recent credit score
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreditScoreOverviewResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CreditScoreOverviewHandler
+      tags:
+      - credit score
+  /account/debtwise/equifax/complete:
+    post:
+      consumes:
+      - application/json
+      description: Starts job sending request to debtwise for credit score
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.MaybeRiverJobResponse-handler_CreditScoreResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Start Credit Score Job
+      tags:
+      - credit score
+  /account/debtwise/equifax/complete/{jobId}:
+    get:
+      consumes:
+      - application/json
+      description: Gets status of credit score job
+      parameters:
+      - description: Job Id
+        in: path
+        name: jobId
+        required: true
+        type: integer
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.MaybeRiverJobResponse-handler_CreditScoreResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get Credit Score Job Status
+      tags:
+      - credit score
+  /account/debtwise/equifax/consent:
+    post:
+      consumes:
+      - application/json
+      description: Indicates user's consent to Equifax T&C
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EquifaxConsentResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: EquifaxConsentHandler
+      tags:
+      - credit score
+  /account/debtwise/equifax/identity:
+    post:
+      consumes:
+      - application/json
+      description: Retrieves identity report from equifax for confirmation from user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EquifaxIdentityResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: EquifaxIdentityHandler
+      tags:
+      - credit score
+  /account/debtwise/equifax/invoke:
+    post:
+      consumes:
+      - application/json
+      description: Invokes debtwise to begin equifax onboarding process for DW user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EquifaxInvokeResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: EquifaxInvokeHandler
+      tags:
+      - credit score
+  /account/debtwise/equifax/otp:
+    post:
+      consumes:
+      - application/json
+      description: Validates user provided code for equifax issued OTP
+      parameters:
+      - description: EquifaxValidateOtpRequest payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.EquifaxValidateOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.EquifaxValidateOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: EquifaxValidateOtp
+      tags:
+      - credit score
+  /account/debtwise/equifax/otp/resend:
+    post:
+      consumes:
+      - application/json
+      description: Calls equifax abort and invoke to resend otp
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: EquifaxOtpResend
+      tags:
+      - credit score
+  /account/debtwise/latest_credit_score:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves latest debtwise credit score for user
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreditScoreResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: LatestCreditScoreHandler
+      tags:
+      - credit score
+  /account/debtwise/user:
+    post:
+      consumes:
+      - application/json
+      description: Creates a debtwise user and then stores the ID on the user record
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CreateDebtwiseUser
+      tags:
+      - credit score
+  /account/get-statement:
+    post:
+      consumes:
+      - application/json
+      description: Returns a PDF file for the specified statement id
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Get statement request with user signed payload and payloadId
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.LedgerApiRequest'
+      produces:
+      - application/pdf
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            type: file
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetStatement
+      tags:
+      - statement
+  /account/get-statement/build:
+    post:
+      description: Create BuildGetStatement payload
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: payload with statement id
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.BuildGetStatementPayloadRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildGetStatementPayload
+      tags:
+      - statement
+  /account/list-statements:
+    post:
+      description: Retrieves paginated statements for a given user
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: List statements request with user signed payload, payloadId,
+          and accountId
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ListStatementsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.ListStatementResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ListStatements
+      tags:
+      - statement
+  /account/list-statements/build:
+    post:
+      consumes:
+      - application/json
+      description: Create BuildListStatements payload
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: payload with pageSize and pageNumber
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.BuildListStatementsPayloadRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.BuildPayloadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: BuildListStatementsPayload
+      tags:
+      - statement
+  /account/membership/status:
+    get:
+      description: Returns user's membership status.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.GetMemberShipStatus'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetMemberShipStatus
+      tags:
+      - membership
+    put:
+      description: Update membership status['subscribed', unsubscribed].
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateMembershipStatus
+      tags:
+      - membership
+  /account/personal-details:
+    get:
+      description: Returns the user's personal details including name, contact info,
+        and address
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.PersonalDetailsResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get Personal Details
+      tags:
+      - accounts
+  /account/plaid/account:
+    delete:
+      description: Unlinks a Plaid item by calling Plaid's /item/remove endpoint and
+        deleting associated database records
+      parameters:
+      - description: PlaidAccountUnlinkRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PlaidAccountUnlinkRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: PlaidAccountUnlink
+      tags:
+      - plaid
+  /account/plaid/accounts/reconnected:
+    post:
+      description: Registers that accounts were reconnected after Plaid Link was run
+        in Update mode
+      parameters:
+      - description: PlaidAccountsReconnectedRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PlaidAccountsReconnectedRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: PlaidAccountsReconnected
+      tags:
+      - plaid
+  /account/plaid/link/token:
+    post:
+      description: Creates a Plaid link token
+      parameters:
+      - description: PlaidLinkTokenRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PlaidLinkTokenRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.PlaidLinkTokenResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: PlaidCreateLinkToken
+      tags:
+      - plaid
+  /account/plaid/link/token/update:
+    post:
+      description: Creates a Plaid link token for Plaid Link's update mode
+      parameters:
+      - description: PlaidUpdateLinkTokenRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PlaidUpdateLinkTokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.PlaidLinkTokenResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: PlaidUpdateLinkToken
+      tags:
+      - plaid
+  /account/plaid/public_token/exchange:
+    post:
+      description: Exchanges a Plaid public token for a secret access token
+      parameters:
+      - description: PlaidExchangePublicTokenRequest
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.PlaidExchangePublicTokenRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: PlaidExchangePublicToken
+      tags:
+      - plaid
+  /account/status/jobs/{jobId}:
+    get:
+      consumes:
+      - application/json
+      description: Returns status of river job given job id
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Job Id
+        in: path
+        name: jobId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.JobStatusResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get Job Status By Job ID
+      tags:
+      - jobs
+  /agreements/{agreementName}:
+    get:
+      description: Gets the latest agreement by its name
+      parameters:
+      - description: Agreement Name
+        enum:
+        - e-sign
+        - dreamfi-ach-authorization
+        - card-and-deposit
+        - privacy-notice
+        - terms-of-service
+        - debtwise
+        in: path
+        name: agreementName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.AgreementJSONResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetAgreement
+  /agreements/pdf/{agreementName}:
+    get:
+      description: Gets a PDF of an agreement by its name
+      parameters:
+      - description: Agreement Name
+        enum:
+        - e-sign
+        - dreamfi-ach-authorization
+        - card-and-deposit
+        - privacy-notice
+        - terms-of-service
+        in: path
+        name: agreementName
+        required: true
+        type: string
+      produces:
+      - application/pdf
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetAgreementPDF
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Logs in a user and returns a session token
+      parameters:
+      - description: Login payload
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/request.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful login
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+            X-Token-Expiration:
+              description: Token expiration timestamp
+              type: string
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Login
+      tags:
+      - auth
+  /onboarding/customer:
+    put:
+      consumes:
+      - application/json
+      description: Creates a user in middleware DB and returns a session id
+      parameters:
+      - description: CreateOnboardingUser payload
+        in: body
+        name: createOnboardingUserRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateOrUpdateOnboardingUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.CreateOnboardingUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CreateOnboardingUser
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}:
+    post:
+      consumes:
+      - application/json
+      description: Updating customer's firstName, lastName, email and suffix
+      parameters:
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: UpdateCustomerRequest payload
+        in: body
+        name: updateCustomerRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateOrUpdateOnboardingUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateCustomer
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/address:
+    post:
+      consumes:
+      - application/json
+      description: Updating customer's address and setting customer's status
+      parameters:
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: UpdateCustomerAddressRequest payload
+        in: body
+        name: updateCustomerAddressRequest
+        required: true
+        schema:
+          $ref: '#/definitions/dao.UpdateCustomerAddressRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateCustomerAddress
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/complete-ledger-customer:
+    put:
+      consumes:
+      - application/json
+      description: Adds a checking account, registers a public key to the ledger,
+        and adds a cardholder and card to complete user onboarding
+      parameters:
+      - description: user id of onboarding customer
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: CompleteLedgerCustomerRequest payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CompleteLedgerCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+            X-Token-Expiration:
+              description: Token expiration timestamp
+              type: string
+          schema:
+            $ref: '#/definitions/handler.CompleteLedgerCustomerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "403":
+          description: Public key is associated with a different user
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CompleteLedgerCustomer
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/dob:
+    post:
+      consumes:
+      - application/json
+      description: Updating customer's date of birth and setting customer's age verification
+        status
+      parameters:
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: UpdateCustomerDOB payload
+        in: body
+        name: updateCustomerDOBRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.UpdateCustomerDOBRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.UpdateDOBResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not found
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateCustomerDOB
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/kyc:
+    put:
+      consumes:
+      - application/json
+      description: Starts a job for posting customer's data to sardine
+      parameters:
+      - description: payload
+        in: body
+        name: requestSardineKycRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.SardineKycRequest'
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.MaybeRiverJobResponse-response_SardinePayload'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SubmitUserDataToSardine
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/mobile:
+    post:
+      consumes:
+      - application/json
+      description: Verifies mobile verification OTP code for a current user session
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: VerifyMobileVerificationOtpRequest payload
+        in: body
+        name: verifyMobileVerificationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: VerifyMobileVerificationOtp
+      tags:
+      - onboarding
+    put:
+      consumes:
+      - application/json
+      description: Generates and sends mobile verification OTP code for a current
+        user session to a specified phone number
+      parameters:
+      - description: SendMobileVerificationOtp payload
+        in: body
+        name: sendMobileVerificationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.SendMobileVerificationOtpRequest'
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.OtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SendMobileVerificationOtp
+      tags:
+      - onboarding
+  /onboarding/customer/{userId}/password:
+    post:
+      consumes:
+      - application/json
+      description: Updating customer's password and setting customer's status
+      parameters:
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: UpdateCustomerPasswordRequest payload
+        in: body
+        name: updateCustomerPasswordRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.UpdateCustomerPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not found
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateCustomerPassword
+      tags:
+      - onboarding
+  /onboarding/customer/account:
+    post:
+      consumes:
+      - application/json
+      description: Creates a user in the middleware DB and sends a JWT containing
+        the user ID in the response header.
+      parameters:
+      - description: CreateUserAccount payload
+        in: body
+        name: CreateUserAccountRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateUserAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CreateUserAccount
+      tags:
+      - onboarding
+  /onboarding/customer/address:
+    post:
+      consumes:
+      - application/json
+      description: Updating customer's address and setting customer's status
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: UpdateCustomerAddressRequest payload
+        in: body
+        name: updateCustomerAddressRequest
+        required: true
+        schema:
+          $ref: '#/definitions/dao.UpdateCustomerAddressRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: UpdateCustomerAddress
+      tags:
+      - onboarding
+  /onboarding/customer/address-autocomplete:
+    get:
+      description: Returns a list of addresses matching the search query prefix
+      parameters:
+      - description: 'Smarty requires the ''search'' parameter in a specific order
+          to return results Format should follow: streetNumber → street → optional
+          suffix → city/state/zip'
+        in: query
+        name: search
+        required: true
+        type: string
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.Address'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: AddressAutoComplete
+      tags:
+      - onboardingPrimaryAddress
+  /onboarding/customer/agreements/card-agreements:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: ReviewCardAgreementsRequest
+        in: body
+        name: reviewCardAgreementsRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ReviewCardAgreementsRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ReviewCardAgreements
+  /onboarding/customer/agreements/terms-of-service:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: ReviewTOSAgreementsRequest
+        in: body
+        name: reviewTOSAgreementsRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ReviewTOSAgreementsRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ReviewTOSAgreements
+  /onboarding/customer/complete-ledger-customer:
+    put:
+      consumes:
+      - application/json
+      description: Adds a checking account, registers a public key to the ledger,
+        and adds a cardholder and card to complete user onboarding
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: CompleteLedgerCustomerRequest payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CompleteLedgerCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+            X-Token-Expiration:
+              description: Token expiration timestamp
+              type: string
+          schema:
+            $ref: '#/definitions/handler.CompleteLedgerCustomerResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "403":
+          description: Public key is associated with a different user
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: CompleteLedgerCustomer
+      tags:
+      - onboarding
+  /onboarding/customer/details:
+    post:
+      consumes:
+      - application/json
+      description: Updates a customer's first name, last name, suffix and DOB
+      parameters:
+      - description: AddPersonalDetails payload
+        in: body
+        name: AddPersonalDetailsRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.AddPersonalDetailsRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: AddPersonalDetails
+      tags:
+      - onboarding
+  /onboarding/customer/kyc:
+    put:
+      consumes:
+      - application/json
+      description: Starts a job for posting customer's data to sardine
+      parameters:
+      - description: payload
+        in: body
+        name: requestSardineKycRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.SardineKycRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.MaybeRiverJobResponse-response_SardinePayload'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SubmitUserDataToSardine
+      tags:
+      - onboarding
+  /onboarding/customer/kyc/{jobId}:
+    get:
+      description: Get sardine Job Status
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Jod id to get sardine job status
+        in: path
+        name: jobId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.MaybeRiverJobResponse-response_SardinePayload'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: GetSardineJobStatus
+      tags:
+      - onboarding
+  /onboarding/customer/membership:
+    post:
+      description: Accept membership.
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: AcceptMembership
+      tags:
+      - membership
+  /onboarding/customer/mobile:
+    post:
+      consumes:
+      - application/json
+      description: Verifies mobile verification OTP code for a current user session
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: VerifyMobileVerificationOtpRequest payload
+        in: body
+        name: verifyMobileVerificationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: VerifyMobileVerificationOtp
+      tags:
+      - onboarding
+    put:
+      consumes:
+      - application/json
+      description: Generates and sends mobile verification OTP code for a current
+        user session to a specified phone number
+      parameters:
+      - description: SendMobileVerificationOtp payload
+        in: body
+        name: sendMobileVerificationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.SendMobileVerificationOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.OtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SendMobileVerificationOtp
+      tags:
+      - onboarding
+  /onboarding/customer/secondary-address-autocomplete:
+    post:
+      consumes:
+      - application/json
+      description: Returns a list of nested addresses, including all matching apartments
+        for the given address
+      parameters:
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: SecondaryAddressAutoComplete payload
+        in: body
+        name: secondaryAddressAutoCompleteRequest
+        required: true
+        schema:
+          $ref: '#/definitions/response.Suggestion'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/response.Address'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SecondaryAddressAutoComplete
+      tags:
+      - onboardingSecondaryAddress
+  /onboarding/emailDuplicate:
+    post:
+      consumes:
+      - application/json
+      description: Checks if an email is already registered
+      parameters:
+      - description: EmailDuplicate payload
+        in: body
+        name: emailDuplicateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.EmailDuplicateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.EmailDuplicateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: IsEmailDuplicate
+      tags:
+      - onboarding
+  /recover-onboarding/send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Sends an onboarding recovery OTP to the user
+      parameters:
+      - description: RecoverOnboardingOtpRequest
+        in: body
+        name: recoverOnboardingOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RecoverOnboardingOtpRequest'
+      - description: Bearer token for user authentication
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: RecoverOnboardingOtpResponse
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.RecoverOnboardingOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: RecoverOnboardingOTP
+  /recover-onboarding/verify-otp:
+    post:
+      consumes:
+      - application/json
+      description: Challenges the onboarding recovery OTP
+      parameters:
+      - description: ChallengeRecoverOnboardingOtpRequest
+        in: body
+        name: challengeRecoverOnboardingOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.ChallengeRecoverOnboardingOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ChallengeRecoverOnboardingOtpResponse
+          headers:
+            Authorization:
+              description: Bearer token for user authentication
+              type: string
+          schema:
+            $ref: '#/definitions/handler.ChallengeRecoverOnboardingOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ChallengeRecoverOnboardingOTP
+  /refresh-session:
+    get:
+      description: Issues new JWT token for user with expiring session
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: RefreshSession
+      tags:
+      - auth
+  /register-device/otp:
+    post:
+      consumes:
+      - application/json
+      description: Issues otp for unregistered device after login
+      parameters:
+      - description: Get Device Registration Otp payload
+        in: body
+        name: getDeviceRegistrationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.GetDeviceRegistrationOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful otp issuance for logged in user
+          schema:
+            $ref: '#/definitions/response.OtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Get Device Registration OTP
+      tags:
+      - auth
+  /register-device/otp/verify:
+    post:
+      consumes:
+      - application/json
+      description: Verifies the user-provided OTP and registers the device by generating
+        a key if successful
+      parameters:
+      - description: Challenge Device Registration Otp payload
+        in: body
+        name: challengeDeviceRegistrationOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeDeviceRegistrationOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful otp verification for device registration
+          schema:
+            $ref: '#/definitions/response.ChallengeDeviceRegistrationOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: Challenge Device Registration OTP
+      tags:
+      - auth
+  /reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Reset password
+      parameters:
+      - description: payload
+        in: body
+        name: resetPasswordRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ResetPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: ResetPassword
+      tags:
+      - resetPassword
+  /reset-password/send-otp:
+    put:
+      consumes:
+      - application/json
+      description: Sends a reset password OTP to the user via email
+      parameters:
+      - description: User's email to send reset password otp
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.GenerateEmailOtpResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SendResetPasswordOTP
+      tags:
+      - resetPassword
+  /reset-password/verify-otp:
+    post:
+      consumes:
+      - application/json
+      description: Verifies the reset password OTP
+      parameters:
+      - description: payload
+        in: body
+        name: verifyResetPasswordOtpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChallengeOtpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.VerifyResetPasswordOtpResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.BadRequestErrors'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "412":
+          description: Precondition Failed
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: VerifyResetPasswordOTP
+      tags:
+      - resetPassword
+swagger: "2.0"

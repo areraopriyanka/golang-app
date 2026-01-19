@@ -1,0 +1,180 @@
+name: dreamfimiddleware
+services:
+  middleware:
+    tty: true
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # defaults to docker mocks for local and CI
+      DATABASE_DBNAME: ${DATABASE_DBNAME:-middleware}
+      DATABASE_DBPASSWORD: ${DATABASE_DBPASSWORD:-Dreamfi#1234}
+      DATABASE_DBUSER: ${DATABASE_DBUSER:-middleware}
+      DATABASE_SSLMODE: ${DATABASE_SSLMODE:-disable}
+      DATABASE_HOST: ${DATABASE_HOST:-postgresql}
+      DATABASE_PORT: ${DATABASE_PORT:-5432}
+      EMAIL_APIBASE: ${EMAIL_APIBASE:-http://sendgrid:3000}
+      EMAIL_APIKEY: ${EMAIL_APIKEY:-sendgrid-api-key}
+      TWILIO_APIBASE: ${TWILIO_APIBASE:-http://twilio:3000}
+      SARDINE_APIBASE: ${SARDINE_APIBASE:-http://sardine:3001}
+      SARDINE_CREDENTIAL: ${SARDINE_CREDENTIAL:-Basic ZmFrZW1vY2tzYXJkaW5lOlRlc3RAMTIz}
+      DEBTWISE_APIBASE: ${DEBTWISE_APIBASE:-http://debtwise:3002}
+    env_file:
+      - path: ./.env
+        required: true
+      - path: ./.env.docker
+        required: false
+    ports:
+      - '5002:5000'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+
+  postgresql:
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: ${DATABASE_DBUSER:-middleware}
+      POSTGRES_PASSWORD: ${DATABASE_DBPASSWORD:-Dreamfi#1234}
+      POSTGRES_DB: ${DATABASE_DBNAME:-middleware}
+      PGUSER: ${DATABASE_DBUSER:-middleware}
+      PGDATABASE: ${DATABASE_DBNAME:-middleware}
+      TZ: America/New_York
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data/
+
+  postgresql-test:
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: middleware
+      POSTGRES_PASSWORD: asdf123
+      POSTGRES_DB: middleware
+      PGUSER: middleware
+      PGDATABASE: middleware
+      TZ: America/New_York
+    ports:
+      - '5433:5432'
+    expose:
+      - '5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgresql-data-test:/var/lib/postgresql/data/
+
+  sendgrid:
+    image: ghashange/sendgrid-mock:1.12.0
+    environment:
+      API_KEY: sendgrid-api-key
+    ports:
+      - '5001:3000'
+    expose:
+      - '3000'
+
+  twilio:
+    image: mockoon/cli:latest
+    command:
+      [
+        '--data',
+        './spec/twilio-mockoon.json',
+        '--hostname',
+        '0.0.0.0',
+        '--log-transaction',
+        '--disable-log-to-file',
+      ]
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -f http://localhost:3000/mockoon-admin || exit 1']
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./spec:/spec:ro,z
+    ports:
+      - '5003:3000'
+    expose:
+      - '3000'
+
+  sardine:
+    image: mockoon/cli:latest
+    command:
+      [
+        '--data',
+        './spec/sardine-mockoon.json',
+        '--hostname',
+        '0.0.0.0',
+        '--log-transaction',
+        '--disable-log-to-file',
+      ]
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -f http://localhost:3001/mockoon-admin || exit 1']
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./spec:/spec:ro,z
+    ports:
+      - '5004:3001'
+    expose:
+      - '3001'
+
+  debtwise:
+    image: mockoon/cli:latest
+    command:
+      [
+        '--data',
+        './spec/debtwise-mockoon.json',
+        '--hostname',
+        '0.0.0.0',
+        '--log-transaction',
+        '--disable-log-to-file',
+      ]
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -f http://localhost:3002/mockoon-admin || exit 1']
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./spec:/spec:ro,z
+    ports:
+      - '5006:3002'
+    expose:
+      - '3002'
+
+  plaid:
+    image: mockoon/cli:latest
+    command:
+      [
+        '--data',
+        './spec/plaid-mockoon.json',
+        '--port',
+        '3003',
+        '--hostname',
+        '0.0.0.0',
+        '--log-transaction',
+        '--disable-log-to-file',
+      ]
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -f http://localhost:3003/mockoon-admin || exit 1']
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./spec:/spec:ro,z
+    ports:
+      - '5007:3003'
+    expose:
+      - '3003'
+
+volumes:
+  postgresql-data:
+  postgresql-data-test:

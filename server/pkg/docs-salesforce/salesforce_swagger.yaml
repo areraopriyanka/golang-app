@@ -1,0 +1,136 @@
+definitions:
+  response.ErrorResponse:
+    properties:
+      code:
+        type: string
+      msg:
+        type: string
+    type: object
+  salesforce.BalanceResponse:
+    properties:
+      availableBalanceCents:
+        description: The account's available balance as expressed in cents.
+        example: 10000
+        type: integer
+    required:
+    - availableBalanceCents
+    type: object
+  salesforce.Transaction:
+    properties:
+      accountId:
+        description: The ledger's account id associated with the transaction
+        example: "11522031"
+        type: string
+      amountCents:
+        description: The amount of funds (expressed in cents)
+        example: 10000
+        type: integer
+      date:
+        description: The date of the transaction
+        example: "2025-09-28T12:21:53Z"
+        type: string
+      id:
+        description: The reference id for the transaction
+        example: ledger.ach.transfer_ach_pull_1756829941484592000
+        type: string
+      merchant:
+        description: The name associated with the debtor's account (if a credit);
+          the name associated with the creditor's account otherwise
+        example: Alberta Bobbeth Charleson
+        type: string
+      status:
+        description: 'The status of the transaction: ACTIVE, CLOSED, DORMANT, SUSPENDED'
+        example: ACTIVE
+        type: string
+      type:
+        description: 'The type of transaction as defined by the ledger: "PRE_AUTH",
+          "PURCHASE_WITH_CASH", "PURCHASE", etc'
+        example: ACH_OUT
+        type: string
+    required:
+    - accountId
+    - amountCents
+    - date
+    - id
+    - merchant
+    - status
+    - type
+    type: object
+info:
+  contact: {}
+  title: DreamFi Salesforce Integration API
+  version: 0.0.1
+paths:
+  /api/salesforce/accounts/{ledgerAccountID}/balance:
+    get:
+      description: Gets the available balance for a given ledger account id
+      parameters:
+      - description: ledger account id
+        in: path
+        name: ledgerAccountID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/salesforce.BalanceResponse'
+        "401":
+          description: Missing or invalid authentication
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "403":
+          description: Insufficient permissions (missing required scope)
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Could not find account
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SalesforceGetBalance
+      tags:
+      - salesforce
+  /api/salesforce/accounts/{ledgerAccountID}/transactions:
+    get:
+      description: Gets a list of transactions given a ledger account id
+      parameters:
+      - description: ledger account id
+        in: path
+        name: ledgerAccountID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/salesforce.Transaction'
+            type: array
+        "401":
+          description: Missing or invalid authentication
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "403":
+          description: Insufficient permissions (missing required scope)
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "404":
+          description: Could not find account
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.ErrorResponse'
+      summary: SalesforceGetTransactions
+      tags:
+      - salesforce
+swagger: "2.0"

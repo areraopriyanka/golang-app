@@ -1,0 +1,1453 @@
+{
+	"info": {
+		"_postman_id": "7e822bf0-ad2d-461a-b105-db7e90a7da38",
+		"name": "DPS_Txns_APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39718442",
+		"_collection_link": "https://dreamfi-qa.postman.co/workspace/Personal-Workspace~0dcf05f4-1251-4bf3-a0fe-5724b5fcde8a/collection/38101129-7e822bf0-ad2d-461a-b105-db7e90a7da38?action=share&source=collection_link&creator=39718442"
+	},
+	"item": [
+		{
+			"name": "ATMI1 Balance Enquiry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T15:16:26Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"31\",\"TxId\":{\"LifeCyclTracIdData\":{\"Id\":\"742911649486958\"},\"SysTracAudtNb\":\"S899787\",\"LclDtTm\":\"2025-03-13T14:37:18\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"f3e7f94b-eb02-444a-bfef-4da6ce82e2a5\\\",\\\"ProcessorTransactionId\\\":\\\"debbc5b96b20fe0d0f23029b3f982ae3861bd080714afa051098367a4741b5ca\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T15:16:26Z\",\"RtrvlRefNb\":\"R25092605569\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}]},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"6011\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2025-03-13\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true},\"RskCntxt\":{\"RskInptData\":[{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"POS1                   CITY NAME    COUS\",\"Id\":\"Balance Inquiry\",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"POS1    \"},\"OthrTp\":\"04\",\"Tp\":\"OTHP\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2505\",\"PAN\":\"9999999999990527\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/inquiries",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"inquiries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ATM2 Cash Withdrawal",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:35:43Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"01\",\"TxId\":{\"AcqrrRefData\":\"412345\",\"LifeCyclTracIdData\":{\"Id\":\"444948079490126\"},\"SysTracAudtNb\":\"S897344\",\"LclDtTm\":\"2024-09-10T08:52:41\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"d8119928-4772-4f17-ab09-70bef3b9339b\\\",\\\"ProcessorTransactionId\\\":\\\"4627a9c181ce99082cb8d82b6f39c43da9bb3042260266c9d4bfb452aad3f258\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:43Z\",\"RtrvlRefNb\":\"R25092677441\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0041\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-10T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":50},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":50},\"DtldAmt\":[{\"Amt\":{\"Amt\":50},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":50}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NPIN\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5411\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSV\"}},\"Rcncltn\":{\"Dt\":\"2024-09-11\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"2\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0165\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"06\",\"Tp\":\"FalconReason1\"},{\"Val\":\"08\",\"Tp\":\"FalconReason2\"},{\"Val\":\"10\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"4 HOUSTON TEXANS CIR HOUSTON TXUS\",\"ShrtNm\":\"Cash Withdrawal\",\"Id\":\"               \",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NPIN\"}]},\"TermnlId\":{\"Id\":\"ATM2    \"},\"Tp\":\"ATMT\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59992960009\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PLUS8 Deposit",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:35:49Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctTo\":{\"AcctTp\":\"00\"},\"TxTp\":\"21\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"730735475180276\"},\"SysTracAudtNb\":\"S897345\",\"LclDtTm\":\"2024-09-17T15:50:05\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"40b96f7a-8393-4515-864f-0e5b93e3f681\\\",\\\"ProcessorTransactionId\\\":\\\"5fbabb8398013ae4929e9b2aadb7b7dd02b3b39d92c9098467ae6fd965771d13\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:49Z\",\"RtrvlRefNb\":\"R25092621408\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"875\",\"Nm\":\"FPI\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-18T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":80},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":80},\"DtldAmt\":[{\"Amt\":{\"Amt\":80},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":80}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NPIN\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"6011\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSP\"}},\"Rcncltn\":{\"Dt\":\"2024-09-17\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0029\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"34\",\"Tp\":\"FalconReason1\"},{\"Val\":\"14\",\"Tp\":\"FalconReason2\"},{\"Val\":\"77\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"4 HOUSTON TEXANS CIR HOUSTON TXUS\",\"ShrtNm\":\"Deposit\",\"Id\":\"               \",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NPIN\"}]},\"TermnlId\":{\"Id\":\"PLUS8   \"},\"Tp\":\"ATMT\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59992960009\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999999958\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POS2 Authorisation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:35:52Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"845515431000408\"},\"SysTracAudtNb\":\"S897346\",\"LclDtTm\":\"2024-09-10T08:52:49\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"2ca3c53d-7077-412c-be70-6c9fa5097e7b\\\",\\\"ProcessorTransactionId\\\":\\\"228a6c293b3600d32e4653d5b73077351c2f4f8e9b993ea7649e39b24a6412d7\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:52Z\",\"RtrvlRefNb\":\"R25092686747\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":10},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_INCREASE\",\"Tp\":\"OTHP\"}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10},\"AmtQlfr\":\"ESTM\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":10},\"DtldAmt\":[{\"Amt\":{\"Amt\":10},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5411\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0180\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"10\",\"Tp\":\"FalconReason1\"},{\"Val\":\"02\",\"Tp\":\"FalconReason2\"},{\"Val\":\"12\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"SHOPRITE HUNTERDON S1  FLEMINGTON   NJUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"POS2    \"},\"OthrTp\":\"04\",\"Tp\":\"OTHP\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POS2.1 completion (Track2data)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:35:52Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"ICCRltdData\":\"9F03009000000000\",\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"534652432387345\"},\"SysTracAudtNb\":\"S897346\",\"LclDtTm\":\"2024-09-20T08:04:28\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"2ca3c53d-7077-412c-be70-6c9fa5097e7b\\\",\\\"ProcessorTransactionId\\\":\\\"363aa2ab-7ba0-4fc1-a8e0-99740c9c73c8\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:52Z\",\"RtrvlRefNb\":\"R25092686747\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":10},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_DECREASE\",\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"002E\"],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"0\",\"Nm\":\"RA\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-23T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":10},\"DtldAmt\":[{\"Amt\":{\"Amt\":10},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"OthrTp\":\"IdentVerified\",\"Tp\":\"CUID\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5411\",\"XchgRateInf\":{\"RateLck\":{}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"BII\"}},\"Rcncltn\":{\"Dt\":\"2024-09-21\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"SHOPRITE HUNTERDON S1  FLEMINGTON   NJUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"POS2    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"412345\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"XpryDt\":\"0000\",\"PAN\":\"9999999999992059\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials/advices",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POS10 Purchase",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:35:54Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897347\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"d321edbf-3653-4561-a697-6ac05c09a93f\\\",\\\"ProcessorTransactionId\\\":\\\"3c7e644cf8c1e91d22aaa6d5c3ff79f555fe7d9dc9e26fc21a0cf0f31750b209\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:54Z\",\"RtrvlRefNb\":\"R25092669347\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10.6}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5947\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POS12 merchendise Return",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:35:57Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"20\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897348\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"3bfec337-bfdc-4107-b8a9-c2c36fd5e0d5\\\",\\\"ProcessorTransactionId\\\":\\\"ff5d6f4d8cca2caf838d44ad900e2eed8aa9056db503b3e2188ad8a8fb8d2165\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:57Z\",\"RtrvlRefNb\":\"R25092682918\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":12.6}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5947\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POS12.1 Return reversal",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:35:57Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctTo\":{\"AcctTp\":\"00\"},\"TxTp\":\"02\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"OrgnlDataElmts\":{\"AcqrrRefData\":\"00000000000\",\"MsgClss\":\"AUTH\",\"SysTracAudtNb\":\"000001\",\"LclDtTm\":\"2025-05-27T12:50:54\",\"TxTp\":\"\",\"RtrvlRefNb\":\"514745132130\"},\"LifeCyclTracIdData\":{\"Id\":\"098670231979586\"},\"SysTracAudtNb\":\"S897348\",\"LclDtTm\":\"2025-05-27T12:50:54\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorTransactionIdCollection\\\":[{\\\"MsgFctn\\\":\\\"REQU\\\",\\\"ProcessorTransactionId\\\":\\\"00028569fe3af3f6-b5e9-40a7-85ea-ac6790e3d01e\\\"}],\\\"ProcessorLifeCycleId\\\":\\\"3bfec337-bfdc-4107-b8a9-c2c36fd5e0d5\\\",\\\"ProcessorTransactionId\\\":\\\"04f643bf-fbba-4eaf-ac11-c7df6af02c7c\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:35:57Z\",\"RtrvlRefNb\":\"R25092682918\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":11},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_DECREASE\",\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"2800\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2025-05-28T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":11},\"AmtQlfr\":\"ACTL\",\"OrgnlTxAmts\":{\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":11}},\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":11},\"DtldAmt\":[{\"Amt\":{\"Amt\":11},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":12.6}}},\"Cntxt\":{\"TxCntxt\":{\"MrchntCtgyCd\":\"5999\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2025-05-27\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"POS3                   CITY NAME    COUS\",\"Id\":\"Auth track2    \",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"TermnlId\":{\"Id\":\"POS3    \"}},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"PAN\":\"9999999999991732\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"897312\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/reversals",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"reversals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TE1 Hotel auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:00Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"400552     \",\"LifeCyclTracIdData\":{\"Id\":\"351616754318850\"},\"SysTracAudtNb\":\"S897349\",\"LclDtTm\":\"2024-09-10T08:53:02\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"b48127bf-1026-40c0-978c-d77bc9b68ade\\\",\\\"ProcessorTransactionId\\\":\\\"6515d0c54b11e4371d2a7d81c9212ffe7c05eeabe8b4cdacb2b36a3c35845c6d\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:00Z\",\"RtrvlRefNb\":\"R25092616667\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":500},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_INCREASE\",\"Tp\":\"OTHP\"}],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"000\",\"Nm\":\"FPI\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":500},\"AmtQlfr\":\"RESD\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":500},\"DtldAmt\":[{\"Amt\":{\"Amt\":500},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":500}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"3695\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"MrchntCtgySpcfcData\":\"LODGING\",\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0900\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"04\",\"Tp\":\"FalconReason2\"},{\"Val\":\"05\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"KWIK SHOP 0798 2100 W  LAWRENCE     KSUS\",\"Id\":\"Hotel Auth     \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"TE1     \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}],\"AdddmData\":{\"Ldgg\":[{\"Summry\":{\"Drtn\":\"07\"}}]}}}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TE1.1 Hotel INC auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:00Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxAttr\":\"INCR\",\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"400552     \",\"LifeCyclTracIdData\":{\"Id\":\"351616754318850\"},\"SysTracAudtNb\":\"S897349\",\"LclDtTm\":\"2024-09-10T08:53:03\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"b48127bf-1026-40c0-978c-d77bc9b68ade\\\",\\\"ProcessorTransactionId\\\":\\\"f0c39d4c-bc0f-4d21-b8a6-8336541ac517\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:00Z\",\"RtrvlRefNb\":\"R25092616667\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":125},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_INCREASE\",\"Tp\":\"OTHP\"}],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"000\",\"Nm\":\"FPI\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":125},\"AmtQlfr\":\"RESD\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":125},\"DtldAmt\":[{\"Amt\":{\"Amt\":125},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":125}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"3695\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"MrchntCtgySpcfcData\":\"LODGING\",\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"CDFL\",\"StorgLctn\":\"Stored\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0367\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"05\",\"Tp\":\"FalconReason1\"},{\"Val\":\"01\",\"Tp\":\"FalconReason2\"},{\"Val\":\"08\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"KWIK SHOP 0798 2100 W  LAWRENCE     KSUS\",\"Id\":\"Incremental 1  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"TE1.1   \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}],\"AdddmData\":{\"Ldgg\":[{\"Summry\":{\"Drtn\":\"01\"}}]}}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TE1.2 Hotel INC auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:00Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxAttr\":\"INCR\",\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"400552     \",\"LifeCyclTracIdData\":{\"Id\":\"351616754318850\"},\"SysTracAudtNb\":\"S897349\",\"LclDtTm\":\"2024-09-10T08:53:05\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"b48127bf-1026-40c0-978c-d77bc9b68ade\\\",\\\"ProcessorTransactionId\\\":\\\"bab0672a-7fd4-4a35-a023-0390002d7390\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:00Z\",\"RtrvlRefNb\":\"R25092616667\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":125},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_INCREASE\",\"Tp\":\"OTHP\"}],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"000\",\"Nm\":\"FPI\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":125},\"AmtQlfr\":\"RESD\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":125},\"DtldAmt\":[{\"Amt\":{\"Amt\":125},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":125}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"3695\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"MrchntCtgySpcfcData\":\"LODGING\",\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"CDFL\",\"StorgLctn\":\"Stored\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0360\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"01\",\"Tp\":\"FalconReason2\"},{\"Val\":\"05\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"KWIK SHOP 0798 2100 W  LAWRENCE     KSUS\",\"Id\":\"Incremental 2  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"TE1.2   \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}],\"AdddmData\":{\"Ldgg\":[{\"Summry\":{\"Drtn\":\"01\"}}]}}}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TE1.3 Clearing",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:36:00Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxAttr\":\"PACP\",\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"400552     \",\"LifeCyclTracIdData\":{\"Id\":\"351616754318850\"},\"SysTracAudtNb\":\"S897349\",\"LclDtTm\":\"2024-09-10T08:53:06\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"b48127bf-1026-40c0-978c-d77bc9b68ade\\\",\\\"ProcessorTransactionId\\\":\\\"1d9aa3ec-94b6-4996-983c-0a31c9c5d68d\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:00Z\",\"RtrvlRefNb\":\"R25092616667\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":750},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_DECREASE\",\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"002H\"],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"000\",\"Nm\":\"FPI\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-10T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":750},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":750},\"DtldAmt\":[{\"Amt\":{\"Amt\":750},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":750}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"3695\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"MrchntCtgySpcfcData\":\"LODGING\",\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"KWIK SHOP 0798 2100 W  LAWRENCE     KSUS\",\"Id\":\"Clearing       \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"TE1.3   \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"0000\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"074577\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials/advices",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AccountNameInquiry",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:17Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AddtlSvc\":[{\"SvcDtl\":[{\"Val\":\"Y\"}],\"OthrTp\":\"AcctNm\",\"Tp\":\"OTHP\"}],\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"654123433175629\"},\"SysTracAudtNb\":\"S897351\",\"LclDtTm\":\"2024-09-18T20:16:43\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"48c1cbec-00c7-4d76-ac63-bfa38d60a813\\\",\\\"ProcessorTransactionId\\\":\\\"b713dcf9d66c1f97cbe27aeebdb46dc0d77092fc34c3227452d6eefd1ef5fad3\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:17Z\",\"RtrvlRefNb\":\"R25092632489\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}]},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"Y\",\"Tp\":\"AVS result\"}],\"Rslt\":\"SUCC\"}],\"SubTp\":\"AR\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"57102\"},\"Tp\":\"PCDV\"},{\"Val\":{\"TxtVal\":\"1331 Andy Street\"},\"Tp\":\"ADDB\"}],\"Tp\":\"CHSA\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5411\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-18\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"AttnddInd\":true,\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true},\"RskCntxt\":{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0000\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"00\",\"Tp\":\"FalconReason1\"},{\"Val\":\"00\",\"Tp\":\"FalconReason2\"},{\"Val\":\"00\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"}]}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"Visa Provisioning Servi               US\",\"Id\":\"400425000000001\",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"IN2000  \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/verifications",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"verifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AccStatusInquiry",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:19Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"33\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"481778910412480\"},\"SysTracAudtNb\":\"S897352\",\"LclDtTm\":\"2024-09-10T08:53:22\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"01922e2a-0862-4142-b6ed-10a18f35f314\\\",\\\"ProcessorTransactionId\\\":\\\"1c884807c5a45b107de055f0e2f99adfbf8ea28919408bff1a8003e1504c4c5a\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:19Z\",\"RtrvlRefNb\":\"R25092683404\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}]},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"M\",\"Tp\":\"CVV2 result\"}],\"Rslt\":\"SUCC\"}],\"SubTp\":\"CR\",\"Tp\":\"CSCV\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"6012\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"AttnddInd\":true,\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true},\"RskCntxt\":{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0000\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"00\",\"Tp\":\"FalconReason1\"},{\"Val\":\"00\",\"Tp\":\"FalconReason2\"},{\"Val\":\"00\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Verification   \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"VD1     \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/verifications",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"verifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AFD4 Auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:05Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxAttr\":\"PAUT\",\"PreAuthstnTmLmt\":\"120\",\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"339846239911456\"},\"SysTracAudtNb\":\"S897350\",\"LclDtTm\":\"2025-07-10T07:17:33\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"9d4cec53-fd13-4e5e-98b9-0225e930d2ac\\\",\\\"ProcessorTransactionId\\\":\\\"40b51674b97bd5ace3ac3beebe6073b7f07d77a1a25c127fc8b92f59717fe951\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:05Z\",\"RtrvlRefNb\":\"R25092698303\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":75},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_INCREASE\",\"Tp\":\"OTHP\"}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2025-07-10T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":1},\"AmtQlfr\":\"ESTM\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":75},\"DtldAmt\":[{\"Amt\":{\"Amt\":1},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":150}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NPIN\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"Tp\":\"NVSC\"},{\"Tp\":\"NPIN\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5542\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2025-07-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0977\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"14\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"AFD3                   CITY NAME    COUS\",\"Id\":\"AFD Status chec\",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NPIN\"}]},\"TermnlId\":{\"Id\":\"AFD3    \"},\"OthrTp\":\"07\",\"Tp\":\"OTHP\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2804\",\"PAN\":\"9999999999991732\",\"CardPdctTp\":\"F\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AFD4.1 Confirmation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:36:05Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxAttr\":\"PACP\",\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"339846239911456\"},\"SysTracAudtNb\":\"S897350\",\"LclDtTm\":\"2025-07-10T07:17:39\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"9d4cec53-fd13-4e5e-98b9-0225e930d2ac\\\",\\\"ProcessorTransactionId\\\":\\\"3d7b0265-a808-4a7a-a35d-adb5250ad1ef\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:05Z\",\"RtrvlRefNb\":\"R25092698303\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":31.68},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_DECREASE\",\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0029\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2025-07-10T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":43.32},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":43.32},\"DtldAmt\":[{\"Amt\":{\"Amt\":43.32},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":40.52}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"Tp\":\"NPIN\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5542\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2025-07-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"AFD3                   CITY NAME    COUS\",\"Id\":\"AFD Confirmatio\",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"AFD3    \"},\"OthrTp\":\"07\",\"Tp\":\"OTHP\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2804\",\"PAN\":\"9999999999991732\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"188739\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/authorisations/advices",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"authorisations",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AFD4.2 Completion",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:36:05Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"ICCRltdData\":\"9F03009000000000\",\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"00\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"878289051121960\"},\"SysTracAudtNb\":\"S897350\",\"LclDtTm\":\"2024-09-23T08:04:08\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorTransactionIdCollection\\\":[{\\\"MsgFctn\\\":\\\"REQU\\\",\\\"ProcessorTransactionId\\\":\\\"000293458df053d8-027c-4529-a17f-7cd3ae61089c\\\"}],\\\"ProcessorLifeCycleId\\\":\\\"9d4cec53-fd13-4e5e-98b9-0225e930d2ac\\\",\\\"ProcessorTransactionId\\\":\\\"120cad28-ab6c-4e51-b4d5-138119b3c01f\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:05Z\",\"RtrvlRefNb\":\"R25092698303\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"},{\"Amt\":{\"Ccy\":\"840\",\"Amt\":10.99},\"OthrTp\":\"HOLD\",\"Labl\":\"DEBIT_HOLD_DECREASE\",\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"002E\"],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"0\",\"Nm\":\"RA\"}]}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-24T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10.99},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":10.99},\"DtldAmt\":[{\"Amt\":{\"Amt\":10.99},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":40.52}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"Rslt\":\"SUCC\"}],\"OthrTp\":\"IdentVerified\",\"Tp\":\"CUID\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5542\",\"XchgRateInf\":{\"RateLck\":{}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"BII\"}},\"Rcncltn\":{\"Dt\":\"2024-09-24\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"CardDataNtryMd\":\"MGST\",\"CardPres\":true,\"CrdhldrActvtd\":true}},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"KWIK SHOP 0798 2100 W  LAWRENCE     KSUS\",\"Id\":\"AFD advice completion\",\"Adr\":{\"PstlCd\":\"80129    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MGST\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"NOOP\"}]},\"TermnlId\":{\"Id\":\"STD1    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"412345\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"XpryDt\":\"0000\",\"PAN\":\"9999999999992059\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"977789\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials/advices",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BillPayDebit",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"ADVC\",\"CreDtTm\":\"2025-09-26T14:36:21Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"50\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897353\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"a18580b7-da21-4f41-9b31-2b1606760174\\\",\\\"ProcessorTransactionId\\\":\\\"1f90b259556146b5984bcc70670aaa36a696b0644a945d6c076fc3277c414c4c\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:21Z\",\"RtrvlRefNb\":\"R25092633964\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5947\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials/advices",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BillPayCredit",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:23Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctTo\":{\"AcctTp\":\"00\"},\"TxTp\":\"55\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"424237150563117\"},\"SysTracAudtNb\":\"S897354\",\"LclDtTm\":\"2024-09-10T08:53:23\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"9f7429b1-8d78-4dca-b81a-316db128646c\\\",\\\"ProcessorTransactionId\\\":\\\"4295accd03ebfd9df6c0d1c6244f56148aa7ea008482938f90d4c52bf81c3c5b\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:23Z\",\"RtrvlRefNb\":\"R25092678329\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"},{\"Val\":\"$PP\",\"Tp\":\"MONEYXFERTYPE\"}],\"FndsSvcs\":{\"FndgSvc\":{\"Desc\":\"Person to person\",\"BizPurp\":\"$PP\"}},\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"SpclPrgrmmQlfctn\":[{\"Dtl\":[{\"Val\":\"421\",\"Nm\":\"FPI\"},{\"Val\":\"0\",\"Nm\":\"RA\"}]},{}],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-10T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":55},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":55},\"DtldAmt\":[{\"Amt\":{\"Amt\":55},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":1}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]},{\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"Tp\":\"CPSG\"}],\"TxCntxt\":{\"MrchntCtgyCd\":\"4829\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CrdhldrPres\":true,\"AttnddInd\":true,\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0000\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"00\",\"Tp\":\"FalconReason1\"},{\"Val\":\"00\",\"Tp\":\"FalconReason2\"},{\"Val\":\"00\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Pyer\":{\"Cstmr\":{\"Crdntls\":[{\"IdVal\":\"1234567890123456\",\"OthrIdCd\":\"REFERENCE#\",\"IdCd\":\"OTHP\"}],\"Adr\":{\"CtrySubDvsnMjr\":\"CO\",\"Ctry\":\"USA\",\"AdrLine1\":\"1340 Pennsylvania St\",\"TwnNm\":\"Denver\"},\"Nm\":\"Molly Brown\"}},\"Accptr\":{\"NmAndLctn\":\"PAYPAL 4029311133 CAUS\",\"Id\":\"Original Credit\",\"Adr\":{\"PstlCd\":\"80203    \",\"CtrySubDvsnMjr\":\"08\",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"UNSP\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"VD6     \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PREPAID_CARD_DEPOSIT",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:26Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"28\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897355\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"1d0bae2d-ffd9-4a1e-afa6-fca50fc12dbf\\\",\\\"ProcessorTransactionId\\\":\\\"1174a7d7b33ab980aa3c68c7176e22ec495aae4b0d14a7fc439eae662f2126de\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:26Z\",\"RtrvlRefNb\":\"R25092617915\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":11}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5921\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARD_DEBIT_ADJUSTMENT",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:28Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"02\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897356\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"d96f3a13-2887-4659-b827-a35bcf2449b6\\\",\\\"ProcessorTransactionId\\\":\\\"17d78a092708e80426d7e9128bb6af6d06321014a3e439390e1290bf0bb6221f\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:28Z\",\"RtrvlRefNb\":\"R25092688442\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":10}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5921\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARD_CREDIT_ADJUSTMENT",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:30Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"22\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897357\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"93cbb3c5-ccfa-44ea-b800-2ced01b93c7e\\\",\\\"ProcessorTransactionId\\\":\\\"356cf93a2989533f52b0544e2c443ec931693493c465f6dd259a129589755fd6\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:30Z\",\"RtrvlRefNb\":\"R25092658659\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":9}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5921\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARD_TRANSFER",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{Username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "keyId",
+						"value": "{{keyId}}",
+						"type": "text"
+					},
+					{
+						"key": "appId",
+						"value": "{{appId}}",
+						"type": "text"
+					},
+					{
+						"key": "collateralId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Hdr\":{\"MsgFctn\":\"REQU\",\"CreDtTm\":\"2025-09-26T14:36:33Z\",\"PrtcolVrsn\":\"2.49.1\",\"InitgPty\":{\"Id\":\"VisaDPS\"}},\"Body\":{\"Tx\":{\"AcctFr\":{\"AcctTp\":\"00\"},\"TxTp\":\"10\",\"TxId\":{\"AcqrrRefData\":\"412345     \",\"LifeCyclTracIdData\":{\"Id\":\"992064955384422\"},\"SysTracAudtNb\":\"S897358\",\"LclDtTm\":\"2024-09-10T08:53:29\",\"CardIssrRefData\":\"{\\\"CARD-ID\\\":\\\"v-401-f89af56d-41e0-46a1-85ac-af00abd6ab14\\\",\\\"ProcessorLifeCycleId\\\":\\\"5c02ca46-166b-4e69-9128-090d1f5d4753\\\",\\\"ProcessorTransactionId\\\":\\\"e7026d4fad9b586d0a42ca8badb7180087a81472127cb97f1854b0c5bd06834a\\\"}\",\"TrnsmssnDtTm\":\"2025-09-26T14:36:33Z\",\"RtrvlRefNb\":\"R25092605370\"},\"AddtlData\":[{\"Val\":\"0\",\"Tp\":\"VAUResult\"},{\"Val\":\"N\",\"Tp\":\"CryptoPurchInd\"},{\"Val\":\"N\",\"Tp\":\"DeferredAuthInd\"}],\"AddtlAmts\":[{\"Amt\":{\"Ccy\":\"840\",\"Amt\":0,\"Sgn\":true},\"Tp\":\"OTHP\"}],\"AltrnMsgRsn\":[\"0031\"],\"TxAmts\":{\"RcncltnAmt\":{\"QtnDt\":\"2024-09-11T00:00:00Z\",\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":13.5},\"AmtQlfr\":\"ACTL\",\"TxAmt\":{\"Ccy\":\"840\",\"Amt\":13.5},\"DtldAmt\":[{\"Amt\":{\"Amt\":13.5},\"OthrTp\":\"BASE\",\"Tp\":\"OTHP\"}],\"CrdhldrBllgAmt\":{\"XchgRate\":1,\"Ccy\":\"840\",\"Amt\":2}}},\"Cntxt\":{\"Vrfctn\":[{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"2\",\"Tp\":\"CAVV Result Code\"}],\"Tp\":\"AuthenticationValue\",\"Rslt\":\"SUCC\"}],\"SubTp\":\"Visa\",\"VrfctnInf\":[{\"Val\":{\"TxtVal\":\"Z\"},\"Tp\":\"Method\"}],\"Tp\":\"THDS\"},{\"VrfctnRslt\":[{\"RsltDtls\":[{\"Val\":\"0\",\"Tp\":\"CAMReliability\"}]}]}],\"TxCntxt\":{\"MrchntCtgyCd\":\"5921\",\"SttlmSvc\":{\"SttlmSvcApld\":{\"Tp\":\"VISAInternational\"}},\"CardPrgrmm\":{\"CardPrgrmmApld\":{\"Id\":\"VSN\"}},\"Rcncltn\":{\"Dt\":\"2024-09-10\",\"Id\":\"VISAInternational\"}},\"PtOfSvcCntxt\":{\"CardDataNtryMd\":\"KEEN\",\"CrdhldrActvtd\":true,\"EComrcInd\":true,\"EComrcData\":[{\"Val\":\"5\",\"Tp\":\"ECI\"}]},\"RskCntxt\":[{\"RskInptData\":[{\"Val\":\"3\",\"Tp\":\"FalconScoreSource\"},{\"Val\":\"0469\",\"Tp\":\"FalconScoreValue\"},{\"Val\":\"0\",\"Tp\":\"FalconRespCode\"},{\"Val\":\"08\",\"Tp\":\"FalconReason1\"},{\"Val\":\"06\",\"Tp\":\"FalconReason2\"},{\"Val\":\"02\",\"Tp\":\"FalconReason3\"},{\"Val\":\"09\",\"Tp\":\"VisaRiskScore\"},{\"Val\":\"5A\",\"Tp\":\"VisaRiskReason\"},{\"Val\":\"02\",\"Tp\":\"VisaRiskCondCode1\"},{\"Val\":\"C2\",\"Tp\":\"VisaRiskCondCode2\"},{\"Val\":\"00\",\"Tp\":\"VisaRiskCondCode3\"}]}]},\"Envt\":{\"Accptr\":{\"NmAndLctn\":\"DNH*GODADDY#3521500092 TEMPE        AZUS\",\"Id\":\"Authorization  \",\"Adr\":{\"PstlCd\":\"         \",\"Ctry\":\"USA\"}},\"Termnl\":{\"Cpblties\":{\"CardRdngCpblty\":[\"MLEY\"],\"CrdhldrVrfctnCpblty\":[{\"Cpblty\":\"UNSP\"}]},\"TermnlId\":{\"Id\":\"CNP8    \"},\"Tp\":\"POST\"},\"Acqrr\":{\"Ctry\":\"840\",\"Id\":\"59000000204\"},\"Sndr\":{\"Id\":\"11111111111\"},\"Card\":{\"PmtAcctRef\":\"V0010010000000000000000000001\",\"XpryDt\":\"2709\",\"PAN\":\"9999999999992059\",\"CardPdctTp\":\"F\"}},\"PrcgRslt\":{\"RsltData\":{\"RsltDtls\":\"00\"},\"ApprvlData\":{\"ApprvlCd\":\"250191\"}},\"SplmtryData\":[{\"Envlp\":{\"DPSProcessorData\":{\"LclDtTmOrgtr\":\"Y\"}}}]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://internalqa.netxd.com/dreamfi/visadpsconnector/v1/financials",
+					"protocol": "https",
+					"host": [
+						"internalqa",
+						"netxd",
+						"com"
+					],
+					"path": [
+						"dreamfi",
+						"visadpsconnector",
+						"v1",
+						"financials"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

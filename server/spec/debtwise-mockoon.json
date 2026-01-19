@@ -1,0 +1,1394 @@
+{
+  "uuid": "a8213230-a774-46af-a9f9-0eeae0a6d86f",
+  "lastMigration": 33,
+  "name": "DebtWise API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "f15b10da-082d-4835-aff3-3f7395464843",
+      "type": "http",
+      "documentation": "Accounts",
+      "method": "get",
+      "endpoint": "api/users/:id/accounts",
+      "responses": [
+        {
+          "uuid": "95592a07-9fef-4ca6-801c-53e47af886d1",
+          "body": "{\n  \"accounts\": [\n    {\n      \"id\": 1,\n      \"nickname\": \"Primary credit card\",\n      \"user_apr\": 5.5,\n      \"user_minimum_payment\": 10000,\n      \"effective_minimum_payment\": 15000,\n      \"effective_apr\": 6.3,\n      \"name\": \"JCP Morgan\",\n      \"type\": \"{{oneOf (array 'depository' 'loan' 'investment' 'other')}}\",\n      \"subtype\": \"{{oneOf (array 'student_loan' 'credit_card_loan' 'auto_loan' 'personal_loan' 'mortgage_loan' 'medical_loan' 'other_loan' 'checking' 'savings')}}\",\n      \"mask\": \"1234\",\n      \"original_loan_amount\": 15000000,\n      \"status\": \"{{oneOf (array 'active' 'disabled' 'closed')}}\",\n      \"balance\": 150000,\n      \"limit\": {{faker 'number.int' max=99999}},\n      \"last_payment_amount\": 20000,\n      \"last_updated_at\": \"2024-06-01\",\n      \"last_payment_date\": \"2024-05-25\",\n      \"opened_at\": \"2024-05-25\",\n      \"closed_at\": \"2024-05-25\",\n      \"institution_name\": \"Chase\",\n      \"institution_logo\": \"\",\n      \"next_payment_due_date\": \"2024-06-25\",\n      \"user_next_payment_date\": \"2024-06-25\",\n      \"first_time_payment\": {{faker 'datatype.boolean'}},\n      \"expected_payoff_date\": \"2052-01-01\",\n      \"payments_history\": [\n        \"{{oneOf (array '0' '1' '2' '3' '4' '5' '6' '7' '8' '9' '' 'E' '*')}}\"\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of a user's accounts",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a2f36001-f030-4ea1-a041-d8f1bbf23bd1",
+      "type": "http",
+      "documentation": "Retrieve Account",
+      "method": "get",
+      "endpoint": "api/users/:id/accounts/:account_id",
+      "responses": [
+        {
+          "uuid": "1f19c199-484a-491e-a10e-bc95548a30e2",
+          "body": "{\n  \"id\": 1,\n  \"nickname\": \"Primary credit card\",\n  \"user_apr\": 5.5,\n  \"user_minimum_payment\": 10000,\n  \"effective_minimum_payment\": 15000,\n  \"effective_apr\": 6.3,\n  \"name\": \"JCP Morgan\",\n  \"type\": \"{{oneOf (array 'depository' 'loan' 'investment' 'other')}}\",\n  \"subtype\": \"{{oneOf (array 'student_loan' 'credit_card_loan' 'auto_loan' 'personal_loan' 'mortgage_loan' 'medical_loan' 'other_loan' 'checking' 'savings')}}\",\n  \"mask\": \"1234\",\n  \"original_loan_amount\": 15000000,\n  \"status\": \"{{oneOf (array 'active' 'disabled' 'closed')}}\",\n  \"balance\": 150000,\n  \"limit\": {{faker 'number.int' max=99999}},\n  \"last_payment_amount\": 20000,\n  \"last_updated_at\": \"2024-06-01\",\n  \"last_payment_date\": \"2024-05-25\",\n  \"opened_at\": \"2024-05-25\",\n  \"closed_at\": \"2024-05-25\",\n  \"institution_name\": \"Chase\",\n  \"institution_logo\": \"\",\n  \"next_payment_due_date\": \"2024-06-25\",\n  \"user_next_payment_date\": \"2024-06-25\",\n  \"first_time_payment\": {{faker 'datatype.boolean'}},\n  \"expected_payoff_date\": \"2052-01-01\",\n  \"payments_history\": [\n    \"{{oneOf (array '0' '1' '2' '3' '4' '5' '6' '7' '8' '9' '' 'E' '*')}}\"\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns information about an account",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "776b64c4-d445-4921-bf2e-1cd4a4d65119",
+      "type": "http",
+      "documentation": "Update Account",
+      "method": "patch",
+      "endpoint": "api/users/:id/accounts/:account_id",
+      "responses": [
+        {
+          "uuid": "ac1c759d-a348-4d88-acb9-ed22c51a9e49",
+          "body": "{\n  \"id\": 1,\n  \"nickname\": \"Primary credit card\",\n  \"user_apr\": 5.5,\n  \"user_minimum_payment\": 10000,\n  \"effective_minimum_payment\": 15000,\n  \"effective_apr\": 6.3,\n  \"name\": \"JCP Morgan\",\n  \"type\": \"{{oneOf (array 'depository' 'loan' 'investment' 'other')}}\",\n  \"subtype\": \"{{oneOf (array 'student_loan' 'credit_card_loan' 'auto_loan' 'personal_loan' 'mortgage_loan' 'medical_loan' 'other_loan' 'checking' 'savings')}}\",\n  \"mask\": \"1234\",\n  \"original_loan_amount\": 15000000,\n  \"status\": \"{{oneOf (array 'active' 'disabled' 'closed')}}\",\n  \"balance\": 150000,\n  \"limit\": {{faker 'number.int' max=99999}},\n  \"last_payment_amount\": 20000,\n  \"last_updated_at\": \"2024-06-01\",\n  \"last_payment_date\": \"2024-05-25\",\n  \"opened_at\": \"2024-05-25\",\n  \"closed_at\": \"2024-05-25\",\n  \"institution_name\": \"Chase\",\n  \"institution_logo\": \"\",\n  \"next_payment_due_date\": \"2024-06-25\",\n  \"user_next_payment_date\": \"2024-06-25\",\n  \"first_time_payment\": {{faker 'datatype.boolean'}},\n  \"expected_payoff_date\": \"2052-01-01\",\n  \"payments_history\": [\n    \"{{oneOf (array '0' '1' '2' '3' '4' '5' '6' '7' '8' '9' '' 'E' '*')}}\"\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns updated information about an account",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "15ef5a64-e88d-4ef1-8416-0051f5510160",
+      "type": "http",
+      "documentation": "Articles",
+      "method": "get",
+      "endpoint": "api/users/:id/articles",
+      "responses": [
+        {
+          "uuid": "865fe4d7-a2c0-4c12-b5ed-8e8deaedebde",
+          "body": "{\n  \"articles\": [\n    {\n      \"id\": \"663f08115b04268a7862ab36\",\n      \"in_bookmark\": true,\n      \"last_updated_at\": \"2024-06-11T05:54:25.871Z\",\n      \"color\": \"#9E9E9E\",\n      \"category\": \"Credit Cards\",\n      \"name\": \"Are credit cards really necessary?\",\n      \"body\": \"<p id=\\\"\\\">In today's world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape...\",\n      \"summary\": \"In today's world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape. Yet, as convenient as they may seem, the question remains: Are credit cards truly necessary? Let's explore this topic and debunk the myths surrounding the necessity of credit cards.\",\n      \"image\": \"https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png\",\n      \"thumbnail_image\": \"https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of articles about personal finance and financial education topics",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8f34b74a-2b87-49e6-ad8c-258f1095afc3",
+      "type": "http",
+      "documentation": "Bookmark Article",
+      "method": "patch",
+      "endpoint": "api/users/:id/articles/:article_id/add_to_bookmarks",
+      "responses": [
+        {
+          "uuid": "d77ed5e4-a716-469e-8001-cd56a0a238e9",
+          "body": "{\n  \"articles\": [\n    {\n      \"id\": \"663f08115b04268a7862ab36\",\n      \"in_bookmark\": true,\n      \"last_updated_at\": \"2024-06-11T05:54:25.871Z\",\n      \"color\": \"#9E9E9E\",\n      \"category\": \"Credit Cards\",\n      \"name\": \"Are credit cards really necessary?\",\n      \"body\": \"<p id=\\\"\\\">In today's world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape...\",\n      \"summary\": \"In today's world, credit cards have become ubiquitous, often considered essential for navigating the modern financial landscape. Yet, as convenient as they may seem, the question remains: Are credit cards truly necessary? Let's explore this topic and debunk the myths surrounding the necessity of credit cards.\",\n      \"image\": \"https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png\",\n      \"thumbnail_image\": \"https://uploads-ssl.webflow.com/63dada57839c2cba9ae28c5b/663f0803a879993f06b17c84_blog_55.png\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of articles",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e192215f-17b8-4700-ba7c-a20d5390c8b5",
+      "type": "http",
+      "documentation": "Credit Score Factors",
+      "method": "get",
+      "endpoint": "api/users/:id/credit_scores",
+      "responses": [
+        {
+          "uuid": "b7e42b52-a6d1-498d-94ab-4c4248de729a",
+          "body": "{\n  \"id\": 1,\n  \"date\": \"2024-07-11\",\n  \"last_name\": \"Smith\",\n  \"score\": 815,\n  \"increase\": 10,\n  \"payment_history\": {\n    \"amount\": 97.5,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  },\n  \"credit_utilization\": {\n    \"amount\": 15,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  },\n  \"derogatory_marks\": {\n    \"amount\": 1,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  },\n  \"credit_age\": {\n    \"amount\": 7.1,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  },\n  \"credit_mix\": {\n    \"amount\": 3,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  },\n  \"new_credit\": {\n    \"amount\": 1,\n    \"factor\": \"{{oneOf (array 'Good' 'Poor')}}\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a user's credit score and details of the factors behind it",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "84d38c26-1a08-4589-a9aa-578397a78d57",
+      "type": "http",
+      "documentation": "Invoke",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/invoke",
+      "responses": [
+        {
+          "uuid": "2285a640-7a76-4f22-b4bf-624a21fac9b9",
+          "body": "{\n  \"step\": \"validate_otp\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns next step validate otp",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "device_ip",
+              "value": "1.1.1.1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "c9f927ac-c47c-4b48-a95e-3cb2815bac34",
+          "body": "{\n  \"error\": {\n    \"code\": \"equifax_error\",\n    \"message\": \"No product match found\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Equifax error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "device_ip",
+              "value": "127.128.0.0",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "af2970f1-2a2a-4b09-a145-b9f61bd28600",
+          "body": "{\n  \"step\": \"consent\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns next step consent",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "device_ip",
+              "value": "0.0.0.0",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c5ceb869-13ac-4f99-95ae-be0e8bbf5b45",
+      "type": "http",
+      "documentation": "Validate OTP",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/validate_otp",
+      "responses": [
+        {
+          "uuid": "4969decb-09e7-4cf5-b103-57997531e65f",
+          "body": "{\n  \"step\": \"consent\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns next step",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "3a3a7939-4990-47e9-a17e-f1cc5fbce2ed",
+          "body": "{\n  \"error\": {\n    \"code\": \"equifax_error\",\n    \"message\": \"Invalid OTP\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Equifax error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "eb750653-21ea-4f5f-b2f6-fe10764777a9",
+      "type": "http",
+      "documentation": "Consent",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/consent",
+      "responses": [
+        {
+          "uuid": "0b6ef535-e242-4c07-a5f8-b0ff6743c6af",
+          "body": "{\n  \"step\": \"identity\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns next step",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "daad6420-5340-4548-8639-7de80d1f314e",
+      "type": "http",
+      "documentation": "Identity",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/identity",
+      "responses": [
+        {
+          "uuid": "09f8b388-e0e8-4fe2-a873-c8ad170fc662",
+          "body": "{\n  \"equifax_id\": \"6308009234534\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"masked_ssn\": \"***-**-0909\",\n  \"date_of_birth\": \"1990-10-10\",\n  \"email\": \"john_smith@email.com\",\n  \"mobile_phone\": \"990909000\",\n  \"home_phone\": \"990909000\",\n  \"addresses\": [\n    {\n      \"type\": \"CURRENT\",\n      \"address_line\": \"3 Avenue\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"postal_code\": \"30030\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns Identity",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "3839a849-08ca-4122-98a0-ff2b3c9deb4a",
+          "body": "{\n  \"error\": {\n    \"code\": \"validation_error\",\n    \"message\": \"Date of Birth is invalid\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "112dacd4-82b7-45a5-9079-0ec5ab10ca09",
+      "type": "http",
+      "documentation": "Abort",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/abort",
+      "responses": [
+        {
+          "uuid": "49c8e639-0681-43f9-aea8-7af64569ec66",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4776c386-70b7-42d3-936b-034703191f9e",
+          "body": "{\n  \"error\": {\n    \"code\": \"validation_error\",\n    \"message\": \"Can not delete identity\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation error when auth flow already finished",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "bebccfdd-930a-42f1-9927-d0e7e276424f",
+      "type": "http",
+      "documentation": "DIT ",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/auth/dit",
+      "responses": [
+        {
+          "uuid": "82aa3a51-e6b2-4e19-a0f6-00207766f445",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f139edcf-9073-472e-aa9a-03279621329b",
+          "body": "{\n  \"error\": {\n    \"code\": \"validation_error\",\n    \"message\": \"Decision Deny\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Decision Deny",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7e37e935-12fc-4d15-bcb0-6a19b22853fb",
+      "type": "http",
+      "documentation": "Credit Report",
+      "method": "post",
+      "endpoint": "api/users/:id/equifax/credit_reports",
+      "responses": [
+        {
+          "uuid": "c537f46c-5dbf-4aca-9ffe-870c7c1a4866",
+          "body": "{\n  \"accounts\": [\n    {\n      \"id\": 1,\n      \"nickname\": \"Primary credit card\",\n      \"user_apr\": 5.5,\n      \"user_minimum_payment\": 10000,\n      \"effective_minimum_payment\": 15000,\n      \"effective_apr\": 6.3,\n      \"name\": \"JCP Morgan\",\n      \"type\": \"{{oneOf (array 'depository' 'loan' 'investment' 'other')}}\",\n      \"subtype\": \"{{oneOf (array 'student_loan' 'credit_card_loan' 'auto_loan' 'personal_loan' 'mortgage_loan' 'medical_loan' 'other_loan' 'checking' 'savings')}}\",\n      \"mask\": \"1234\",\n      \"original_loan_amount\": 15000000,\n      \"status\": \"{{oneOf (array 'active' 'disabled' 'closed')}}\",\n      \"balance\": 150000,\n      \"limit\": {{faker 'number.int' max=99999}},\n      \"last_payment_amount\": 20000,\n      \"last_updated_at\": \"2024-06-01\",\n      \"last_payment_date\": \"2024-05-25\",\n      \"opened_at\": \"2024-05-25\",\n      \"closed_at\": \"2024-05-25\",\n      \"institution_name\": \"Chase\",\n      \"institution_logo\": \"\",\n      \"next_payment_due_date\": \"2024-06-25\",\n      \"user_next_payment_date\": \"2024-06-25\",\n      \"first_time_payment\": {{faker 'datatype.boolean'}},\n      \"expected_payoff_date\": \"2052-01-01\",\n      \"payments_history\": [\n        \"{{oneOf (array '0' '1' '2' '3' '4' '5' '6' '7' '8' '9' '' 'E' '*')}}\"\n      ]\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of accounts",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7954fd9f-0158-4fd1-b9d8-95a33fa5d1b7",
+          "body": "{\n  \"error\": {\n    \"code\": \"empty_report\",\n    \"message\": \"Report is empty\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Equifax error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "88e9e356-c013-4194-9e77-3079784440dc",
+      "type": "http",
+      "documentation": "Debt Calculator",
+      "method": "post",
+      "endpoint": "api/loan_calculators",
+      "responses": [
+        {
+          "uuid": "010b8d0c-f09f-4a86-ad31-8181f9e70d31",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns list of of debt repayment figures",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "67400c4b-276d-438a-9f91-d32e73161f20",
+          "body": "{\n  \"error\": {\n    \"code\": \"validation_error\",\n    \"message\": \"The monthly payment is too low. The minimum amount is: 267\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation error. The monthly payment is too low.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a042cd7b-a577-4b09-9f70-ec470c280aff",
+      "type": "http",
+      "documentation": "Retrieve Payment Plan Payments",
+      "method": "get",
+      "endpoint": "api/users/:id/payment_plans/:payment_plan_id/payments",
+      "responses": [
+        {
+          "uuid": "7aa395da-9a6c-4ebd-b770-2c1363958a3b",
+          "body": "{\n  \"payments\": [\n    {\n      \"id\": 1,\n      \"amount\": 10000,\n      \"status\": \"{{oneOf (array 'upcoming' 'paid')}}\",\n      \"type\": \"{{oneOf (array 'minimum' 'priority' 'final')}}\",\n      \"payment_date\": \"2024-09-06\",\n      \"estimated_balance\": 4313500,\n      \"estimated_payoff_date\": \"2029-09-01\",\n      \"account_id\": 2\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of payments",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a792c6c3-615e-4d81-99b4-3a0272b4c145",
+      "type": "http",
+      "documentation": "Update Payment Plan Payments",
+      "method": "patch",
+      "endpoint": "api/users/:id/payment_plans/:payment_plan_id/payments/:payment_id",
+      "responses": [
+        {
+          "uuid": "fe142b94-53f1-4612-b0e9-aaef284d070d",
+          "body": "{\n  \"id\": 1,\n  \"amount\": 10000,\n  \"status\": \"{{oneOf (array 'upcoming' 'paid')}}\",\n  \"type\": \"{{oneOf (array 'minimum' 'priority' 'final')}}\",\n  \"payment_date\": \"2024-09-06\",\n  \"estimated_balance\": 4313500,\n  \"estimated_payoff_date\": \"2029-09-01\",\n  \"account_id\": 2\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns an updated payment plan payment",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "abc4fa6d-003c-4ead-87d0-5b2564527c15",
+      "type": "http",
+      "documentation": "Payoff Plan Calculation",
+      "method": "post",
+      "endpoint": "api/users/:id/payment_plans/pre_calculate_payments",
+      "responses": [
+        {
+          "uuid": "62eaaf0b-f36b-48b8-b238-a634b9d2794c",
+          "body": "{\n  \"avalanche\": {},\n  \"snowball\": {}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a payment plan",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7e3a7a78-9c34-44d1-a684-f5c3fba9a44d",
+          "body": "{\n  \"error\": {\n    \"code\": \"account_information_missing\",\n    \"message\": \"Accounts with id: [1] are missing APR or minimum payment.\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Missing account information error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "78fe28ac-0c3d-4827-a4e2-78b5b281a84e",
+      "type": "http",
+      "documentation": "Payment Plans",
+      "method": "get",
+      "endpoint": "api/users/:id/payment_plans",
+      "responses": [
+        {
+          "uuid": "65534ab6-56fb-4f2d-9503-efac7e6b3e11",
+          "body": "{\n  \"id\": 1,\n  \"total_monthly_contribution\": 20000,\n  \"debt_free_date\": \"2045-01-23\",\n  \"strategy\": \"{{oneOf (array 'snowball' 'avalanche')}}\",\n  \"extra_amount\": 5000,\n  \"upcoming_payments\": [\n    {\n      \"id\": 1,\n      \"amount\": 10000,\n      \"status\": \"{{oneOf (array 'upcoming' 'paid')}}\",\n      \"type\": \"{{oneOf (array 'minimum' 'priority' 'final')}}\",\n      \"payment_date\": \"2024-09-06\",\n      \"estimated_balance\": 4313500,\n      \"estimated_payoff_date\": \"2029-09-01\",\n      \"account_id\": 2\n    }\n  ],\n  \"accounts\": [\n    1\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a user's payment plan",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8a79e724-d5ff-46e7-b2ec-b38708627a22",
+          "body": "{\n  \"error\": {\n    \"code\": \"not_found\",\n    \"message\": \"Requested recourse not found.\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Payment plan not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f155d6f1-23d9-4b7c-8fd0-fed160d1d216",
+      "type": "http",
+      "documentation": "Create Payment Plan",
+      "method": "post",
+      "endpoint": "api/users/:id/payment_plans",
+      "responses": [
+        {
+          "uuid": "39dcba26-8277-4d46-819d-ca103c8c5835",
+          "body": "{\n  \"id\": 1,\n  \"total_monthly_contribution\": 20000,\n  \"debt_free_date\": \"2045-01-23\",\n  \"strategy\": \"{{oneOf (array 'snowball' 'avalanche')}}\",\n  \"extra_amount\": 5000,\n  \"upcoming_payments\": [\n    {\n      \"id\": 1,\n      \"amount\": 10000,\n      \"status\": \"{{oneOf (array 'upcoming' 'paid')}}\",\n      \"type\": \"{{oneOf (array 'minimum' 'priority' 'final')}}\",\n      \"payment_date\": \"2024-09-06\",\n      \"estimated_balance\": 4313500,\n      \"estimated_payoff_date\": \"2029-09-01\",\n      \"account_id\": 2\n    }\n  ],\n  \"accounts\": [\n    1\n  ]\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Returns a payment plan",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9b12cff9-81aa-4c49-8542-d212daede458",
+          "body": "{\n  \"error\": {\n    \"code\": \"already_exist\",\n    \"message\": \"Payment plan already exist\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Payment plan already exists",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3dc91985-e07a-4037-8ca6-872d1ccb1bed",
+      "type": "http",
+      "documentation": "Update Payment Plan",
+      "method": "patch",
+      "endpoint": "api/users/:id/payment_plans/:payment_plan_id",
+      "responses": [
+        {
+          "uuid": "529d8390-008c-422a-8c98-66ff65fe71a6",
+          "body": "{\n  \"id\": 1,\n  \"total_monthly_contribution\": 20000,\n  \"debt_free_date\": \"2045-01-23\",\n  \"strategy\": \"{{oneOf (array 'snowball' 'avalanche')}}\",\n  \"extra_amount\": 5000,\n  \"upcoming_payments\": [\n    {\n      \"id\": 1,\n      \"amount\": 10000,\n      \"status\": \"{{oneOf (array 'upcoming' 'paid')}}\",\n      \"type\": \"{{oneOf (array 'minimum' 'priority' 'final')}}\",\n      \"payment_date\": \"2024-09-06\",\n      \"estimated_balance\": 4313500,\n      \"estimated_payoff_date\": \"2029-09-01\",\n      \"account_id\": 2\n    }\n  ],\n  \"accounts\": [\n    1\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns updated the payment plan",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e87924b8-63d2-4c09-917c-bb832e36c9ce",
+      "type": "http",
+      "documentation": "Delete Payment Plan",
+      "method": "delete",
+      "endpoint": "api/users/:id/payment_plans/:payment_plan_id",
+      "responses": [
+        {
+          "uuid": "1a5ac21d-b465-4c67-b91d-1658f852c064",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "Deletes a payment plan",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "72d3b0bb-e9c3-499e-b028-38a7df0fc0dc",
+      "type": "http",
+      "documentation": "Retrieve All Users",
+      "method": "get",
+      "endpoint": "api/users",
+      "responses": [
+        {
+          "uuid": "5e545888-f80a-41e1-bc1b-3b72936922e9",
+          "body": "{\n  \"users\": [\n    {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Smith\",\n      \"phone_number\": \"9891231230\",\n      \"email\": \"john_smith@debt-wise.com\",\n      \"ssn\": \"12345678\",\n      \"date_of_birth\": \"1993-03-03\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a list of users",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "63b401e6-151e-40cb-ad52-62a49c38a8e9",
+      "type": "http",
+      "documentation": "Create User",
+      "method": "post",
+      "endpoint": "api/users",
+      "responses": [
+        {
+          "uuid": "e9067531-e92c-400d-a40f-fbed14aba6e8",
+          "body": "{\n  \"id\": 1,\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"phone_number\": \"9891231230\",\n  \"email\": \"john_smith@debt-wise.com\",\n  \"ssn\": \"12345678\",\n  \"date_of_birth\": \"1993-03-03\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Returns a created user",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "99e51771-dcf1-49f6-9134-5881f9fcf108",
+          "body": "{\n  \"error\": {\n    \"code\": \"validation_error\",\n    \"message\": \"Phone number can't be blank\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "cd5525ab-e0c9-40cd-8e7f-f33f1d00cbbb",
+      "type": "http",
+      "documentation": "Retrieve User",
+      "method": "get",
+      "endpoint": "api/users/:id",
+      "responses": [
+        {
+          "uuid": "e83d7991-025b-4565-9a07-3e877d9d9534",
+          "body": "{\n  \"id\": 1,\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"phone_number\": \"9891231230\",\n  \"email\": \"john_smith@debt-wise.com\",\n  \"ssn\": \"12345678\",\n  \"date_of_birth\": \"1993-03-03\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns a user",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "54ce9b14-3a45-4e78-86de-abc3c9bea1bc",
+      "type": "http",
+      "documentation": "Update User",
+      "method": "patch",
+      "endpoint": "api/users/:id",
+      "responses": [
+        {
+          "uuid": "c9186ddc-49b6-40f7-98dc-e130006942d0",
+          "body": "{\n  \"id\": 1,\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"phone_number\": \"9891231230\",\n  \"email\": \"john_smith@debt-wise.com\",\n  \"ssn\": \"12345678\",\n  \"date_of_birth\": \"1993-03-03\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Returns an updated user",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "ce24d280-448a-4758-af55-d36ec6300ec2",
+      "type": "http",
+      "documentation": "Delete User",
+      "method": "delete",
+      "endpoint": "api/users/:id",
+      "responses": [
+        {
+          "uuid": "5925bcbf-8bae-465c-9f81-15ea57b368ab",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "Delete a user",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "f15b10da-082d-4835-aff3-3f7395464843"
+    },
+    {
+      "type": "route",
+      "uuid": "a2f36001-f030-4ea1-a041-d8f1bbf23bd1"
+    },
+    {
+      "type": "route",
+      "uuid": "776b64c4-d445-4921-bf2e-1cd4a4d65119"
+    },
+    {
+      "type": "route",
+      "uuid": "15ef5a64-e88d-4ef1-8416-0051f5510160"
+    },
+    {
+      "type": "route",
+      "uuid": "8f34b74a-2b87-49e6-ad8c-258f1095afc3"
+    },
+    {
+      "type": "route",
+      "uuid": "e192215f-17b8-4700-ba7c-a20d5390c8b5"
+    },
+    {
+      "type": "route",
+      "uuid": "84d38c26-1a08-4589-a9aa-578397a78d57"
+    },
+    {
+      "type": "route",
+      "uuid": "c5ceb869-13ac-4f99-95ae-be0e8bbf5b45"
+    },
+    {
+      "type": "route",
+      "uuid": "eb750653-21ea-4f5f-b2f6-fe10764777a9"
+    },
+    {
+      "type": "route",
+      "uuid": "daad6420-5340-4548-8639-7de80d1f314e"
+    },
+    {
+      "type": "route",
+      "uuid": "112dacd4-82b7-45a5-9079-0ec5ab10ca09"
+    },
+    {
+      "type": "route",
+      "uuid": "bebccfdd-930a-42f1-9927-d0e7e276424f"
+    },
+    {
+      "type": "route",
+      "uuid": "7e37e935-12fc-4d15-bcb0-6a19b22853fb"
+    },
+    {
+      "type": "route",
+      "uuid": "88e9e356-c013-4194-9e77-3079784440dc"
+    },
+    {
+      "type": "route",
+      "uuid": "a042cd7b-a577-4b09-9f70-ec470c280aff"
+    },
+    {
+      "type": "route",
+      "uuid": "a792c6c3-615e-4d81-99b4-3a0272b4c145"
+    },
+    {
+      "type": "route",
+      "uuid": "abc4fa6d-003c-4ead-87d0-5b2564527c15"
+    },
+    {
+      "type": "route",
+      "uuid": "78fe28ac-0c3d-4827-a4e2-78b5b281a84e"
+    },
+    {
+      "type": "route",
+      "uuid": "f155d6f1-23d9-4b7c-8fd0-fed160d1d216"
+    },
+    {
+      "type": "route",
+      "uuid": "3dc91985-e07a-4037-8ca6-872d1ccb1bed"
+    },
+    {
+      "type": "route",
+      "uuid": "e87924b8-63d2-4c09-917c-bb832e36c9ce"
+    },
+    {
+      "type": "route",
+      "uuid": "72d3b0bb-e9c3-499e-b028-38a7df0fc0dc"
+    },
+    {
+      "type": "route",
+      "uuid": "63b401e6-151e-40cb-ad52-62a49c38a8e9"
+    },
+    {
+      "type": "route",
+      "uuid": "cd5525ab-e0c9-40cd-8e7f-f33f1d00cbbb"
+    },
+    {
+      "type": "route",
+      "uuid": "54ce9b14-3a45-4e78-86de-abc3c9bea1bc"
+    },
+    {
+      "type": "route",
+      "uuid": "ce24d280-448a-4758-af55-d36ec6300ec2"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

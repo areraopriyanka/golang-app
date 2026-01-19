@@ -1,0 +1,1988 @@
+{
+  "outline": true,
+  "title": "Deposit Account Agreement",
+  "subTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  "updatedAt": [2025, 3, 18],
+  "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+  "content": [
+    {
+      "type": "collapsible",
+      "header": "1.0 Overview",
+      "expanded": true,
+      "content": [
+        {
+          "type": "text",
+          "text": "DreamFi is a Financial Technology (FinTech) company that partners with member FDIC approved sponsor bank (FinWise Bank) to empower the financially underserved by enhancing their economic standing. Our mission is to improve credit scores and financial health through comprehensive support in money management, bill payment, banking solutions, and educational resources."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "2.0 Our Agreement",
+      "content": [
+        {
+          "type": "text",
+          "text": "You may open the Checking Account by using the DreamFi mobile banking application (the “DreamFi Mobile App”). The Checking Account is not designed for business use, and we reserve the right to close the Checking Account if we determine it is being used for business purposes. We reserve the right to refuse to process any transaction(s) that we believe may violate the terms of this Agreement."
+        },
+        {
+          "type": "text",
+          "text": "You are responsible and liable for all activity you have authorized on your Checking Account unless otherwise noted below."
+        },
+        {
+          "type": "text",
+          "text": "Business Days"
+        },
+        {
+          "type": "text",
+          "text": "Our business days are Monday through Friday, excluding federal holidays. Any references to “days” found in this Agreement are calendar days unless indicated otherwise."
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "3.0 Account Basics",
+      "content": [
+        {
+          "type": "list",
+          "content": [
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "DreamFi Checking Account Eligibility: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "You must be at least eighteen (18) years old to open and use the Checking Account. By agreeing to this Agreement, you represent and warrant to us: (i) that you are at least eighteen (18) years old; (ii) that you are a legal resident of the United States; and (iii) that your enrollment in and use of the Checking Account is in compliance with any and all applicable laws and regulations. You must agree to accept electronic, rather than paper statements. This means:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "you must keep us informed of your current valid email address; and"
+                  },
+                  {
+                    "type": "text",
+                    "text": "you must agree to accept electronic delivery of all account communications (such as end-of-year tax forms and electronic statements)."
+                  },
+                  {
+                    "type": "text",
+                    "text": "If you revoke your e-sign consent, your account will be closed."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "We may collect and use information from third parties to help us determine if we should open your Checking Account"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "DreamFi implements and maintains reasonable security procedures and practices. This includes administrative, physical, and technical safeguards that are appropriate to the nature of the data and the purposes for which the data is used."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Data obtained from third parties may not be used for any purpose other than as outlined in this agreement, unless required by applicable law."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Opening an Account: IMPORTANT INFORMATION ABOUT PROCEDURES FOR OPENING A NEW ACCOUNT"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "To help the government fight the funding of terrorism and money laundering activities, federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an Account. What this means for you: When you open an Account, we will ask for your name, address, date of birth, and other non-public personal information that will allow us to identify you. We may also ask to see a copy of your driver’s license or other identifying documents."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "The Checking Account:"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "The Checking Account consists of the online transaction demand deposit account used to make payments and transfers to third parties online or through the use of a DreamFi Visa® Debit Card (“Card”). You will receive a physical Card. The DreamFi Checking Account is a personal, checkless account. You may not issue paper checks with the DreamFi Checking Account. If you attempt to obtain and use a personal checkbook, the check will be rejected. "
+                      },
+                      {
+                        "type": "text",
+                        "bold": true,
+                        "text": "Account Titling and Ownership: "
+                      },
+                      {
+                        "type": "text",
+                        "text": "The Checking Account may only be owned and titled in the name of one person who may deposit, transfer, or withdraw funds. The Checking Account cannot be owned or titled jointly, by an organization, as Payable on Death (“POD”) or “In Trust For” (“ITF”)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Death or Incapacitation: "
+                },
+                {
+                  "type": "text",
+                  "text": "Your designated representative or legal agent must promptly notify us if you pass away or become legally incapacitated. We may continue to accept deposits and process transactions to and from your Checking Account until we are: (a) notified of your death or adjudication of incompetency and (b) have a reasonable opportunity to act. You agree that, even if we have knowledge of your death, we may pay or process transactions on your Checking Account on or before the date of death for up to ten (10) days after that date unless ordered to stop payment by someone claiming interest in the Checking Account. We may require additional documentation to confirm any claims made on the Checking Account."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Our Relationship with You: "
+                },
+                {
+                  "type": "text",
+                  "text": "This Agreement does not create a fiduciary, quasi fiduciary or other special relationship between you and us. We owe you a duty of ordinary care. There are no third-party beneficiaries to this agreement."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Privacy Policy: "
+                },
+                {
+                  "type": "text",
+                  "text": "Our privacy policy is available at "
+                },
+                {
+                  "type": "link",
+                  "text": "DreamFi.com",
+                  "link": "http://dreamfi.com"
+                },
+                {
+                  "type": "text",
+                  "text": " and in the mobile application. The privacy policy is considered part of this Agreement."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "4.0 Transfers",
+      "content": [
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Authorization to repay a negative balance in Checking Account from the any other DreamFi account: "
+                },
+                {
+                  "type": "text",
+                  "text": "Your authorization – If you hold more than one DreamFi Checking account, if your Checking Account balance becomes negative, you authorize us to immediately transfer available funds in your other Account(s) to your Checking Account in the amount of the negative balance. These transfers will be subject to the Electronic Funds Transfer Disclosure."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "5.0 General Rules Governing Deposit Accounts",
+      "content": [
+        {
+          "type": "text",
+          "text": "You may not grant, transfer or assign the Checking Account or your obligations under this Agreement. The Bank may pool your funds, together with funds from other Cardholders and to deposit those funds at one or more FDIC insured banks and to obtain your funds from the pooled funds account(s) in order to transfer your funds as you may direct. The Bank may also transfer or assign its rights under this Agreement at any time and without providing prior notices to you of the assignment. Use of the Checking Account is subject to all applicable laws, rules, regulations, and customs of any clearinghouse or other association involved in transactions. We do not waive our rights by delaying or failing to exercise them at any time. If any provision of this Agreement shall be determined to be invalid or unenforceable under any rule, law, or regulation of any governmental agency, local, state, or federal, the validity or enforceability of any other provision of this Agreement shall not be affected. This Agreement will be governed by the laws of the State of Utah except to the extent governed by federal law."
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "text",
+              "text": "Deposits to the Account - Make deposits to your Checking Account using any of these methods:"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [1, 1],
+          "rows": [
+            [
+              {
+                "header": "Transaction Type"
+              },
+              {
+                "header": "Frequency and Fund limits"
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Direct deposits or other ACH Transfers to the Checking Account initiated from an outside financial institution*"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limit to the number of times per calendar day. $10,000 per Calendar Day, $25,000 per Calendar Month."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cash Deposits** Available within two (2) hours after depositing*"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "$1,000.00 per deposit"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ACH Transfers to the Checking Account initiated from the DreamFi Mobile App or Website"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limit to the number of times per day; up to $10,000.00 per calendar day, maximum of up to $25,000.00 per calendar month***"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "** ATM AND THIRD PARTY MONEY TRANSFER services used to deposit funds to your Checking Account may impose their own fees, per transaction, daily, weekly or monthly limits on the frequency or amount of cash you may deposit to the Checking Account."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "*** Members may be eligible for higher transfer limits based on Checking Account history, at our sole discretion. New Accounts will be limited to a single transfer."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "bold": true,
+                        "text": "We may change these limits with notice to you. "
+                      },
+                      {
+                        "type": "text",
+                        "text": "To determine the current limits that apply to you, you can access them under the settings section of the DreamFi Mobile App, contact Member Services by calling 833.637.3266."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "text",
+              "text": "Important: If your Checking Account number changes you must immediately notify your employer or any other payors. You must provide them with the new Checking Account number to ensure that your direct deposit activity continues uninterrupted. The above may be unavailable or delayed from time to time due to eligibility requirements, scheduled maintenance, changes to our services, unforeseen circumstances, or outages. DreamFi will give you reasonable notice if your access to a feature change or is no longer available to you."
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "No Cash, Paper Checks or Foreign Currency - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "We are not liable for any deposits, including cash, lost in the mail, lost in transit, or not received by us."
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cash – We do not accept deposits made in cash, except at participating Allpoint ATM locations. If you mail a cash deposit, the cash will be sent back to the address we have for you on file."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Paper Checks – We do not accept deposits made by personal checks, cashier’s checks, or money orders deposited by mail. All checks and money orders sent to us for deposit will be returned unless the full amount may be applied towards a negative balance, in which case the check or money order may or may not be deposited to the Account at our discretion."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Foreign Currency – We do not accept deposits in foreign currency. Any deposits received in foreign currency, cash or check; will be sent back to the address we have for you on file."
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Preauthorized Transfers & Direct Deposit - "
+                },
+                {
+                  "type": "text",
+                  "text": "Your Checking Account number and bank routing number can be used for preauthorized direct debits (“ACH Debits”) from merchants, Internet service or other utility service providers (“Merchants”). These numbers may also be used for the purpose of initiating direct deposits to your Checking Account which in turn will allow you the ability to choose to allocate those direct deposits from your Checking Account to your selected deposit Accounts all in accordance with your direct deposit selections made in the DreamFi App. Preauthorized ACH Debit transfers will be processed under the Operating Rules of the National Automated Clearing House Association (“NACHA”) and you agree to comply with the NACHA rules. Detailed information regarding preauthorized transfers is available in the DreamFi “ELECTRONIC FUNDS TRANSFER DISCLOSURE AND SPECIAL TERMS AND CONDITIONS.” NOTE: The recipient’s name on any direct deposit(s) we receive must match the name of the DreamFi Accountholder. Any direct deposits received in a name other than the name registered to the Checking Account will be returned to the originator. IMPORTANT: If your Checking Account number changes you must immediately notify the Merchants. You must provide them with the new Checking Account number to ensure that the ACH Debit activity continues uninterrupted."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Problems That Could Occur with Deposits - "
+                },
+                {
+                  "type": "text",
+                  "text": "Overpayments and Reversals. If funds are deposited or transferred into your Checking Account by mistake or otherwise, you agree that we may correct the situation by deducting the amount of the deposit from your Checking Account without prior notice to you. If there are not enough funds in your Checking Account at that time, your Checking Account could become overdrawn. See the “No Overdrafts” and “Right to Set Off” sections below, for more information about what could occur if your Checking Account has a negative balance."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "No Overdrafts - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "You are not permitted to overdraw your Checking Account. If the available balance in your Checking Account is not sufficient to cover any payment or withdrawal you have authorized, we can refuse to process the payment or withdrawal. Even if we’ve paid overdraft items before, we are not required to do it in the future. It is your responsibility to avoid overdrawing your account."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "Below we describe, generally, how we post transactions to your DreamFi Account. Please note that this process may change from time to time, without prior notice to you. Our order of posting depends on a number of factors, including when a transaction occurs, whether it has already been approved by us or has become final, the order in which it is presented, the amount, system availability, potential risk of loss to the Bank, and the type of transaction in question, among other variables."
+              },
+              {
+                "type": "text",
+                "text": "First, we credit your Checking Account for deposits received before the cutoff time. Then, we process withdrawals / payments we have previously authorized and cannot return unpaid, such as Card purchases and ATM withdrawals. If we receive more than one of these transactions for payment from your Checking Account, we will generally sort and pay them based on the date and time you conducted the transactions. For Card transactions, we will use the date the transaction is received for payment from your account. For some transactions, the time may be assigned by our systems and may vary from the time you initiated it. Multiple transactions that have the same time will be sorted and paid from lowest to highest dollar amount. We always reserve the right to post transactions that are payable to us first, and we may post any transaction earlier or later in the process than indicated. As such, if you want to avoid an overdraft or the possibility of a rejected transaction, you should take steps to ensure that your account has sufficient funds to cover each of your transactions and any fees."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [1, 1],
+          "rows": [
+            [
+              {
+                "header": "ACH Transfer Initiated:"
+              },
+              {
+                "header": "Processing time:"
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "On a business day before 3:00 pm Eastern*"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Will post the same day."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "On a Saturday or Sunday"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Will post on Monday by 1:00 pm Eastern, unless Sunday is a holiday."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "On a Sunday that is a holiday"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "The Federal Reserve Bank will be closed on Monday. Regular posting will resume on Tuesday."
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your Checking Account balance becomes negative for any reason, you must make a deposit immediately to cover the negative balance. We may report you to consumer reporting agencies, close your account, or both. This could affect your ability to open accounts with us or other banks in the future. If your Checking Account has a negative balance and you have another account with us, we reserve the right to exercise our right in Section 5b above and our right to set off. See the “Right to Set Off” section below for details. If your Checking Account has a negative balance for sixty (60) calendar days or more, it will be closed. You agree to pay all costs and expenses we incur in collecting overdrawn funds. We may still pursue collection of the amount you owe (including suing you) after it is charged off. DreamFi and / or the Bank reserve the right to close your DreamFi Account and any other DreamFi-branded Account(s) you have opened if you overdraw your Checking Account in violation of these terms."
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Right to Set Off - "
+                },
+                {
+                  "type": "text",
+                  "text": "If your Checking Account balance becomes and remains negative for fifteen (15) days, we can use the funds in any of your DreamFi accounts to repay the amount owed on the negative balance Checking Account. This means, we have the right to set-off any liability, direct or contingent, past, present or future that you owe against any account you have with us. Further, you grant us a lien on and security interest in the funds on deposit in each of your account(s) as security for all of your liabilities and obligations to us, now or in the future. We do not have to give you any prior notice to apply the funds. You expressly agree that our rights extend to any electronically deposited federal or state benefit payments (including Social Security benefits). If you don’t want your benefits applied in this way, you may change your direct deposit instructions at any time with the person or organization paying the benefits. If any federal benefits or other payments are deposited to your account after you become ineligible to receive them, we may set off against any of your accounts to recover the payments if we’re obligated to return funds to the payor. We will notify you if we have exercised our right to set off."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Legal Processes Affecting Accounts - "
+                },
+                {
+                  "type": "text",
+                  "text": "If legal action such as a garnishment, levy or other state of federal investigation or legal process (“Legal Process”) is brought against your Checking Account, we may refuse to permit (or may limit) withdrawals or transfers from your Checking Account until the Legal Process is satisfied or dismissed. Regardless of the terms of such garnishment, levy or other state or federal process, we have first claim to any and all funds in your Checking Account. We will not contest on your behalf any such Legal Process and may take action to comply with such Legal Process as we determine to be appropriate in the circumstances without liability to you, even if any funds we may be required to pay out leaves insufficient funds to pay a transaction that you have authorized. Payment is made after satisfying any fees, charges or other debts owed to us. You agree that we may honor legal process that is served personally, by mail, email or facsimile transmission at any of our offices (including locations other than where the funds, records or property sought is held), even if the law requires personal delivery at the office where your account or records are maintained. You agree that you are responsible for any expenses, including legal expenses and fees we incur due to any Legal Process on your Checking Account. We may charge these expenses to your Checking Account. You will indemnify us for any losses if we do this."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Account Holds, Suspensions, Restrictions and Closures - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "DreamFi and / or Bank may suspend, freeze, restrict, or close your Checking Account for any reason with or without notice. Such reasons include, but are not limited to:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "If we, at any time, believe a member is using the Checking Account and / or associated DreamFi Visa® Debit Card for fraudulent or illegal purposes, or such member otherwise presents an undue risk to DreamFi and / or the Bank as determined, in our sole discretion."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Your use conflicts with any federal, state or local law, rule or regulation, including federal foreign asset control and sanction rules and anti-money-laundering rules, or with our policies adopted to assure that we comply with those laws, rules or regulations."
+                  },
+                  {
+                    "type": "text",
+                    "text": "We receive a court order or other Legal Process request to suspend or close your account."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Your non-fraudulent actions nonetheless violate any part of this Agreement."
+                  },
+                  {
+                    "type": "text",
+                    "text": "If DreamFi and / or Bank suspends, freezes, restricts or closes any of your other accounts held by Bank and / or held by another DreamFi partner bank."
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "text",
+              "text": "If our monitoring of the Checking Account detects any such activity, the Account funds will be subject to a hold pending review of the activity by the Bank and / or DreamFi. The Bank and / or DreamFi may require you and other parties to the activity to produce documents and / or other materials evidencing the validity of the activity. Funds on deposit in any Account are subject to hold at the Bank’s discretion until the source of such funds and / or the activity is properly verified. The Bank and / or DreamFi also may temporarily or permanently reduce your limits on deposits to, or withdrawals or transfers from, your account without prior notice to you unless prior notice is required by applicable law, rule, or regulation."
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Amendment and Cancellation - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "We may amend or change the terms and conditions of this Agreement at any time by posting the amended Agreement on DreamFi.com, and any such amendment shall be effective upon such posting to that Website. The current Agreement is available at DreamFi.com. You will be notified of any change in the manner provided by applicable law prior to the effective date of the change. However, if the change is made for security purposes, we can implement such change without prior notice. We may cancel or suspend your Checking Account or this Agreement at any time."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "You may cancel this Agreement by accessing the close account section in your mobile application or by calling 833.637.3266 to close your Checking Account. Your termination of this Agreement will not affect any of our rights or your obligations arising under this Agreement prior to termination. If your Checking Account is cancelled, closed or terminated for any reason, you may be eligible to receive the unused balance, which will be returned to you via check sent to the mailing address we have in our records. Your account balance is required to be $0.00 before you can close your account."
+              },
+              {
+                "type": "text",
+                "text": "In the event the program is cancelled, closed, or terminated, we will send you prior notice, in accordance with applicable law, rule, or regulation. Specific information and instructions, including how to receive any remaining Checking Account balance, will be in the notice. We reserve the right to refuse to return any unused balance amount less than $1.00 unless required by applicable law, rule, or regulation."
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Account Dormancy and Escheatment - "
+                },
+                {
+                  "type": "text",
+                  "text": "An account that is inactive for a period of time may be considered dormant and is subject to escheatment. We may transfer (escheat) your property to the appropriate state if no activity occurs in the account or you fail to communicate with us regarding your account within the time period specified by state law. We may consider an account dormant even if you maintain another active account with us. Each state has varying laws as to when an account is subject to escheatment, and we may be required to send the balance in your Checking Account to the state of your last known address. We will make all reasonable efforts to contact you before transferring the remaining balance of your Checking Account to the applicable state. If funds are transferred to the state, you may file a claim with the state to recover the funds."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Statements - "
+                },
+                {
+                  "type": "text",
+                  "text": "Electronic statements are available to view and print within the DreamFi mobile application or at the Website. Carefully review your statements each statement period and notify us of any errors within sixty (60) days of your statement becoming available. If you do not, you may be responsible for unauthorized transactions as described in the section "
+                },
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "“Your Liability for Unauthorized Electronic Funds Transfers”"
+                },
+                {
+                  "type": "text",
+                  "text": " below. You will not receive paper statements."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Special Rules for New Accounts - "
+                },
+                {
+                  "type": "text",
+                  "text": "Checking Accounts open less than thirty calendar days from the date that your first deposit is credited to your Checking Account (“30 days”) or Checking Accounts with a DreamFi Visa Debit Card that has not been activated (“New Accounts) will be limited in functionality. You may not be eligible to use certain features such as (lifestyle features, P2P features) until the DreamFi Visa Debit Card has been activated and the Checking Account has been open for at least 30 days. In addition, certain transfer limits may be lower during this time “ELECTRONIC FUNDS TRANSFER DISCLOSURE”."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "6.0 Using the DreamFi Visa Debit Card",
+      "content": [
+        {
+          "type": "text",
+          "text": "Upon your specific election, you will receive a DreamFi Visa Debit Card (“the Card”) with your Checking Account. You acknowledge and agree that the funds accessible through use of the Card is limited to the available funds in your Checking Account. You agree to sign the back of the Card immediately upon receipt. The expiration date of the Card is identified on the back of the Card. The Card is the property of the Issuer and must be surrendered upon demand. The Card is nontransferable, and it may be cancelled, repossessed, or revoked at any time without prior notice subject to applicable law, rule, or regulation."
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Activate the Physical Card - "
+                },
+                {
+                  "type": "text",
+                  "text": "You must activate the Card before it can be used. You may activate it through the DreamFi Mobile App. You will need to provide personal information in order for us to verify your identity. Certain functionality outlined in this Agreement may be restricted prior to activating the physical Card."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Personal Identification Number - "
+                },
+                {
+                  "type": "text",
+                  "text": "You will not receive a Personal Identification Number (“PIN”) with the Card. However, you will be prompted to select a PIN when you activate the physical Card. See the activation instructions in the “Activate the Card” section. You should not write or keep your PIN with your physical Card. Never share your PIN with anyone. When entering your PIN, be sure it cannot be observed by others and do not enter your PIN into any terminal that appears to be modified or suspicious. If you believe that anyone has gained unauthorized access to your PIN, you should advise us immediately following the procedures in the section labeled "
+                },
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "“Your Liability for Unauthorized Electronic Funds Transfers.”"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Authorized Card or Checking Account Users - "
+                },
+                {
+                  "type": "text",
+                  "text": "You are responsible for all authorized transactions initiated and fees incurred by use of the Card or Checking Account. If you permit another person to have access to your Card, Card number(s), Checking Account number(s) or PIN, we will treat this as if you have authorized such use and you will be liable for all transactions and fees incurred by those persons. You are wholly responsible for the use of your Checking Account according to the terms and conditions of this Agreement."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Secondary Cardholder - "
+                },
+                {
+                  "type": "text",
+                  "text": "You may not request an additional Card for another person."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Your Representations and Warranties - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "By activating the Card or by retaining, using or authorizing the use of the Card provided with the Checking Account, you represent and warrant to us that:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "you are at least 18 years of age (or older if you reside in a state where the majority age is older);"
+                  },
+                  {
+                    "type": "text",
+                    "text": "you are a U.S. citizen or legal alien residing in the fifty (50) states of the United States (“U.S.”) or the District of Columbia"
+                  },
+                  {
+                    "type": "text",
+                    "text": "you have provided us with a verifiable U.S. Residential Street address (not a P.O. Box)"
+                  },
+                  {
+                    "type": "text",
+                    "text": "the personal information that you provide to us in connection with the Checking Account is true, correct and complete;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "you received a copy of this Agreement and agree to be bound by and to comply with its terms; and"
+                  },
+                  {
+                    "type": "text",
+                    "text": "you accept the Card."
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cash Access and Transaction Limitations - With your PIN, you may use the Card to obtain cash from your Checking Account at any Automated Teller Machine (“ATM”) or any Point-of-Sale (“POS”) device, as permissible by a merchant, that bears the Visa® Marks. All ATM transactions are treated as cash withdrawal transactions. Please note that if you use your Card to get account balance information from an ATM, the balance may not reflect recent transactions. You may use the Card at an ATM and withdraw funds at a participating bank (“Over The Counter” or “OTC” withdrawals). "
+                },
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "ATM and Over the Counter (“OTC”) cash withdrawals, funds withdrawn at a POS, and purchases each count toward the $3,000.00 maximum amount that can be spent on the Card per day."
+                },
+                {
+                  "type": "text",
+                  "text": " Below are the itemized cash access and spending limits for your Checking Account at the time of account opening. Members may later be eligible for higher transaction limits at our discretion, based on Checking Account history. "
+                },
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "We may change these limits with notice to you."
+                },
+                {
+                  "type": "text",
+                  "text": " To determine the current limits that apply to you, you can access them under the settings section of the DreamFi Mobile App, contact Member Services by calling 833.637.3266 or within the DreamFi Mobile App."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [1, 1],
+          "rows": [
+            [
+              {
+                "header": "Transaction Type"
+              },
+              {
+                "header": "Frequency and Fund limits"
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ATM Withdrawal"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limit to the number of times per day. Up to $1,000.00 per day* inclusion with card transactions up to a max of $3,000.00 per day."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Withdrawals from Allpoint ATMs in the U.S. are free of charge. Withdrawals from non-Allpoint ATMs may incur fees from the ATM owner."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Card Transactions (Signature and PIN)"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limit to the number of times per day. Up to $3,000.00 per day* inclusion of ATM cash withdrawals."
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "content": [
+            [
+              {
+                "type": "text",
+                "text": "* Daily limits refer to 24-hour rolling timeframes (for example, Tuesday 2:00pm – Wednesday 2:00pm). ATM and POS device owner-operators, merchants and participating banks may impose their own fees and lower limits on cash withdrawals."
+              },
+              {
+                "type": "text",
+                "text": "You may use the Card to purchase or lease goods or services everywhere Visa debit cards are accepted as long as you do not exceed the available balance of your Checking Account. Some merchants do not allow customers to conduct split transactions where the Card is used as partial payment for goods and services and the remainder of the balance is paid with another form of legal tender. If you wish to conduct a split transaction and it is permitted by the merchant, you must tell the merchant to charge only the exact amount of funds available in the Checking Account to the Card. You must then arrange to pay the difference using another payment method. Some merchants may require payment for the remaining balance in cash. If you fail to inform the merchant that you would like to complete a split transaction prior to swiping the Card, the Card is likely to be declined."
+              },
+              {
+                "type": "text",
+                "text": "If you use the Card at an automated fuel dispenser (“pay at the pump”), the transaction may be preauthorized for an amount equal to $75.00 or more. If the Card is declined, even though you have sufficient funds available, you should pay for your purchase inside with the cashier. If you use the Card at a restaurant, a hotel, for a car rental purchase, or for similar purchases, the transaction may be preauthorized for the purchase amount plus up to 20% or more to ensure there are sufficient funds available to cover tips or incidental expenses incurred. A preauthorization will place a “hold” on those available funds until the merchant sends us the final payment amount of your purchase. Once the final payment amount is received, the preauthorized amount on hold will be removed. It may take up to seven (7) days for the hold to be removed. During the hold period, you will not have access to the preauthorized amount."
+              },
+              {
+                "type": "text",
+                "text": "All transactions relating to car rentals may result in a hold for that amount of funds for up to thirty (30) days."
+              },
+              {
+                "type": "text",
+                "text": "If you use the 16-digit Card number without presenting the Card (such as for a mail order, telephone, or Internet purchase), the legal effect will be the same as if you used the Card itself. For security reasons, we may limit the amount or number of transactions you can make with the Card. The Card cannot be redeemed for cash. You may not use the Card for any illegal online gambling or any other illegal transaction."
+              },
+              {
+                "type": "text",
+                "text": "Each time you use the Card, you authorize us to reduce the value available in the Checking Account by the amount of the transaction and any applicable fees. You are not allowed to exceed the available amount in the Checking Account through an individual transaction or a series of transactions. Nevertheless, if a transaction exceeds the balance of the funds available in the Checking Account, you shall remain fully liable to us for the amount of the transaction and any applicable fee. See these provisions in Section C for additional details if your Checking Account balance becomes negative: “6. No Overdrafts and “7. Right to Set Off.”"
+              }
+            ],
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Non-Visa Debit Transactions - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Merchants are responsible for and must provide you with a clear way of choosing how to make a Visa debit transaction if they support the option. In the past, transactions have been processed as Visa debit transactions unless you entered a PIN. Now, if you do not enter a PIN, transactions may be processed as either a Visa debit, Interlink or as a Plus transaction. Please be advised that should you choose to use the Interlink or Plus network when making a transaction without a PIN, different terms may apply. Certain protections and rights applicable only to Visa debit transactions as described in this Agreement will not apply to transactions processed on the Interlink or Plus network. Please refer to the section labeled "
+                  },
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "“Your Liability for Unauthorized Electronic Funds Transfers”"
+                  },
+                  {
+                    "type": "text",
+                    "text": " for a description of these rights and protections applicable to Visa debit and non-Visa debit transactions."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "To initiate a Visa debit transaction at a point-of-sale, swipe or tap the Card through the POS terminal, sign the receipt, or provide your 16-digit Card number for a mail order, telephone, or Internet purchase. To initiate a non-Visa debit transaction at the POS, enter your PIN at the POS terminal or provide your 16-digit Card number after clearly indicating a preference to route your transaction as a non-Visa debit transaction for certain bill payment, mail order, telephone, or Internet purchases."
+              }
+            ],
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Transactions Made in Foreign Currencies - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "If you obtain funds or make a purchase in a currency other than the currency in which the Card was issued, the amount deducted from the available balance of your Checking Account will be converted by Visa into an amount in the currency of the Card. The exchange rate between the transaction currency and the billing currency used for processing international transactions is a rate selected by Visa from the range of rates available in wholesale currency markets for the applicable central processing date, which may vary from the rate Visa itself receives, or the government-mandated rate in effect for the applicable central processing date. The conversion rate may be different from the rate in effect on the date of your transaction and the date it is posted to your account."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "We will not impose a fee for each transaction (U.S. or foreign currency) that you conduct at merchants (including foreign websites) outside the United States or in a foreign currency, however, there may be third-party fees."
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Receipts - "
+                },
+                {
+                  "type": "text",
+                  "text": "You should get a receipt at the time you make a transaction using the Card. You agree to retain, verify, and reconcile your transactions and receipts."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Card Disputes- "
+                },
+                {
+                  "type": "text",
+                  "text": "In the event of a dispute regarding a charge on your Card, you must notify us as soon as possible, but no later than 30 days from the date of the statement showing the disputed charge. Please provide all relevant details, including the nature of the dispute and any supporting documentation. We will investigate the dispute in accordance with applicable laws and regulations and will work to resolve the issue promptly. If the dispute is resolved in your favor, we will take appropriate action, including issuing a credit to your account for the disputed amount. You can raise a dispute by calling 833.637.3266 or through the DreamFi Mobile App."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Card Replacement - "
+                },
+                {
+                  "type": "text",
+                  "text": "If you need to replace the Card for any reason except at Card expiration, you can do so by calling 833.637.3266 or through the DreamFi Mobile App. You will be required to provide personal information which may include your Checking Account number, 16-digit Card number, full name, transaction history, copies of acceptable documentation, etc."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Lost or stolen card: "
+                },
+                {
+                  "type": "text",
+                  "text": "If your Card is lost or stolen, you must immediately notify us to report the loss or theft. You are responsible for any unauthorized charges made prior to reporting the incident, subject to applicable laws and regulations. We will take necessary steps to suspend or cancel the card and issue a replacement, as appropriate."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Card Expiration - "
+                },
+                {
+                  "type": "text",
+                  "text": "The Card will expire no sooner than the date printed on the front of it. You will not be able to use the Card after the expiration date; however, a replacement Card will be automatically mailed to you prior to the expiration of the Card. If you need a Card replacement for any reason other than the Card’s expiration, you may request one at any time by following the procedures in the section labeled "
+                },
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "“Card Replacement.”"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "7.0 Electronic Funds Transfer Disclosure and Special Terms And Conditions",
+      "content": [
+        {
+          "type": "list",
+          "content": [
+            [
+              {
+                "type": "text",
+                "text": "Your Checking Account number and bank routing number can be used for the following:"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "preauthorized direct debits (“ACH Debit(s)”) from merchants, Internet service or other utility service providers (“Merchants)."
+                  },
+                  {
+                    "type": "text",
+                    "text": "for the purpose of initiating ACH transactions to or from your Checking Account (including Recurring Transfers and direct deposits)."
+                  },
+                  {
+                    "type": "text",
+                    "text": "for the purpose of making automatic transfers ."
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "text",
+              "text": "Note: The recipient’s name on any direct deposits or ACH credits we receive must match the name on the Checking Account. Any direct deposits received in a name other than the name registered to the Checking Account will be returned to the originator."
+            },
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Limits on ACH Debit Transactions"
+              },
+              {
+                "type": "list",
+                "content": [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Cut-off Time – The cut-off time for scheduling ACH transfers is 3:00 pm Eastern on a business day. Any transfer scheduled after the cut-off time will be treated as if it were scheduled on the next business day."
+                    },
+                    {
+                      "type": "list",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "ACH transfers on Saturday or Sunday will post on Monday by 1:00 pm Eastern, unless Sunday is a holiday."
+                        },
+                        {
+                          "type": "text",
+                          "text": "If Sunday is a holiday, the ACH transfer will post on Tuesday by 1:00 pm Eastern."
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "type": "text",
+                    "text": "ACH Debit Limits – The limitations to the amount of funds that can be transferred from your Checking Account per day are as follows:"
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [1, 1],
+          "rows": [
+            [
+              {
+                "header": "Transaction Type"
+              },
+              {
+                "header": "Frequency and Fund limits"
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ACH Debits"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limits to the number of times per day. Limited to the available Checking Account balance"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ACH credits initiated from the DreamFi Mobile App to another bank account you own*"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No limit to the number of times per day"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "*Acceptance of ACH credits may vary by financial institution. Please contact the bank you wish to send funds to prior to initiating an ACH credit to determine if restrictions apply."
+                  },
+                  {
+                    "type": "text",
+                    "text": "** This transaction type is not available for Checking Accounts with a DreamFi Visa Debit Card that has not been activated."
+                  },
+                  {
+                    "type": "text",
+                    "text": "We may change these limits with notice to you. To determine the current limits that apply to you, you can access them under the settings section of the DreamFi Mobile App, contact Member Services by calling 833-637-3266 or within the DreamFi Mobile App."
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "content": [
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Electronic Funds Transfer Services - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "The following terms are used to describe Electronic Funds Transfer (“EFT”) services. “Automated credits” or “direct deposits” are deposits made to your Checking Account by electronic means. “Automated debits” and “automated payments” indicate payments authorized by you to be made from your Checking Account by electronic means. “Online Transfers” are the movement of funds between your Checking Account and optional multiple DreamFi Checking Accounts by use of the DreamFi Mobile App or the Website. Online Transfers are described in detail in the agreement governing the DreamFi Checking Account. Automatic Transfers include inter-bank transfers between accounts at DreamFi bank partners and include automatic transfers described above, as applicable to your particular account holding institutions. When you accept direct deposits or authorize automatic payments / debits or transfers to or from your Checking Account, you agree to these terms and conditions."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "Other relevant terms and conditions described elsewhere in the Agreement also apply as long as they are consistent with Regulation E or Section II."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Types of Electronic Funds Transfers Available -"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You may arrange with another party, such as your employer or a government agency, to electronically deposit funds on a one-time or recurring basis directly to your Checking Account."
+                  },
+                  {
+                    "type": "text",
+                    "text": "You may authorize another party, such as a merchant, to make a one-time or recurring payment(s) using the Checking Account and bank routing numbers, directly from your Checking Account subject to the established limitations on withdrawals and transfers."
+                  },
+                  {
+                    "type": "text",
+                    "text": "You may use the Card to make purchases at merchants that accept the Card or to obtain cash at ATMs, over the terminals."
+                  },
+                  {
+                    "type": "text",
+                    "text": "You may initiate ACH transactions to or from your Checking Account."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Limitations on Transfers, Amounts and Frequency of Transactions -"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You may make cash withdrawals and POS purchases, not to exceed the established limits for your Checking Account. See the section labeled “Cash Access and Transaction Limitations” for details about the limits."
+                  },
+                  {
+                    "type": "text",
+                    "text": "If your Checking Account is closed, blocked or suspended for any reason, you will not be able to transact using your Card (including at an ATM)."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Right to Receive Documentation of Electronic Funds Transfers -"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Statements. Each month, you will have access to an electronic monthly statement that can be viewed on the Website and DreamFi Mobile App. You will also have access to transaction authorizations and settlements within the transaction history within the DreamFi Mobile App and by logging on to your account at DreamFi.com. You should carefully review your statements each statement period and let us know as soon as possible if there are any errors. If you do not, you may be responsible for unauthorized transactions as described in “Electronic Funds Transfers Disclosure” below. We do not mail monthly paper statements."
+                  },
+                  {
+                    "type": "text",
+                    "text": "Direct Deposits or Automated Credits. If you have arranged to have direct deposits made to your Checking Account at least once every sixty (60) days from the same person or company, check your transaction history through the DreamFi Mobile App to find out if the deposit has been made."
+                  }
+                ]
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Right to Stop Payment of Preauthorized Transfers and Procedures for Doing So - "
+                },
+                {
+                  "type": "text",
+                  "text": "If you scheduled a one-time ACH transfer over the phone or recurring ACH transfers using a written authorization form, you can stop any of these payments. Here’s how: To stop a recurring ACH transfer to a merchant you preauthorized to debit your Checking Account, please contact the merchant to request cancellation of the recurring payment. If the merchant with whom you arranged recurring ACH transfers from your Checking Account is unable or unwilling to stop the transfer you have the right to request a stop on such payment. If you call, we may require you to put your request in writing and to provide us with a copy of your notice to the payee, revoking the payee’s authority to originate debits to your account, within 14 days after you call. If we do not receive the written confirmation within 14 days, we may honor subsequent debits to your account. Your request to stop payment must be received at least three (3) business days before the payment is scheduled to be made. If you fail to give us your request at least three business days prior to a transfer, we may attempt at our sole discretion, to stop the payment. We assume no responsibility for our failure or refusal to do so, however, even if we accept the request for processing. Such a stop payment request will cancel a single, i.e. one (1) recurring payment. If you want to permanently stop all recurring payments to a specific merchant, you will be required to put your request in writing within fourteen (14) days after your notification to stop such payments. You will need to tell us the name of the payee, the dollar amount of the payment and the date of the payment. If written stop payment notification is not received within fourteen (14) days, the payment in question will be honored as originally authorized and future payments will not be permanently stopped. Under certain circumstances the stop payment may not be effective. In the event the stop payment is ineffective, please contact us to submit a dispute and review your options, such as completing the Written Statement of Unauthorized Debit or any other forms, closing your account or issuing a new card."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Notice of Varying Amounts - "
+                },
+                {
+                  "type": "text",
+                  "text": "If the recurring ACH transfers you make might vary in amount, the person you are going to pay will tell you the transfer date and the amount of the transfer ten (10) days before each payment is scheduled to take place. (You may choose instead to get this notice only when the payment would differ by more than a certain amount from the previous payment, or when the amount would fall outside certain limits you set)."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Liability for Failure to Stop Payment of Preauthorized Transfer - "
+                },
+                {
+                  "type": "text",
+                  "text": "If you order us to stop a preauthorized payment three (3) business days or more before the transfer is scheduled, and we do not do so, we will be liable for your losses or damages subject to any limits of liability."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Your Liability for Unauthorized Electronic Funds Transfers - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Tell us at once if you believe your Card, PIN or Checking Account number has been lost or stolen. Reaching out to us immediately by phone is the best way to minimize your losses. Call 1-833-637-3266 if your Card, PIN or Checking Account number has been lost or stolen, or if someone has transferred or may transfer money from your Checking Account without your permission. You could lose all the money in your account. If you tell us within two business days after you learn of the loss or theft of your Card, PIN, or Checking Account, you can lose no more than $50 if someone used your Card, PIN or Checking Account without your permission. Under Visa U.S.A. Inc. Operating Regulations, your liability for unauthorized Visa debit transactions on your Checking Account is $0.00 unless we determine that you were grossly negligent or fraudulent in the handling of your Card. This reduced liability does not apply to certain commercial card transactions, transactions not processed by Visa or to ATM transactions outside the U.S. In the event that the Visa Zero Liability Rules do not apply, if you do not notify us within two (2) business days after you learn of the loss or theft of your Card, PIN, or Checking Account number and we can prove that we could have stopped someone from using your Checking Account without your permission if you had promptly notified us, you may be liable for as much as $500.00."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Also, if your statement shows transactions that you did not make, including those made by Card, PIN, or other means, notify us at once following the procedures stated in the section labeled "
+                  },
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "“In Case of Errors or Questions About Your Electronic Transfers”"
+                  },
+                  {
+                    "type": "text",
+                    "text": " below. If you do not notify us within sixty (60) days after you become aware of the transaction(s) and / or the statement was made available to you, you may not get back any of the value you lost after the sixty (60) days, if we can prove that we could have stopped someone from taking value if you had notified us in time. If a good reason (such as a long trip or a hospital stay) kept you from telling us, we will extend the time periods. If your Card, PIN or Checking Account number has been lost or stolen, we will close your Card and / or DreamFi Account to keep losses down and send you a replacement Card and / or Checking Account number."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "If your Checking Account changes you must immediately notify your employer or any other payors or merchants. You must provide them with your new DreamFi Account number to ensure that your direct deposit and / or ACH Debit activity continues uninterrupted."
+              }
+            ],
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Our Liability for Failure to Complete Transactions - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "If we do not complete a transaction from your Checking Account or Card on time or in the correct amount according to our Agreement with you; we will be liable for your losses or damages. However, there are some exceptions. We will not be liable, for instance, if:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Through no fault of ours, you do not have enough available funds in your Checking Account to complete the transaction;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "A merchant refuses to accept your Card or Checking Account number;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "The information supplied by you, or a third party is incorrect, incomplete, ambiguous or untimely;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "An ATM where you are making a cash withdrawal does not have enough cash;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "An electronic terminal (Point of Sale or ATM) where you are making a transaction does not operate properly, and you knew about the problem when you initiated the transaction;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Access to your Card or Checking Account has been blocked after you reported your Card or Checking Account number lost or stolen;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "The transaction cannot be completed because your Card is damaged;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "There is a hold, or your funds are subject to legal or administrative process or other encumbrance restricting their use;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "We have reason to believe the requested transaction is unauthorized;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Circumstances beyond our control (such as fire, flood, power failure, strike, labor dispute, critical service provider failure, computer breakdown, telephone line disruption, government or regulatory action, or a natural disaster) prevent or delay the completion of the transaction, despite reasonable precautions that we have taken; or"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Any other exception stated in our Agreement with you."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Confidentiality - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "We may disclose information to third parties about your Checking Account, Card or the transactions you make:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Where it is necessary or helpful for completing transactions;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "In order to verify the existence and condition of your Checking Account or Card for a third party, such as a merchant;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "In order to comply with government agency, court order, or other legal or administrative reporting requirements;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "If you give us your consent;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "To our employees, auditors, affiliates, service providers, or attorneys as needed;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "In order to identify, prevent, investigate or report possible suspicious or illegal activity;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "To disclose the existence, history, and condition of your account to consumer reporting agencies;"
+                  },
+                  {
+                    "type": "text",
+                    "text": "As noted in the DreamFi Privacy Policy and Bank Consumer Privacy Notice(s); or"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Otherwise as permitted by law or necessary to fulfill our obligations under this agreement. Please see our Privacy Policy for further details."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "In Case of Errors or Questions About Your Electronic Transfers - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "In case of errors or questions about your electronic transactions, call 1-833-637-3266, contact us through the DreamFi Mobile App, or write to DreamFi Support at , "
+                  },
+                  {
+                    "type": "link",
+                    "link": "mailto:support@dreamfi.com",
+                    "text": "support@dreamfi.com"
+                  },
+                  {
+                    "type": "text",
+                    "text": " as soon as you can, if you think your statement or receipt is wrong or if you need more information about a transfer listed on the statement or receipt. We must hear from you no later than sixty (60) days after the earlier of the date of your statement date or the date you electronically accessed your Checking Account, if the error could be viewed in your electronic history, or the date we sent the FIRST written history on which the error appeared. You may request a written history of your transactions at any time by calling "
+                  },
+
+                  {
+                    "type": "text",
+                    "text": " or contacting us through the DreamFi Mobile App. You will need to tell us:"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Your name, Checking Account number and / or 16-digit Card number"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Why you believe there is an error, and the dollar amount involved"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Approximately when the error took place"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "In addition, you may provide us with any supporting documentation related to the error."
+              },
+              {
+                "type": "text",
+                "text": "If you provide this information orally, we may require that you send your complaint or question in writing within ten (10) business days."
+              },
+              {
+                "type": "text",
+                "text": "We will determine whether an error occurred within ten (10) business days after we hear from you and will correct any error promptly. If we need more time, however, we may take up to forty-five (45) days to investigate your complaint or question. If we decide to do this, we will provisionally credit your Checking Account within ten (10) business days for the amount you think is in error, so that you will have use of the money during the time it takes us to complete the investigation. If we ask you to put your complaint or question in writing and you do not provide it within ten (10) business days, we may not provisionally credit your Checking Account."
+              },
+              {
+                "type": "text",
+                "text": "For errors involving new Checking Accounts; transactions with a merchant’s POS terminal, whether in-person, online, by telephone, mail, or otherwise; or foreign-initiated transactions, we may take up to ninety (90) days to investigate your complaint or question. For new Checking Accounts, we may take up to twenty (20) business days to credit your Checking Account for the amount you think is in error. For errors involving unauthorized preauthorized debits (“ACH”), we will ask you to complete and sign an “Affidavit of Unauthorized ACH” and return it to us to assist in our investigation."
+              },
+              {
+                "type": "text",
+                "text": "We will tell you the results within three (3) business days after completing the investigation. If we decide that there was no error, we will send you a written explanation. Copies of the documentation used in the investigation may be obtained by contacting us at the phone number or address shown at the beginning of this section. If you need more information about our error-resolution procedures, call 1-833-637-3266 or visit DreamFi.com."
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "English Language Controls - "
+                },
+                {
+                  "type": "text",
+                  "text": "Any translation of this Agreement is provided for your convenience. The meaning of the terms, conditions and representations herein are subject to definitions and interpretations in the English language. Any translation provided may not accurately represent the information in the original English."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Member Services - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "For member service assistance or additional information regarding your Checking Account, please contact:"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "support@dreamfi.com"
+              },
+              {
+                "type": "text",
+                "text": "833-637-3266"
+              },
+              {
+                "type": "text",
+                "text": "Member Service Specialists are available to answer your calls: Monday through Friday, 8:00 am to 5:00 pm Eastern."
+              }
+            ],
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Telephone Monitoring / Recording - "
+                },
+                {
+                  "type": "text",
+                  "text": "We may monitor and / or record telephone calls between you and us to assure the quality of our member service team or as required by applicable law."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "No Warranty Regarding Goods or Services as Applicable - "
+                },
+                {
+                  "type": "text",
+                  "text": "We are not responsible for the quality, safety, legality, or any other aspect of any goods or services you purchase using your Checking Account."
+                }
+              ]
+            },
+            [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Arbitration -"
+              },
+              {
+                "type": "text",
+                "bold": true,
+                "text": "ARBITRATION NOTICE: THIS AGREEMENT CONTAINS AN ARBITRATION CLAUSE. PLEASE READ THIS PROVISION CAREFULLY, AS IT AFFECTS YOUR LEGAL RIGHTS."
+              },
+              {
+                "type": "text",
+                "bold": true,
+                "text": "ALL CLAIMS ARISING OUT OF THIS AGREEMENT ARE SUBJECT TO MANDATORY AND BINDING ARBITRATION. YOU HEREBY KNOWINGLY AND VOLUNTARILY WAIVE THE RIGHT TO LITIGATE ANY CLAIM THROUGH A COURT. IN ARBITRATION, NEITHER PARTY WILL HAVE THE RIGHT TO A JURY TRIAL OR TO ENGAGE IN DISCOVERY, EXCEPT AS PROVIDED FOR IN THE AMERICAN ARBITRATION ASSOCIATION (“AAA”) CODE OF PROCEDURE. YOU FURTHER ACKNOWLEDGE THAT YOU HAVE READ THIS ARBITRATION PROVISION CAREFULLY, AGREE TO ITS TERMS, AND ARE ENTERING INTO THIS AGREEMENT VOLUNTARILY AND NOT IN RELIANCE ON ANY PROMISES OR REPRESENTATIONS WHATSOEVER EXCEPT THOSE CONTAINED IN THIS AGREEMENT."
+              },
+              {
+                "type": "text",
+                "text": "Except as expressly provided herein, any claim, dispute or controversy (whether based upon contract; tort, intentional or otherwise; constitution; statute; common law; or equity and whether pre-existing, present or future), including initial claims, counter-claims, cross-claims and third- party claims, arising from or relating to: i) this Agreement; ii) the Checking Account; iii) your acquisition of the Checking Account; iv) your use of the Checking Account; v) the amount of available funds in the Checking Account; vi) advertisements, promotions or oral or written statements related to the Checking Account, as well as goods or services purchased with the Checking Account; vii) the benefits and services related to the Checking Account; or viii) transactions made using the Checking Account, no matter how described, pleaded or styled (“Claim”), shall be FINALLY and EXCLUSIVELY resolved, upon the election of you or us (our agents, employees, successors, representatives, affiliated companies, or assigns), by binding arbitration conducted by the American Arbitration Association (“AAA”) under its Consumer Arbitration Rules. This arbitration agreement is made pursuant to a transaction involving interstate commerce, and shall be governed by the Federal Arbitration Act (9 U.S.C. 1-16) (the “FAA”)."
+              },
+              {
+                "type": "text",
+                "text": "You may obtain copies of the current rules, forms, and instructions for initiating an arbitration with the AAA by contacting the AAA as follows: on the web at www.adr.org or by writing to AAA at 1633 Broadway, 10th Floor, New York, NY 10019."
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Other Claims Subject to Arbitration: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "In addition to Claims brought by either you or us, Claims made by or against us or by or against anyone connected with you or us or claiming through you or us (including a second cardholder, employee, agent, representative, affiliated company, predecessor or successor, heir, assignee, or trustee in bankruptcy) shall be subject to arbitration as described herein."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Arbitration Fees: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "If you initiate arbitration, we will advance any arbitration fees, including any required deposit. If we initiate or elect arbitration, we will pay the entire amount of the arbitration fees, including any required deposit. We will also be responsible for payment and / or reimbursement of any arbitration fees to the extent that such fees exceed the amount of the filing fees you would have incurred if your Claim had been brought in the state or federal court nearest your residence with jurisdiction over the Claims."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Procedure: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "A single arbitrator will resolve the Claims. In accordance with standard industry guidelines of arbitration, "
+                  },
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "DreamFi will select the arbitrator."
+                  },
+                  {
+                    "type": "text",
+                    "text": " The arbitrator will be a lawyer with at least ten years of experience or a former or retired judge. The arbitration shall follow the rules and procedures of the arbitration administrator in effect on the date the arbitration is filed, except when there is a conflict or inconsistency between the rules and procedures of the arbitration administrator and this arbitration provision, in which case this arbitration provision shall govern. Any in-person arbitration hearing for a Claim shall take place within the federal judicial district in which you live or at such other reasonably convenient location as agreed by the parties. The arbitrator shall apply applicable substantive law consistent with the Federal Arbitration Act, 9 U.S.C. § 1 et seq. (the “FAA”) and shall honor all claims of privilege and confidentiality recognized at law. All statutes of limitations that would otherwise be applicable shall apply to any arbitration proceeding. The arbitrator shall be empowered to grant whatever relief would be available in court under law or in equity. Any appropriate court may enter judgment upon the arbitrator’s award."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "All determinations as to the scope, interpretation, enforceability and validity of this Agreement shall be made final exclusively by the arbitrator, which award shall be binding and final. Judgment on the arbitration award may be entered in any court having jurisdiction."
+              },
+              {
+                "type": "text",
+                "bold": true,
+                "text": "NO CLASS ACTION, OR OTHER REPRESENTATIVE ACTION OR PRIVATE ATTORNEY GENERAL ACTION OR JOINDER OR CONSOLIDATION OF ANY CLAIM WITH A CLAIM OF ANOTHER PERSON OR CLASS OF CLAIMANTS SHALL BE ALLOWABLE."
+              },
+              {
+                "type": "text",
+                "bold": true,
+                "text": "IF YOU DO NOT AGREE TO THE TERMS OF THIS ARBITRATION AGREEMENT, DO NOT ACTIVATE OR USE THE CARD OR CHECKING ACCOUNT. CALL 1-833-637-3266. TO CLOSE THE CHECKING ACCOUNT."
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Survival: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "This arbitration provision shall survive: i) the termination of the Agreement; ii) the bankruptcy of any party; iii) any transfer, sale or assignment of your Checking Account, or any amounts owed on your Checking Account, to any other person or entity; or iv) closing of the Checking Account. If any portion of this arbitration provision is deemed invalid or unenforceable, the remaining portions shall remain in force."
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "8.0 Fee Schedule",
+      "content": [
+        {
+          "type": "text",
+          "text": "All fee amounts will be withdrawn from your Checking Account and will be assessed as long as there is a remaining balance in your Checking Account (except where prohibited by law. Any time your remaining balance is less than the fee amount being assessed, the balance of your Checking Account will be applied to the fee amount resulting in a zero balance on your Checking Account)."
+        },
+        {
+          "type": "table",
+          "columns": [1, 1],
+          "rows": [
+            [
+              {
+                "header": "Fee Description"
+              },
+              {
+                "header": "Fee Amount and Frequency"
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Membership Fee"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "$9.99 per month"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cash Withdrawal Fee *"
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No fee for transactions at any Allpoint® ATM location"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "*If you use an ATM that is not an Allpoint ATM, for any transaction, including a balance inquiry or cash withdrawal, you may be charged a fee by the ATM operator even if you do not complete a transaction. This ATM fee is a third-party fee amount assessed by the individual ATM operator only and is not assessed by us. This ATM fee amount will be charged to your Checking Account. Transactions at Non Allpoint ATM locations will be considered out-of-network and subject to the fee(s) of the ATM owner."
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "9.0 General Funds Availability",
+      "content": [
+        {
+          "type": "text",
+          "text": "Information contained in this section is provided to assist you in understanding our Funds Availability Policy. All deposits into accounts opened through the Bank are processed at a Bank processing facility."
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Limits and Funds Availability - "
+                },
+                {
+                  "type": "text",
+                  "text": "We make funds available according to the type of deposit and when the funds are applied or credited to your Checking Account. Some types of deposits may not be available for immediate use. When we delay the availability of funds or place a hold on a deposit made to your Checking Account, you may not withdraw those funds, and we will not use them to pay any debits, such as ACH transfers or payments or transactions using your Card during the hold period. We have the right to refuse any deposit."
+                }
+              ]
+            },
+            [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Availability - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "The length of the delay in the availability of funds varies depending on the type of deposit."
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "bold": true,
+                        "text": "Business Days - "
+                      },
+                      {
+                        "type": "text",
+                        "text": "The length of the delay in the availability of funds is counted in business days from the day your deposit is applied to your Checking Account. For purposes of these disclosures, our business days are Monday through Friday. Federal holidays are not included. Deposits received by 3:00 pm Eastern will be considered current-day deposits. Any deposits received after that time will be processed the following business day."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "bold": true,
+                        "text": "Same Day Availability - "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Funds received from preauthorized electronic payments such as payroll direct deposits, or other preauthorized electronic payments will be available on the same business day the deposit is applied to your Checking Account. ACH Credits received from an external bank account will be applied to the Checking Account when we have verified the external account and received payment on collected funds. Once the funds are applied to the Checking Account, if received on a business day, they will have same day availability."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "bold": true,
+                        "text": "Longer Availability - "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Electronic transfers depositing into the Checking Account initiated through the DreamFi Mobile App or Website may take up to five (5) business days from the date of the initial request but will post on the payment date of the deposit once the money has reached the Bank and / or DreamFi."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "header": "10.0 Use Of Mobile Services Terms",
+      "content": [
+        {
+          "type": "text",
+          "text": "DreamFi Mobile Application Terms & Conditions"
+        },
+        {
+          "type": "text",
+          "text": "Please read the following terms and conditions very carefully. If you do not agree with the following terms and conditions, do not download or install this software. By downloading, installing or using this software or any portion thereof, you agree to the following terms and conditions."
+        },
+        {
+          "type": "list",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Use of the DreamFi Mobile Application - "
+                },
+                {
+                  "type": "text",
+                  "text": "This agreement (“Terms”) is entered into between you and DreamFi (“DreamFi”), the program partner responsible for managing the DreamFi Checking Account (“DreamFi”). Subject to the provisions of these Terms, you are hereby granted the non-transferable right to use this software (“DreamFi Mobile App”) solely for personal, non-commercial purposes. You may not use the DreamFi Mobile App in any manner that may impair, overburden, damage, disable or otherwise compromise (i) DreamFi’s services; (ii) any other party’s use and enjoyment of DreamFi’s services; or (iii) the services and products of any third parties including, without limitation, any device through which you access the DreamFi Mobile App (the “Authorized Device”). You agree to comply with all local laws and regulations governing the downloading, installation and / or use of the DreamFi Mobile App, including, without limitation, any usage rules set forth in the online application store terms of service. From time to time, DreamFi may automatically check the version of DreamFi Mobile App installed on the Authorized Device and, if applicable, provide updates for the DreamFi Mobile App (“Updates”). Updates may contain, without limitation, bug fixes, patches, enhanced functionality, plug-ins and new versions of the DreamFi Mobile App. By installing the DreamFi Mobile App, you authorize the automatic download and installation of Updates and agree to download and install Updates manually if necessary. Your use of the DreamFi Mobile App and Updates will be governed by these Terms (as amended by any terms and conditions that may be provided with Updates). DreamFi reserves the right to temporarily disable or permanently discontinue any and all functionality of the DreamFi Mobile App at any time without notice and with no liability to you. For the avoidance of doubt, agreement to these Terms is solely between DreamFi and you. If you need to contact DreamFi about the DreamFi Mobile App, you may do so by calling 833-637-3266."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Privacy Policy - "
+                },
+                {
+                  "type": "text",
+                  "text": "As a condition of using the DreamFi Mobile App, you acknowledge that additional agreements may be in place that govern your relationship with DreamFi, including but not limited to the DreamFi Deposit Account Agreement, DreamFi Privacy Policy, the DreamFi User Agreement and the Electronic Communication Agreement, each of which is hereby incorporated by reference (collectively referred to as “DreamFi Agreements”). You acknowledge and agree that DreamFi Agreements may be updated from time to time, without prior notice. Any such change(s) will be effective as soon as DreamFi posts a revised version of that DreamFi Agreement. In the event of an otherwise irreconcilable conflict between these Terms and DreamFi Agreements, these Terms will govern, solely with regard to the conflicting provisions and solely to the extent of such conflict. DreamFi may track and archive certain information regarding your use of the DreamFi Mobile App (“Use Information”). Use Information may be stored and processed in the United States or any other country in which DreamFi or its agents maintain facilities. By using the DreamFi Mobile App, you consent to the collection of your User Information and to any transfer of your User Information outside of your country."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Proprietary Rights - "
+                },
+                {
+                  "type": "text",
+                  "text": "You hereby acknowledge that DreamFi owns all rights, titles, and interest in and to the DreamFi Mobile App and to any and all proprietary and confidential information contained therein (“DreamFi Information”). The DreamFi Mobile App and DreamFi Information are protected by applicable intellectual property and other laws, including patent law, copyright law, trade secret law, trademark law, unfair competition law, and any and all other proprietary rights, and any and all applications, renewals, extensions and restorations thereof, now or hereafter in force and effect worldwide. You agree that you will not (and will not allow any third party to) (i) modify, adapt, translate, prepare derivative works from, decompile, reverse engineer or disassemble the DreamFi Mobile App or otherwise attempt to derive source code from the DreamFi Mobile App; (ii) copy, distribute, transfer, sell or license the DreamFi Mobile App; (iii) transfer the DreamFi Mobile App to, or use the DreamFi Mobile App on, a device other than the Authorized Device; (iv) take any action to circumvent, compromise or defeat any security measures implemented in the DreamFi Mobile App; (v) use the DreamFi Mobile App to access, copy, transfer, retransmit or transcode Content (as defined below) or any other content in violation of any law or third party rights; (vi) remove, obscure, or alter DreamFi’s (or any third party’s) copyright notices, trademarks, or other proprietary rights notices affixed to or contained within or accessed through the DreamFi Mobile App.Content made available through the DreamFi Mobile App (“Content”) is protected by applicable intellectual property rights and is the property of DreamFi, its third-party licensors and partners (as applicable), and other entities that provide such content to DreamFi. You may not (or enable others to) copy, distribute, display, modify, or otherwise use the Content except as it is provided to you through the DreamFi Mobile App hereunder. DreamFi and its licensors make no representations or warranties regarding the accuracy or completeness of the Content."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Export Restrictions - "
+                },
+                {
+                  "type": "text",
+                  "text": "DreamFi does not represent that the DreamFi Mobile App is appropriate or available for use in any geographical location. Any entity choosing to use the DreamFi Mobile App is solely responsible for compliance with all applicable laws. The DreamFi Mobile App is subject to U.S. export controls and may not be downloaded, exported or re-exported: (i) into any country with respect to which the United States maintains trade sanctions prohibiting the shipment of goods; or (ii) to anyone on or acting on behalf of an entity on the U.S. Treasury Department’s list of Specially Designated Nationals and Blocked Persons or the U.S. Commerce Department’s Denied Persons List or Entities List or included in General Order 3 (15 C.F.R. Part 736, Supplement 1), which prohibits exports to Mayrow General Trading, affiliated entities and persons, and specified persons involved in the manufacture or sale of Improvised Explosive Devices (together referred to as “U.S. Prohibited Party Lists”). By downloading and / or using the DreamFi Mobile App, you represent and warrant that you are not (a) located in or a national or resident of any country noted above or any country that is subject to U.S. trade sanctions, or (b) on any U.S. Prohibited Party List or acting on behalf of any person or entity on any such list."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Termination - "
+                },
+                {
+                  "type": "text",
+                  "text": "You may terminate acceptance of these Terms at any time by permanently deleting the DreamFi Mobile App in its entirety from the Authorized Device, whereupon (and without notice from DreamFi) any rights granted to you herein will automatically terminate. If you fail to comply with any provision of these Terms, any rights granted to you herein will automatically terminate. In the event of such termination, you must immediately delete the DreamFi Mobile App from the Authorized Device."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Indemnity - "
+                },
+                {
+                  "type": "text",
+                  "text": "You agree to indemnify and hold harmless DreamFi and its subsidiaries, affiliates, officers, agents, and employees (and their subsidiaries, affiliates, officers, agents, and employees) against any and all claims, suits or actions arising from or in any way related to your use of the DreamFi Mobile App or these Terms, including any liability or expense arising from all claims, losses, damages, suits, judgments, litigation costs and attorneys’ fees, of every kind and nature. In such a case, DreamFi will provide you with written notice of such claim, suit or action."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "bold": true,
+                  "text": "Entire Agreement; Revisions to Terms - "
+                },
+                {
+                  "type": "text",
+                  "text": "DreamFi may, from time to time, modify these Terms. Such modifications shall be effective as soon as the modified version of the “DreamFi Mobile Terms of Use” is posted in the online application store or any other authorized DreamFi Mobile App distribution location. You can determine when these Terms were last revised by referring to the “LAST UPDATED” legend at the top of the then-current version of the “DreamFi Mobile Terms of Use” in the online application store or any other authorized DreamFi Mobile App distribution location. Your use of the DreamFi Mobile App following such changes constitutes your acceptance of the revised version of the “DreamFi Mobile Terms of Use” in the online application store or any other authorized DreamFi Mobile App distribution location."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

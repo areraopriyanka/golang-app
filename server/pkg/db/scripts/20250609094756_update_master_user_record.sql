@@ -1,0 +1,14 @@
+-- +goose Up
+
+ALTER TABLE master_user_records
+ALTER COLUMN first_name TYPE VARCHAR(50),
+ALTER COLUMN first_name DROP NOT NULL,
+    
+ALTER COLUMN last_name TYPE VARCHAR(50),
+ALTER COLUMN last_name DROP NOT NULL,
+    
+ALTER COLUMN email TYPE VARCHAR(320),
+ALTER COLUMN email SET NOT NULL,
+    
+ALTER COLUMN user_status TYPE VARCHAR(50),
+ALTER COLUMN user_status SET NOT NULL;

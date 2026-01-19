@@ -1,0 +1,9 @@
+{
+  "target": {
+    "middleware": {
+      "cache-from": ["type=registry,ref=ghcr.io/dreamfi-llc/middleware:cache"],
+      "cache-to": ["type=registry,ref=ghcr.io/dreamfi-llc/middleware:cache"],
+      "output": ["type=docker"]
+    }
+  }
+}

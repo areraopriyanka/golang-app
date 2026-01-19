@@ -1,0 +1,496 @@
+{
+  "title": "DreamFi Privacy Notice",
+  "updatedText": "Revised",
+  "updatedAt": [2025, 6, 27],
+  "info": "We collect and protect your personal info to provide services. We may share it for business purposes, but will never sell it.",
+  "content": [
+    {
+      "type": "table",
+      "columns": [1, 3],
+      "rows": [
+        [
+          {
+            "header": "FACTS"
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "WHAT DOES DREAMFI DO WITH YOUR PERSONAL INFORMATION?",
+                "bold": true
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "header": "Why?"
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Financial companies choose how they share your personal information. Federal law gives consumers the right to limit some but not all sharing. Federal law also requires us to tell you how we collect, share, and protect your personal information. Please read this notice carefully to understand what we do."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "header": "What?"
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "The types of personal information we collect and share depend on the product or service you have with us. This information can include:"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Social Security Number, date of birth, postal and email address, phone number"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Government-issued ID, such as a driver’s license or passport, or photograph"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Banking history"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "When you are no longer our customer, we continue to share your information as described in this notice."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "header": "How?"
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "All financial companies need to share customers’ personal information to run their everyday business. In the section below, we list the reasons financial companies can share their customers’ personal information; the reasons DreamFi chooses to share; and whether you can limit this sharing."
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "table",
+      "columns": [2, 1, 1],
+      "rows": [
+        [
+          {
+            "header": "Reasons we can share your personal information"
+          },
+          {
+            "header": "Does DreamFi share?"
+          },
+          {
+            "header": "Can you limit this sharing?"
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "For our everyday business purposes – ",
+                    "bold": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "such as to process your transactions, maintin your account(s), respond to court orders and legal investigations"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Yes"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "No"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "For your marketing purposes – ",
+                    "bold": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "to offer our products and services to you"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Yes"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "No"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "For joint marketing with other financial companies",
+                "bold": true
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Yes"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "No"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "For nonaffiliates to market to you",
+                "bold": true
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "No"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "We don't share"
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "table",
+      "columns": [1, 1],
+      "rows": [
+        [
+          {
+            "cellRatio": 1,
+            "header": "Questions?"
+          },
+          {
+            "cellRatio": 2,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Call "
+                  },
+                  {
+                    "type": "link",
+                    "link": "tel:1-833-637-3266",
+                    "text": "1-833-637-3266"
+                  },
+                  {
+                    "type": "text",
+                    "text": " or go to "
+                  },
+                  {
+                    "type": "link",
+                    "link": "https://dreamfi.com/",
+                    "text": "dreamfi.com"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "header": "Who we are"
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Who is providing this notice?"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "DreamFi"
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "table",
+      "columns": [1, 1],
+      "rows": [
+        [
+          {
+            "header": "What we do"
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "How does DreamFi protect my personal information?"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "To protect your personal information from unauthorized access and use, we use security measures that comply with applicable federal and state laws. These measures include computer safeguards and secured files and buildings."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "How does DreamFi collect my personal information?"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "We collect your personal information, for example, when you"
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "open an account or deposit money"
+                  },
+                  {
+                    "type": "text",
+                    "text": "link an outside account or card"
+                  },
+                  {
+                    "type": "text",
+                    "text": "use your debit card"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "table",
+      "columns": [1, 1],
+      "rows": [
+        [
+          {
+            "header": "Definitions"
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Affiliates"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Companies related by common ownership or control. They can be financial and nonfinancial companies."
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "DreamFi does not have any affiliates"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Nonaffiliates"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "Companies not related by common ownership or control. They can be financial and nonfinancial companies."
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Sponsor bank relationship"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "bold": true,
+                "text": "Joint Marketing"
+              }
+            ]
+          },
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "A formal agreement between nonaffiliated financial companies that together market financial products or services to you."
+              },
+              {
+                "type": "list",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Payment and check deposit processors"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Risk detection and mitigation tools"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "table",
+      "columns": [1],
+      "rows": [
+        [
+          {
+            "header": "Other important information"
+          }
+        ],
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "You have other privacy rights in some states under state law. To the extent that such state laws apply, we will comply with them when we share information about you."
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+*.log
+*.exe
+.golangci.yaml
+Makefile
+.direnv
+result
+process-api
+.env
+docs/*.png
+test-data/*.pem
+test-data/*_key_id.txt
+.DS_Store
+.aider*
+pkg/resource/agreements/*.pdf
+templates/*.go
